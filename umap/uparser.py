@@ -1,9 +1,12 @@
 from datetime import date
 
+from django.db import transaction
+
 from umap.models import Race
 from umap.uhelper import formatter, get_from_a
 
 
+@transaction.atomic
 def insert_race(soup):
     # Extract year and month field
     year_month = soup.find("h3", {"class": "midashi3rd"}).string
@@ -22,15 +25,16 @@ def insert_race(soup):
             times = int(race_id_without_round[8:10])
 
             for r in range(1, 13):
-                Race.objects.get_or_create(
-                    race_id=race_id_without_round + str(r).zfill(2),
-                    race_dt=date(year, month, day),
-                    place_id=place_id,
-                    place_name=place_name,
-                    days=days,
-                    times=times,
-                    round=r
-                )
+                race = Race()
+
+                race.race_id = race_id_without_round + str(r).zfill(2)
+                race.race_dt = date(year, month, day)
+                race.place_id = place_id
+                race.place_name = place_name
+                race.days = days
+                race.times = times
+                race.round = r
+                race.save()
     return
 
 
