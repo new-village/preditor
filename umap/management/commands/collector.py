@@ -1,13 +1,15 @@
 import re
 from datetime import date, datetime, timedelta
+from time import sleep
 
+import sys
 from django.core.management import BaseCommand
 from dateutil.relativedelta import relativedelta
 from django.db.models import Min
 
 from umap.models import Race
-from umap.uhelper import get_soup
-from umap.uparser import insert_race
+from umap.uhelper import get_soup, was_done
+from umap.uparser import insert_race, insert_results, update_race
 
 latest = datetime.now().date() - timedelta(days=3)
 
@@ -26,9 +28,24 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         option = options["from"]
+        # Get race schedule
         for url in sportsnavi_urls(option):
             soup = get_soup(url)
             insert_race(soup)
+
+        # Get race results and details
+        for url in netkeiba_urls():
+            print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [GET] " + url)
+            soup = get_soup(url)
+            race = was_done(soup)
+            if race:
+                insert_results(soup, race)
+                update_race(soup, race)
+            sleep(3)
+
+        # Delete uncompleted data
+        Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
+        sys.exit()
 
 
 def sportsnavi_urls(option):
@@ -57,4 +74,18 @@ def sportsnavi_urls(option):
         start_date = start_date + relativedelta(months=+1, day=1)
 
     # Return list type url
+    return urls
+
+
+def netkeiba_urls():
+    urls = list()
+
+    # Get race_id whose result flag is FALSE
+    races = Race.objects.filter(race_dt__lt=latest, result_flg=False).values("race_id")
+
+    # Make URL by race_ids
+    base_url = "http://db.netkeiba.com/race/"
+    for race in races:
+        urls.append(base_url + race["race_id"])
+
     return urls

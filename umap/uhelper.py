@@ -3,6 +3,8 @@ import re
 from requests import Session, HTTPError
 import bs4 as bs
 
+from umap.models import Race
+
 
 def get_soup(url):
     try:
@@ -23,7 +25,10 @@ def formatter(reg, target, type="char"):
 
     # Redact comma from numerical values
     if type == "int" or type == "float":
-        val = re.sub(",", "", val)
+        if val is None:
+            val = 0
+        else:
+            val = re.sub(",", "", val)
 
     # Convert type
     if type == "int":
@@ -45,3 +50,16 @@ def get_from_a(data, target="url"):
         value = data.a.string if data.a is not None else None
 
     return value
+
+
+def was_done(soup):
+    fmt = re.compile("(\d+/\d+/\d+|\d+年\d+月\d+日)")
+    val = soup.find("title").string
+
+    if fmt.search(val) is not None:
+        race_id = formatter("\d+", soup.find("li", {"class": ["race_navi_result", "race_navi_shutuba"]}).a.get("href"))
+        race = Race.objects.get(pk=race_id)
+    else:
+        race = None
+
+    return race
