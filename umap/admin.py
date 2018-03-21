@@ -1,3 +1,34 @@
 from django.contrib import admin
 
-# Register your models here.
+from umap.models import Result, Race
+
+
+class ResultInline(admin.TabularInline):
+    model = Result
+    fields = ("rank", "bracket", "horse_num", "horse_id", ("sex", "age"), "finish_time", "odds")
+    readonly_fields = ("rank", "bracket", "horse_num", "horse_id", "sex", "age", "finish_time", "odds")
+    ordering = ["rank"]
+    extra = 0
+
+    def has_delete_permission(self, request, obj):
+        return False
+
+    def has_add_permission(self, request):
+        return False
+
+
+class RaceAdmin(admin.ModelAdmin):
+    list_display = ("race_dt", "place_name", "round", "title", "course", "weather", "condition",
+                    "head_count", "max_prize", "odds_stdev", "result_flg")
+    ordering = ["-result_flg", "-race_dt", "race_id"]
+    search_fields = ["race_id", "race_dt"]
+    inlines = [ResultInline]
+
+
+class ResultAdmin(admin.ModelAdmin):
+    list_display = ("rank", "bracket", "horse_num", "horse_id", "sex", "age", "finish_time", "odds", "odor")
+    search_fields = ["key", "race__race_id"]
+
+
+admin.site.register(Race, RaceAdmin)
+admin.site.register(Result, ResultAdmin)
