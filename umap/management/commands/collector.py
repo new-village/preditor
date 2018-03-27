@@ -8,8 +8,8 @@ from dateutil.relativedelta import relativedelta
 from django.db.models import Min
 
 from umap.models import Race
-from umap.uhelper import get_soup, was_done
-from umap.uparser import insert_race, insert_results, update_race
+from umap.uhelper import get_soup
+from umap.uparser import insert_race, insert_entry, update_race, was_done
 
 latest = datetime.now().date() - timedelta(days=3)
 
@@ -39,7 +39,7 @@ class Command(BaseCommand):
             soup = get_soup(url)
             race = was_done(soup)
             if race:
-                insert_results(soup, race)
+                insert_entry(soup, race)
                 update_race(soup, race)
             sleep(3)
 

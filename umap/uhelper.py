@@ -51,15 +51,3 @@ def get_from_a(data, target="url"):
 
     return value
 
-
-def was_done(soup):
-    fmt = re.compile("(\d+/\d+/\d+|\d+年\d+月\d+日)")
-    val = soup.find("title").string
-
-    if fmt.search(val) is not None:
-        race_id = formatter("\d+", soup.find("li", {"class": ["race_navi_result", "race_navi_shutuba"]}).a.get("href"))
-        race = Race.objects.get(pk=race_id)
-    else:
-        race = None
-
-    return race

@@ -41,44 +41,6 @@ def insert_race(soup):
     return
 
 
-@transaction.atomic
-def insert_results(soup, race):
-    for row in soup.select("table.race_table_01 tr"):
-        cells = row.findAll('td')
-
-        # IF the table is not listed all information, abort parse.
-        if len(cells) == 21:
-            result = Result()
-            result.race = race
-            result.rank = formatter("\d+", cells[0].string, "int")
-            result.bracket = formatter("\d+", cells[1].string, "int")
-            result.horse_num = formatter("\d+", cells[2].string, "int")
-            result.horse_id = formatter("\d+", get_from_a(cells[3]))
-            result.key = formatter("\d+", soup.find("li", {"class": "race_navi_result"}).a.get("href")) + "-" + result.horse_id
-            result.sex = formatter("[牡牝騸セ]", cells[4].string)
-            result.age = formatter("\d+", cells[4].string, "int")
-            result.burden = formatter("(\d+).?\d?", cells[5].string, "float")
-            result.jockey_id = formatter("\d+", get_from_a(cells[6]))
-
-            if cells[7].string is not None:
-                tmp_time = re.split(r"[:.]", cells[7].string)
-                tmp_time = [int(i) for i in tmp_time]  # Type conversion
-                tmp_sec = (tmp_time[0] * 60 + tmp_time[1]) + (tmp_time[2] / 10)
-                result.finish_time = tmp_sec
-
-            result.last3f_time = formatter("\d+.\d+", cells[11].string, "float")
-            result.odds = formatter("\d+.\d+", cells[12].string, "float")
-            result.odor = formatter("\d+", cells[13].string, "int")
-            result.weight = formatter("(\d+)\([+-]?\d*\)", cells[14].string, "int")
-            result.weight_diff = formatter("\d+\(([+-]?\d+)\)", cells[14].string, "int")
-            result.trainer_id = formatter("\d+", get_from_a(cells[15]))
-            result.owner_id = formatter("\d+", get_from_a(cells[19]))
-            result.prize = formatter("\d*,?\d*.?\d+", cells[20].string, "float")
-
-            result.save()
-    return
-
-
 def update_race(soup, race):
     race.title = soup.find("title").string.split(u"｜")[0]
     race.grade = formatter("\((G\d)\)", str(soup.find("dl", {"class": "racedata"}).find("h1")))
@@ -105,6 +67,115 @@ def update_race(soup, race):
     race.save()
 
     return
+
+
+@transaction.atomic
+def insert_entry(soup, race):
+    for row in soup.select("table.race_table_old tr" or "table.race_table_01 tr"):
+        cells = row.findAll('td')
+        print(len(cells))
+
+        # IF the table is not listed all information, abort parse.
+        if len(cells) == 21:
+            result = parse_result(cells, race)
+            result.save()
+        if len(cells) == 13:
+            result = parse_entry_13(cells, race)
+            result.save()
+        if len(cells) == 10:
+            result = parse_entry_10(cells, race)
+            result.save()
+
+    return
+
+
+def parse_result(cells, race):
+    result = Result()
+
+    result.race = race
+    result.rank = formatter("\d+", cells[0].string, "int")
+    result.bracket = formatter("\d+", cells[1].string, "int")
+    result.horse_num = formatter("\d+", cells[2].string, "int")
+    result.horse_id = formatter("\d+", get_from_a(cells[3]))
+    result.key = str(race) + "-" + result.horse_id
+    result.sex = formatter("[牡牝騸セ]", cells[4].string)
+    result.age = formatter("\d+", cells[4].string, "int")
+    result.burden = formatter("(\d+).?\d?", cells[5].string, "float")
+    result.jockey_id = formatter("\d+", get_from_a(cells[6]))
+
+    if cells[7].string is not None:
+        tmp_time = re.split(r"[:.]", cells[7].string)
+        tmp_time = [int(i) for i in tmp_time]  # Type conversion
+        tmp_sec = (tmp_time[0] * 60 + tmp_time[1]) + (tmp_time[2] / 10)
+        result.finish_time = tmp_sec
+
+    result.last3f_time = formatter("\d+.\d+", cells[11].string, "float")
+    result.odds = formatter("\d+.\d+", cells[12].string, "float")
+    result.odor = formatter("\d+", cells[13].string, "int")
+    result.weight = formatter("(\d+)\([+-]?\d*\)", cells[14].string, "int")
+    result.weight_diff = formatter("\d+\(([+-]?\d+)\)", cells[14].string, "int")
+    result.trainer_id = formatter("\d+", get_from_a(cells[15]))
+    result.owner_id = formatter("\d+", get_from_a(cells[19]))
+    result.prize = formatter("\d*,?\d*.?\d+", cells[20].string, "float")
+
+    return result
+
+
+def parse_entry_13(cells, race):
+    result = Result()
+
+    result.race = race
+    result.bracket = formatter("\d+", cells[0].string, "int")
+    result.horse_num = formatter("\d+", cells[1].string, "int")
+    result.horse_id = formatter("\d+", get_from_a(cells[3]))
+    result.key = str(race) + "-" + result.horse_id
+    result.sex = formatter("[牡牝騸セ]", cells[4].string)
+    result.age = formatter("\d+", cells[4].string, "int")
+    result.burden = formatter("(\d+).?\d?", cells[5].string, "float")
+    result.jockey_id = formatter("\d+", get_from_a(cells[6]))
+    result.trainer_id = formatter("\d+", get_from_a(cells[7]))
+    result.weight = formatter("(\d+)\([+-]?\d*\)", cells[8].string, "int")
+    result.weight_diff = formatter("\d+\(([+-]?\d+)\)", cells[8].string, "int")
+    result.odds = formatter("\d+.\d+", cells[9].string, "float")
+    result.odor = formatter("\d+", cells[10].string, "int")
+
+    return result
+
+
+def parse_entry_10(cells, race):
+    result = Result()
+
+    result.race = race
+    result.horse_id = formatter("\d+", get_from_a(cells[1]))
+    result.key = str(race) + "-" + result.horse_id
+    result.sex = formatter("[牡牝騸セ]", cells[2].string)
+    result.age = formatter("\d+", cells[2].string, "int")
+    result.burden = formatter("(\d+).?\d?", cells[3].string, "float")
+    result.jockey_id = formatter("\d+", get_from_a(cells[4]))
+    result.trainer_id = formatter("\d+", get_from_a(cells[5]))
+    result.odds = formatter("\d+.\d+", cells[6].string, "float")
+    result.odor = formatter("\d+", cells[7].string, "int")
+
+    return result
+
+
+def cnt_column(soup):
+    row = soup.select("table.race_table_old tr")
+    cells = row.findAll('td')
+    return len(cells)
+
+
+def was_done(soup):
+    fmt = re.compile("(\d+/\d+/\d+|\d+年\d+月\d+日)")
+    val = soup.find("title").string
+
+    if fmt.search(val) is not None:
+        race_id = formatter("\d+", soup.find("li", {"class": ["race_navi_result", "race_navi_shutuba"]}).a.get("href"))
+        race = Race.objects.get(pk=race_id)
+    else:
+        race = None
+
+    return race
 
 
 def to_place_name(place_id):
