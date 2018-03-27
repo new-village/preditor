@@ -159,12 +159,6 @@ def parse_entry_10(cells, race):
     return result
 
 
-def cnt_column(soup):
-    row = soup.select("table.race_table_old tr")
-    cells = row.findAll('td')
-    return len(cells)
-
-
 def was_done(soup):
     fmt = re.compile("(\d+/\d+/\d+|\d+年\d+月\d+日)")
     val = soup.find("title").string
