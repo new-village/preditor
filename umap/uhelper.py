@@ -30,6 +30,7 @@ def formatter(reg, target, type="char"):
         else:
             val = re.sub(",", "", val)
 
+
     # Convert type
     if type == "int":
         value = int(val) if val is not None else 0

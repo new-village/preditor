@@ -60,7 +60,6 @@ def update_race(soup, race):
 
     race.head_count = race.results.aggregate(Count("rank"))["rank__count"]
     race.max_prize = race.results.aggregate(Max("prize"))["prize__max"]
-    race.odds_avg = round(race.results.aggregate(Avg("odds"))["odds__avg"], 2)
     race.odds_stdev = round(statistics.pstdev(race.results.exclude(rank=0).values_list('odds', flat=True)), 2)
 
     race.result_flg = True
@@ -69,11 +68,30 @@ def update_race(soup, race):
     return
 
 
+def update_race_entry(soup, race):
+    # Parse HTML
+    racedata = soup.find("dl", {"class": "racedata"}).find("dd")
+    conditions = racedata.find("span").string.split(u"\xa0/\xa0")
+    otherdata = soup.find("div", {"class": "race_otherdata"}).findAll('p')
+
+    race.title = formatter("[^!-~\xa0]+", str(racedata.find('h1')))
+    race.type = to_course_full(formatter("[芝ダ障]", conditions[0]))
+    race.length = formatter("\d+", conditions[0], "int")
+    race.weather = formatter("(晴|曇|小雨|雨|小雪|雪)", conditions[1])
+    race.condition = formatter("(良|稍重|重|不良)", conditions[2])
+    race.head_count = formatter("\d+", otherdata[1].string, "int")
+    race.max_prize = formatter("\d+", otherdata[2].string, "int")
+    race.odds_stdev = round(statistics.pstdev(race.results.values_list('odds', flat=True)), 2)
+
+    race.save()
+    return
+
+
 @transaction.atomic
 def insert_entry(soup, race):
     for row in soup.select("table.race_table_old tr" or "table.race_table_01 tr"):
         cells = row.findAll('td')
-        print(len(cells))
+        # print(len(cells))
 
         # IF the table is not listed all information, abort parse.
         if len(cells) == 21:

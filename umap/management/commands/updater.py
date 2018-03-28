@@ -6,7 +6,7 @@ from django.core.management import BaseCommand
 
 from umap.models import Race
 from umap.uhelper import get_soup
-from umap.uparser import was_done, cnt_column, insert_entry
+from umap.uparser import was_done, insert_entry, update_race_entry
 
 
 class Command(BaseCommand):
@@ -20,6 +20,7 @@ class Command(BaseCommand):
             race = was_done(soup)
             if race:
                 insert_entry(soup, race)
+                update_race_entry(soup, race)
             sleep(3)
 
         sys.exit()
