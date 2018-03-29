@@ -81,7 +81,7 @@ def update_race_entry(soup, race):
     race.condition = formatter("(良|稍重|重|不良)", conditions[2])
     race.head_count = formatter("\d+", otherdata[1].string, "int")
     race.max_prize = formatter("\d+", otherdata[2].string, "int")
-    # Error avoidance logic: When the len(cells) equal 8, rise statistics error.
+    # entryのlen(cells)が8の場合、オッズが存在せずエラーになる為、エラー回避ロジックを実装。
     try:
         race.odds_stdev = round(statistics.pstdev(race.results.values_list('odds', flat=True)), 2)
     except statistics.StatisticsError:
