@@ -1,6 +1,5 @@
 import re
 import statistics
-import bs4
 from datetime import date
 
 from django.db import transaction
@@ -29,15 +28,16 @@ def insert_race(soup):
             times = int(race_id_without_round[8:10])
 
             for r in range(1, 13):
-                Race.objects.get_or_create(
-                    race_id=race_id_without_round + str(r).zfill(2),
-                    race_dt=date(year, month, day),
-                    place_id=place_id,
-                    place_name=place_name,
-                    days=days,
-                    times=times,
-                    round=r
-                )
+                race = Race()
+
+                race.race_id = race_id_without_round + str(r).zfill(2)
+                race.race_dt = date(year, month, day)
+                race.place_id = place_id
+                race.place_name = place_name
+                race.days = days
+                race.times = times
+                race.round = r
+                race.save()
     return
 
 
@@ -89,16 +89,8 @@ def update_race_entry(soup, race):
 
 @transaction.atomic
 def insert_entry(soup, race):
-    # Extract Entry or Result Table
-    table = soup.findAll("table",  {"class": ["race_table_old", "race_table_01"]})
-
-    if len(table) == 1:
-        table = table[0]
-    else:
-        table = bs4.BeautifulSoup("<tr><td></td></tr>", "html.parser")
-
-    for row in table.findAll("tr"):
-        cells = row.findAll("td")
+    for row in soup.select("table.race_table_old tr" or "table.race_table_01 tr"):
+        cells = row.findAll('td')
         # print(len(cells))
 
         # IF the table is not listed all information, abort parse.
@@ -185,7 +177,7 @@ def parse_entry_10(cells, race):
     return result
 
 
-def was_existed(soup):
+def was_done(soup):
     fmt = re.compile("(\d+/\d+/\d+|\d+年\d+月\d+日)")
     val = soup.find("title").string
 
@@ -193,10 +185,6 @@ def was_existed(soup):
         race_id = formatter("\d+", soup.find("li", {"class": ["race_navi_result", "race_navi_shutuba"]}).a.get("href"))
         race = Race.objects.get(pk=race_id)
     else:
-        race = None
-
-    # When the table is not exist on entry page, set abort process flag
-    if len(soup.findAll("table",  {"class": ["race_table_old", "race_table_01"]})) == 0:
         race = None
 
     return race
