@@ -3,8 +3,6 @@ import re
 from requests import Session, HTTPError
 import bs4 as bs
 
-from umap.models import Race
-
 
 def get_soup(url):
     try:

@@ -9,7 +9,7 @@ from django.db.models import Min
 
 from umap.models import Race
 from umap.uhelper import get_soup
-from umap.uparser import insert_race, insert_entry, update_race, was_done
+from umap.uparser import insert_race, insert_entry, update_race, update_race_entry, was_existed
 
 latest = datetime.now().date() - timedelta(days=3)
 
@@ -34,14 +34,23 @@ class Command(BaseCommand):
             insert_race(soup)
 
         # Get race results and details
-        for url in netkeiba_urls():
+        for url in netkeiba_urls("result"):
             print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [GET] " + url)
             soup = get_soup(url)
-            race = was_done(soup)
+            race = was_existed(soup)
             if race:
                 insert_entry(soup, race)
                 update_race(soup, race)
-            sleep(3)
+            sleep(1)
+
+        for url in netkeiba_urls("entry"):
+            print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [GET] " + url)
+            soup = get_soup(url)
+            race = was_existed(soup)
+            if race:
+                insert_entry(soup, race)
+                update_race_entry(soup, race)
+            sleep(1)
 
         # Delete uncompleted data
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
@@ -77,14 +86,19 @@ def sportsnavi_urls(option):
     return urls
 
 
-def netkeiba_urls():
+def netkeiba_urls(mode="result"):
     urls = list()
 
-    # Get race_id whose result flag is FALSE
-    races = Race.objects.filter(race_dt__lt=latest, result_flg=False).values("race_id")
+    if mode == "result":
+        # Get race_id whose result flag is FALSE
+        races = Race.objects.filter(race_dt__lt=latest, result_flg=False).values("race_id")
+        base_url = "http://db.netkeiba.com/race/"
+    if mode == "entry":
+        # Get race_id whose result flag is FALSE
+        races = Race.objects.filter(race_dt__gte=latest, result_flg=False).values("race_id")
+        base_url = "http://race.netkeiba.com/?pid=race_old&id=c"
 
     # Make URL by race_ids
-    base_url = "http://db.netkeiba.com/race/"
     for race in races:
         urls.append(base_url + race["race_id"])
 
