@@ -16,12 +16,6 @@ import os
 import random
 import string
 
-# Import local setting definitions
-try:
-    from local import *
-except ImportError:
-    pass
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -46,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_extensions',
     'umap',
 ]
 
@@ -130,3 +125,16 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+# Jupyter Notebook Config
+NOTEBOOK_ARGUMENTS = [
+    '--ip=0.0.0.0',
+    '--no-browser',
+    '--notebook-dir', BASE_DIR+"/jupyter",
+]
+
+# Import local setting definitions
+try:
+    from local import *
+except ImportError:
+    pass
