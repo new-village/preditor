@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('race_id', models.CharField(max_length=12, primary_key=True, serialize=False)),
                 ('race_dt', models.DateField(db_index=True, null=True)),
                 ('place_id', models.CharField(max_length=2)),
-                ('place_name', models.CharField(max_length=8)),
+                ('place_name', models.CharField(max_length=12)),
                 ('days', models.IntegerField(null=True)),
                 ('times', models.IntegerField(null=True)),
                 ('round', models.IntegerField(null=True)),
@@ -26,8 +26,8 @@ class Migration(migrations.Migration):
                 ('grade', models.CharField(max_length=2, null=True)),
                 ('type', models.CharField(max_length=12)),
                 ('length', models.IntegerField(null=True)),
-                ('weather', models.CharField(max_length=8)),
-                ('condition', models.CharField(max_length=8)),
+                ('weather', models.CharField(max_length=12)),
+                ('condition', models.CharField(max_length=12)),
                 ('head_count', models.IntegerField(null=True)),
                 ('max_prize', models.FloatField(null=True)),
                 ('odds_stdev', models.FloatField(null=True)),
@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Result',
             fields=[
-                ('key', models.CharField(max_length=24, primary_key=True, serialize=False)),
+                ('key', models.CharField(max_length=32, primary_key=True, serialize=False)),
                 ('rank', models.IntegerField(null=True)),
                 ('bracket', models.IntegerField(null=True)),
                 ('horse_num', models.IntegerField(null=True)),

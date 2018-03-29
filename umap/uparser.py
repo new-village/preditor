@@ -115,7 +115,7 @@ def insert_entry(soup, race):
         elif len(cells) == 8:
             result = parse_entry_8(cells, race)
 
-        if 'result' in globals():
+        if 'result' in locals():
             result.save()
 
     return
