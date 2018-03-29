@@ -81,7 +81,11 @@ def update_race_entry(soup, race):
     race.condition = formatter("(良|稍重|重|不良)", conditions[2])
     race.head_count = formatter("\d+", otherdata[1].string, "int")
     race.max_prize = formatter("\d+", otherdata[2].string, "int")
-    race.odds_stdev = round(statistics.pstdev(race.results.values_list('odds', flat=True)), 2)
+    # Error avoidance logic: When the len(cells) equal 8, rise statistics error.
+    try:
+        race.odds_stdev = round(statistics.pstdev(race.results.values_list('odds', flat=True)), 2)
+    except statistics.StatisticsError:
+        pass
 
     race.save()
     return
@@ -99,17 +103,19 @@ def insert_entry(soup, race):
 
     for row in table.findAll("tr"):
         cells = row.findAll("td")
-        # print(len(cells))
+        #print(len(cells))
 
         # IF the table is not listed all information, abort parse.
         if len(cells) == 21:
             result = parse_result(cells, race)
-            result.save()
-        if len(cells) == 13:
+        elif len(cells) == 13:
             result = parse_entry_13(cells, race)
-            result.save()
-        if len(cells) == 10:
+        elif len(cells) == 10:
             result = parse_entry_10(cells, race)
+        elif len(cells) == 8:
+            result = parse_entry_8(cells, race)
+
+        if 'result' in globals():
             result.save()
 
     return
@@ -181,6 +187,21 @@ def parse_entry_10(cells, race):
     result.trainer_id = formatter("\d+", get_from_a(cells[5]))
     result.odds = formatter("\d+.\d+", cells[6].string, "float")
     result.odor = formatter("\d+", cells[7].string, "int")
+
+    return result
+
+
+def parse_entry_8(cells, race):
+    result = Result()
+
+    result.race = race
+    result.horse_id = formatter("\d+", get_from_a(cells[1]))
+    result.key = str(race) + "-" + result.horse_id
+    result.sex = formatter("[牡牝騸セ]", cells[2].string)
+    result.age = formatter("\d+", cells[2].string, "int")
+    result.burden = formatter("(\d+).?\d?", cells[3].string, "float")
+    result.jockey_id = formatter("\d+", get_from_a(cells[4]))
+    result.trainer_id = formatter("\d+", get_from_a(cells[5]))
 
     return result
 
