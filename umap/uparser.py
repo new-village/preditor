@@ -10,7 +10,6 @@ from umap.models import Race, Result
 from umap.uhelper import formatter, get_from_a
 
 
-@transaction.atomic
 def insert_race(soup):
     # Extract year and month field
     year_month = soup.find("h3", {"class": "midashi3rd"}).string
@@ -77,8 +76,8 @@ def update_race_entry(soup, race):
     race.title = formatter("[^!-~\xa0]+", str(racedata.find('h1')))
     race.type = to_course_full(formatter("[芝ダ障]", conditions[0]))
     race.length = formatter("\d+", conditions[0], "int")
-    race.weather = formatter("(晴|曇|小雨|雨|小雪|雪)", conditions[1])
-    race.condition = formatter("(良|稍重|重|不良)", conditions[2])
+    race.weather = formatter("晴|曇|小雨|雨|小雪|雪", conditions[1])
+    race.condition = formatter("良|稍重|重|不良", conditions[2])
     race.head_count = formatter("\d+", otherdata[1].string, "int")
     race.max_prize = formatter("\d+", otherdata[2].string, "int")
     # entryのlen(cells)が8の場合、オッズが存在せずエラーになる為、エラー回避ロジックを実装。
@@ -214,6 +213,7 @@ def was_existed(soup):
 
     if fmt.search(val) is not None:
         race_id = formatter("\d+", soup.find("li", {"class": ["race_navi_result", "race_navi_shutuba"]}).a.get("href"))
+        print(race_id)
         race = Race.objects.get(pk=race_id)
     else:
         race = None
