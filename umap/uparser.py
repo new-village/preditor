@@ -102,7 +102,6 @@ def insert_entry(soup, race):
 
     for row in table.findAll("tr"):
         cells = row.findAll("td")
-        #print(len(cells))
 
         # IF the table is not listed all information, abort parse.
         if len(cells) == 21:
@@ -213,7 +212,6 @@ def was_existed(soup):
 
     if fmt.search(val) is not None:
         race_id = formatter("\d+", soup.find("li", {"class": ["race_navi_result", "race_navi_shutuba"]}).a.get("href"))
-        print(race_id)
         race = Race.objects.get(pk=race_id)
     else:
         race = None
