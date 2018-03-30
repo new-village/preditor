@@ -9,16 +9,16 @@ class Race(models.Model):
     race_id = models.CharField(primary_key=True, max_length=12)
     race_dt = models.DateField(null=True, db_index=True)    # 2017-12-28（開催日）
     place_id = models.CharField(max_length=2)               # 06（場所ID）
-    place_name = models.CharField(max_length=12)             # 中山（場所名）
+    place_name = models.CharField(max_length=8)             # 中山（場所名）
     days = models.IntegerField(null=True)                   # 9（日数）
     times = models.IntegerField(null=True)                  # 5（回数）
     round = models.IntegerField(null=True)                  # 11（ラウンド）
     title = models.CharField(max_length=80)                 # ホープフルステークス（レース名）
     grade = models.CharField(max_length=2, null=True)       # G1（グレード）
-    type = models.CharField(max_length=12)                  # 芝（コース種別）
+    type = models.CharField(max_length=16)                  # 芝（コース種別）
     length = models.IntegerField(null=True)                 # 2600（距離）
-    weather = models.CharField(max_length=12)                # 晴 （天気）
-    condition = models.CharField(max_length=12)              # 良（馬場状態）
+    weather = models.CharField(max_length=16)               # 晴 （天気）
+    condition = models.CharField(max_length=16)             # 良（馬場状態）
     head_count = models.IntegerField(null=True)             # 16（頭数）
     max_prize = models.FloatField(null=True)                # 34000.0（優勝賞金）
     odds_stdev = models.FloatField(null=True)               # 15.3（オッズ標準偏差）
