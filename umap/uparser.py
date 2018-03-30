@@ -202,6 +202,8 @@ def parse_entry_8(cells, race):
     result.burden = formatter("(\d+).?\d?", cells[3].string, "float")
     result.jockey_id = formatter("\d+", get_from_a(cells[4]))
     result.trainer_id = formatter("\d+", get_from_a(cells[5]))
+    result.odds = 0
+    result.odor = 0
 
     return result
 
