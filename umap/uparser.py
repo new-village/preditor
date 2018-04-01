@@ -10,6 +10,7 @@ from umap.models import Race, Result
 from umap.uhelper import formatter, get_from_a
 
 
+@transaction.atomic
 def insert_race(soup):
     # Extract year and month field
     year_month = soup.find("h3", {"class": "midashi3rd"}).string
@@ -48,18 +49,16 @@ def update_race(soup, race):
     line = soup.find("dl", attrs={"class": "racedata"}).find("span").string.split(u"\xa0/\xa0")
     race.type = to_course_full(formatter("[芝ダ障]", line[0]))
     race.length = formatter("\d+", line[0], "int")
-    race.weather = line[1].split(" : ")[1]
-
-    # CONDITION
-    condition = line[2].split(" : ")[1]
-    if re.search("  ", condition):
-        race.condition = condition.split("  ")[0]
-    else:
-        race.condition = condition
+    race.weather = formatter("晴|曇|小雨|雨|小雪|雪", line[1])
+    race.condition = formatter("良|稍重|重|不良", line[2])
 
     race.head_count = race.results.aggregate(Count("rank"))["rank__count"]
     race.max_prize = race.results.aggregate(Max("prize"))["prize__max"]
-    race.odds_stdev = round(statistics.pstdev(race.results.exclude(rank=0).values_list('odds', flat=True)), 2)
+    # entryのlen(cells)が8の場合、オッズが存在せずエラーになる為、エラー回避ロジックを実装。
+    try:
+        race.odds_stdev = round(statistics.pstdev(race.results.exclude(rank=0).values_list('odds', flat=True)), 2)
+    except statistics.StatisticsError:
+        pass
 
     race.result_flg = True
     race.save()
