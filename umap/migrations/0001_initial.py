@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Result',
             fields=[
-                ('key', models.CharField(max_length=32, primary_key=True, serialize=False)),
+                ('key', models.CharField(max_length=34, primary_key=True, serialize=False)),
                 ('rank', models.IntegerField(null=True)),
                 ('bracket', models.IntegerField(null=True)),
                 ('horse_num', models.IntegerField(null=True)),

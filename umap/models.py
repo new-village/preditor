@@ -41,7 +41,7 @@ class Result(models.Model):
         verbose_name = "出走情報"
         verbose_name_plural = "出走情報"
 
-    key = models.CharField(primary_key=True, max_length=32)
+    key = models.CharField(primary_key=True, max_length=34)
     race = models.ForeignKey(Race, related_name="results", on_delete=models.CASCADE)
     rank = models.IntegerField(null=True)                       # 1（着順）
     bracket = models.IntegerField(null=True)                    # 1（枠番）
