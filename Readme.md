@@ -39,8 +39,8 @@ This app can provide data management view. If you would like to access, you have
 nohup sudo `which python3` ./manage.py runserver 0.0.0.0:80 &
 nohup ./manage.py shell_plus --notebook &
 ```
-Index View: http://127.0.0.1/
-Jupyter: http://127.0.0.1:8888/
+* Index View: http://127.0.0.1/
+* Jupyter: http://127.0.0.1:8888/
 
 
 ## History
@@ -53,8 +53,8 @@ Jupyter: http://127.0.0.1:8888/
 
 ## Reference
 #### Data Source
-[NetKeiba.com](http://db.netkeiba.com/) (Japanese Only)
-[SportsNavi](https://keiba.yahoo.co.jp/) (Japanese Only)
+* [NetKeiba.com](http://db.netkeiba.com/) (Japanese Only)
+* [SportsNavi](https://keiba.yahoo.co.jp/) (Japanese Only)
 
 #### Development
-[Django documentation](https://docs.djangoproject.com/en/2.0/)
+* [Django documentation](https://docs.djangoproject.com/en/2.0/)
