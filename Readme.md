@@ -1,7 +1,9 @@
 # Preditor
+[![Maintainability](https://api.codeclimate.com/v1/badges/24c93adbb5f02cec1d75/maintainability)](https://codeclimate.com/github/New-Village/preditor/maintainability)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)  
 Preditor is a all-in-one Japanese horse race (Keiba) prediction system written by Python.
 The system is possible to provide all functions about prediction like extract data, transform, prediction and reporting.
+
 
 ## How to Start
 If you would like to start your environment, you have to do below.
@@ -18,9 +20,9 @@ pip install -r requirements.txt --upgrade
 # Setup databases
 ./manage.py makemigrations
 ./manage.py migrate
-# Create Super User
+# Create administrator
 ./manage.py createsuperuser
-# Create User for Jupyter
+# Set password of jupyter
 jupyter notebook password
 ```
 5. To start data collection, execute the following command in terminal:
@@ -47,6 +49,7 @@ Jupyter: http://127.0.0.1:8888/
 | 2018/01/07 |   1.0   | Released Initial Version. It is only possible to collect and enrich horse race data. |
 | 2018/02/12 |   1.5   | Support PostgreSQL and Jupter Notebook. Improve crawling logic.                      |
 | 2018/04/02 |   2.0   | Refactoring architecture.                                                            |
+
 
 ## Reference
 #### Data Source
