@@ -61,5 +61,10 @@ class Result(models.Model):
     owner_id = models.CharField(max_length=12)                  # 01110（馬主）
     prize = models.FloatField(null=True)                        # 3000.12（賞金）
 
+    @property
+    def rank_prev1(self):
+        cnt = 1
+        return cnt
+
     def __str__(self):
         return str(self.race_id)
