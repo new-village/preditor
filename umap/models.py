@@ -61,10 +61,18 @@ class Result(models.Model):
     owner_id = models.CharField(max_length=12)                  # 01110（馬主）
     prize = models.FloatField(null=True)                        # 3000.12（賞金）
 
-    @property
-    def rank_prev1(self):
-        cnt = 1
-        return cnt
-
     def __str__(self):
         return str(self.race_id)
+
+
+class Feature(models.Model):
+    class Meta:
+        verbose_name = "特徴"
+        verbose_name_plural = "特徴"
+
+    result = models.OneToOneField(Result, on_delete=models.CASCADE, primary_key=True)
+    top3_flg = models.IntegerField(null=True)                   # 複勝フラグ（0: True, 1: False）
+    top3_ratio = models.FloatField(null=True)                   # 複勝率
+
+    def __str__(self):
+        return str(self.result)
