@@ -63,16 +63,3 @@ class Result(models.Model):
 
     def __str__(self):
         return str(self.race_id)
-
-
-class Feature(models.Model):
-    class Meta:
-        verbose_name = "特徴"
-        verbose_name_plural = "特徴"
-
-    result = models.OneToOneField(Result, on_delete=models.CASCADE, primary_key=True)
-    top3_flg = models.IntegerField(null=True)                   # 複勝フラグ（0: True, 1: False）
-    top3_ratio = models.FloatField(null=True)                   # 複勝率
-
-    def __str__(self):
-        return str(self.result)

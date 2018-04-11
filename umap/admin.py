@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from umap.models import Result, Race, Feature
+from umap.models import Result, Race
 
 
 class ResultInline(admin.TabularInline):
@@ -30,10 +30,5 @@ class ResultAdmin(admin.ModelAdmin):
     search_fields = ["key", "race__race_id"]
 
 
-class FeatureAdmin(admin.ModelAdmin):
-    list_display = ("result", "top3_flg", "top3_ratio")
-
-
 admin.site.register(Race, RaceAdmin)
 admin.site.register(Result, ResultAdmin)
-admin.site.register(Feature, FeatureAdmin)
