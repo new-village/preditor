@@ -6,7 +6,7 @@ from datetime import date
 from django.db import transaction
 from django.db.models import Count, Max, Avg
 
-from umap.models import Race, Result, Feature
+from umap.models import Race, Result
 from umap.uhelper import formatter, get_from_a
 
 
