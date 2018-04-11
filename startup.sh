@@ -10,6 +10,6 @@ cd ${SHL_DIR}
 source ${VENV_DIR}/bin/activate
 sudo `which python` ${SHL_DIR}/manage.py runserver --insecure 0.0.0.0:80 &
 sudo -u ${EXC_USER} `which python` ${SHL_DIR}/manage.py shell_plus --notebook &
-sudo -u ${EXC_USER} `which python` ${SHL_DIR}/manage.py collector
+sudo -u ${EXC_USER} `which python` ${SHL_DIR}/manage.py collector &
 
 exit
