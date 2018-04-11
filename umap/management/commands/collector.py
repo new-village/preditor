@@ -9,7 +9,7 @@ from django.db.models import Min
 
 from umap.models import Race, Result
 from umap.uhelper import get_soup
-from umap.uparser import insert_race, insert_entry, update_race, update_race_entry, was_existed, insert_feature
+from umap.uparser import insert_race, insert_entry, update_race, update_race_entry, was_existed
 
 latest = datetime.now().date() - timedelta(days=3)
 

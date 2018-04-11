@@ -32,6 +32,11 @@ class Race(models.Model):
 
         return course
 
+    class Meta:
+        indexes = [
+            models.Index(fields=["race_dt"]),
+        ]
+
     def __str__(self):
         return str(self.times)+"回"+str(self.place_name)+str(self.days)+"日目 "+str(self.round)+"R"
 
@@ -60,6 +65,11 @@ class Result(models.Model):
     trainer_id = models.CharField(max_length=10)                # 01110（調教師）
     owner_id = models.CharField(max_length=12)                  # 01110（馬主）
     prize = models.FloatField(null=True)                        # 3000.12（賞金）
+
+    class Meta:
+        indexes = [
+            models.Index(fields=["horse_id"]),
+        ]
 
     def __str__(self):
         return str(self.race_id)
