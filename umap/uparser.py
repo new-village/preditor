@@ -222,25 +222,6 @@ def was_existed(soup):
     return race
 
 
-def insert_feature(result):
-    f = Feature()
-    f.result = result
-    f.top3_flg = 0 if result.rank <= 3 else 1
-    f.top3_ratio = calc_t3ratio(result.race.race_dt, result.horse_id)
-    f.save()
-
-    return
-
-
-def calc_t3ratio(race_dt, horse_id):
-    run_all = Result.objects.filter(race__race_dt__lt=race_dt, horse_id=horse_id)
-    top3_ratio = 0
-    if not run_all is not None:
-        top3_ratio = round(run_all.count() / run_all.filter(rank__lte=3).count(), 2)
-
-    return top3_ratio
-
-
 def to_place_name(place_id):
     master = {"01": "札幌", "02": "函館", "03": "福島", "04": "新潟", "05": "東京", "06": "中山", "07": "中京",
               "08": "京都", "09": "阪神", "10": "小倉"}

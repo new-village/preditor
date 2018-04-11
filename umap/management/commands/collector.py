@@ -56,11 +56,6 @@ class Command(BaseCommand):
         print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [DELETE]")
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
 
-        for result in no_feature():
-            print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [ENRICH] " + str(result.key))
-            insert_feature(result)
-
-        print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [END]")
         sys.exit()
 
 
@@ -110,14 +105,3 @@ def netkeiba_urls(mode="result"):
         urls.append(base_url + race["race_id"])
 
     return urls
-
-
-def no_feature():
-    results = list()
-    results_all = Result.objects.exclude(rank=0)
-    for result in results_all:
-        if not hasattr(result, "feature"):
-            results.append(result)
-
-    print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [COUNT] " + str(len(results)))
-    return results
