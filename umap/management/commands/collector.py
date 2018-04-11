@@ -7,9 +7,9 @@ from django.core.management import BaseCommand
 from dateutil.relativedelta import relativedelta
 from django.db.models import Min
 
-from umap.models import Race
+from umap.models import Race, Result
 from umap.uhelper import get_soup
-from umap.uparser import insert_race, insert_entry, update_race, update_race_entry, was_existed
+from umap.uparser import insert_race, insert_entry, update_race, update_race_entry, was_existed, insert_feature
 
 latest = datetime.now().date() - timedelta(days=3)
 
@@ -53,7 +53,14 @@ class Command(BaseCommand):
             sleep(1)
 
         # Delete uncompleted data
+        print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [DELETE]")
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
+
+        for result in no_feature():
+            print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [ENRICH] " + str(result.key))
+            insert_feature(result)
+
+        print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [END]")
         sys.exit()
 
 
@@ -103,3 +110,14 @@ def netkeiba_urls(mode="result"):
         urls.append(base_url + race["race_id"])
 
     return urls
+
+
+def no_feature():
+    results = list()
+    results_all = Result.objects.exclude(rank=0)
+    for result in results_all:
+        if not hasattr(result, "feature"):
+            results.append(result)
+
+    print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [COUNT] " + str(len(results)))
+    return results
