@@ -69,7 +69,25 @@ class Result(models.Model):
     class Meta:
         indexes = [
             models.Index(fields=["horse_id"]),
+            models.Index(fields=["jockey_id"]),
         ]
 
     def __str__(self):
         return str(self.race_id)
+
+
+class Prediction(models.Model):
+    class Meta:
+        verbose_name = "予測モデル"
+        verbose_name_plural = "予測モデル"
+
+    label = models.CharField(primary_key=True, max_length=80)
+    bin = models.BinaryField(null=False)
+    type = models.CharField(max_length=80)
+    recall = models.FloatField(null=False)
+    precision = models.FloatField(null=False)
+    note = models.TextField(null=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.label)

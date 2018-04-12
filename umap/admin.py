@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from umap.models import Result, Race
+from umap.models import Result, Race, Prediction
 
 
 class ResultInline(admin.TabularInline):
@@ -30,5 +30,10 @@ class ResultAdmin(admin.ModelAdmin):
     search_fields = ["key", "race__race_id"]
 
 
+class PredictionAdmin(admin.ModelAdmin):
+    list_display = ("label", "type", "recall", "precision", "note", "updated_at")
+
+
 admin.site.register(Race, RaceAdmin)
 admin.site.register(Result, ResultAdmin)
+admin.site.register(Prediction, PredictionAdmin)
