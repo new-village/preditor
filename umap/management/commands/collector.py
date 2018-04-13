@@ -34,17 +34,18 @@ class Command(BaseCommand):
             insert_race(soup)
 
         # Get result & entry data
-        for mode in ["result", "entry"]:
-            collect_data(mode)
+        if option:
+            collect_data("result")
+            print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [ENRICH]")
+            for result in Result.objects.all():
+                enrich_data(result)
+        else:
+            for mode in ["result", "entry"]:
+                collect_data(mode)
 
         # Delete uncompleted data
         print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [DELETE]")
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
-
-        # if get history data, enrich place rate
-        if option:
-            for result in Result.objects.all():
-                enrich_data(result)
 
         sys.exit()
 
