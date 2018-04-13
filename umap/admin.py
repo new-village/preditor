@@ -9,7 +9,7 @@ class ResultInline(admin.TabularInline):
               "run_cnt", "t3r_horse", "t3r_jockey", "roi", "clf_result", "reg_result")
     readonly_fields = ("rank", "bracket", "horse_num", "horse_id", "sex", "age", "finish_time", "odds", "prize",
                        "run_cnt", "t3r_horse", "t3r_jockey", "roi", "clf_result", "reg_result")
-    ordering = ["rank"]
+    ordering = ["rank", "horse_num"]
 
     def has_delete_permission(self, request, obj):
         return False
