@@ -151,7 +151,7 @@ def parse_result(cells, race):
     result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
     result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
     result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
-    result.roi = round(result.odds * 100, 2)
+    result.roi = round(result.odds * 100, 2) if result.rank <= 3 else 0
 
     return result
 
@@ -176,7 +176,6 @@ def parse_entry_13(cells, race):
     result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
     result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
     result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
-    result.roi = round(result.odds * 100, 2)
 
     return result
 
@@ -199,7 +198,6 @@ def parse_entry_12(cells, race):
     result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
     result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
     result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
-    result.roi = round(result.odds * 100, 2)
 
     return result
 
@@ -220,7 +218,6 @@ def parse_entry_10(cells, race):
     result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
     result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
     result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
-    result.roi = round(result.odds * 100, 2)
 
     return result
 
@@ -241,7 +238,6 @@ def parse_entry_8(cells, race):
     result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
     result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
     result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
-    result.roi = round(result.odds * 100, 2)
 
     return result
 
@@ -250,7 +246,7 @@ def enrich_data(result):
     result.run_cnt = cal_t3r_horse(result.horse_id, result.race.race_dt)["run_cnt"]
     result.t3r_horse = cal_t3r_horse(result.horse_id, result.race.race_dt)["t3r_horse"]
     result.t3r_jockey = cal_jockey(result.jockey_id, result.race.race_dt)
-    result.roi = round(result.odds * 100, 2)
+    result.roi = round(result.odds * 100, 2) if result.rank <= 3 else 0
     result.save()
 
 
