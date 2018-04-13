@@ -71,6 +71,8 @@ class Result(models.Model):
     t3r_horse = models.FloatField(null=True)                    # 複勝率（競走馬）
     t3r_jockey = models.FloatField(null=True)                   # 複勝率（騎手）
     roi = models.FloatField(null=True)                          # 回収率
+    clf_result = models.NullBooleanField()                      # 予想結果（分類）
+    reg_result = models.FloatField(null=True)                   # 予想結果（回帰）
 
     def __str__(self):
         return str(self.race_id)
