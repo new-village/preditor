@@ -9,7 +9,7 @@ from django.db.models import Min
 
 from umap.models import Race, Result
 from umap.uhelper import get_soup
-from umap.uparser import insert_race, insert_entry, update_race, update_race_entry, was_existed
+from umap.uparser import insert_race, insert_entry, update_race, update_race_entry, was_existed, enrich_data
 
 latest = datetime.now().date() - timedelta(days=3)
 
@@ -33,28 +33,18 @@ class Command(BaseCommand):
             soup = get_soup(url)
             insert_race(soup)
 
-        # Get race results and details
-        for url in netkeiba_urls("result"):
-            print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [GET] " + url)
-            soup = get_soup(url)
-            race = was_existed(soup)
-            if race:
-                insert_entry(soup, race)
-                update_race(soup, race)
-            sleep(1)
-
-        for url in netkeiba_urls("entry"):
-            print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [GET] " + url)
-            soup = get_soup(url)
-            race = was_existed(soup)
-            if race:
-                insert_entry(soup, race)
-                update_race_entry(soup, race)
-            sleep(1)
+        # Get result & entry data
+        for mode in ["result", "entry"]:
+            collect_data(mode)
 
         # Delete uncompleted data
         print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [DELETE]")
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
+
+        # if get history data, enrich place rate
+        if option:
+            for result in Result.objects.all():
+                enrich_data(result)
 
         sys.exit()
 
@@ -105,3 +95,16 @@ def netkeiba_urls(mode="result"):
         urls.append(base_url + race["race_id"])
 
     return urls
+
+
+def collect_data(mode):
+    for url in netkeiba_urls(mode):
+        print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [GET] " + url)
+        soup = get_soup(url)
+        race = was_existed(soup)
+        if race:
+            insert_entry(soup, race)
+            if mode == "entry":
+                update_race_entry(soup, race)
+            else:
+                update_race(soup, race)

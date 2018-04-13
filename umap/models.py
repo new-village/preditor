@@ -5,6 +5,9 @@ class Race(models.Model):
     class Meta:
         verbose_name = "レース"
         verbose_name_plural = "レース"
+        indexes = [
+            models.Index(fields=["race_dt"]),
+        ]
 
     race_id = models.CharField(primary_key=True, max_length=12)
     race_dt = models.DateField(null=True, db_index=True)    # 2017-12-28（開催日）
@@ -32,11 +35,6 @@ class Race(models.Model):
 
         return course
 
-    class Meta:
-        indexes = [
-            models.Index(fields=["race_dt"]),
-        ]
-
     def __str__(self):
         return str(self.times)+"回"+str(self.place_name)+str(self.days)+"日目 "+str(self.round)+"R"
 
@@ -45,6 +43,10 @@ class Result(models.Model):
     class Meta:
         verbose_name = "出走情報"
         verbose_name_plural = "出走情報"
+        indexes = [
+            models.Index(fields=["horse_id"]),
+            models.Index(fields=["jockey_id"]),
+        ]
 
     key = models.CharField(primary_key=True, max_length=34)
     race = models.ForeignKey(Race, related_name="results", on_delete=models.CASCADE)
@@ -65,12 +67,10 @@ class Result(models.Model):
     trainer_id = models.CharField(max_length=10)                # 01110（調教師）
     owner_id = models.CharField(max_length=12)                  # 01110（馬主）
     prize = models.FloatField(null=True)                        # 3000.12（賞金）
-
-    class Meta:
-        indexes = [
-            models.Index(fields=["horse_id"]),
-            models.Index(fields=["jockey_id"]),
-        ]
+    run_cnt = models.IntegerField(null=True)                    # 出走回数
+    t3r_horse = models.FloatField(null=True)                    # 複勝率（競走馬）
+    t3r_jockey = models.FloatField(null=True)                   # 複勝率（騎手）
+    roi = models.FloatField(null=True)                          # 回収率
 
     def __str__(self):
         return str(self.race_id)

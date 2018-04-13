@@ -3,6 +3,8 @@ import re
 from requests import Session, HTTPError
 import bs4 as bs
 
+from umap.models import Result
+
 
 def get_soup(url):
     try:
@@ -49,3 +51,20 @@ def get_from_a(data, target="url"):
 
     return value
 
+
+def cal_t3r_horse(horse_id, race_dt):
+    query = Result.objects.filter(horse_id=horse_id, race__race_dt__lt=race_dt).exclude(rank=0)
+    run_all = query.count()
+    run_t3 = query.filter(rank__lte=3).count()
+
+    ratio = round(run_t3 / run_all, 2) if run_all != 0 else 0
+    return {"run_cnt": run_all, "t3r_horse": ratio}
+
+
+def cal_jockey(jockey_id, race_dt):
+    query = Result.objects.filter(jockey_id=jockey_id, race__race_dt__lt=race_dt).exclude(rank=0)
+    run_all = query.count()
+    run_t3 = query.filter(rank__lte=3).count()
+
+    ratio = round(run_t3 / run_all, 2) if run_all != 0 else 0
+    return ratio

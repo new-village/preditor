@@ -7,7 +7,7 @@ from django.db import transaction
 from django.db.models import Count, Max, Avg
 
 from umap.models import Race, Result
-from umap.uhelper import formatter, get_from_a
+from umap.uhelper import formatter, get_from_a, cal_t3r_horse, cal_jockey
 
 
 @transaction.atomic
@@ -107,6 +107,8 @@ def insert_entry(soup, race):
             result = parse_result(cells, race)
         elif len(cells) == 13:
             result = parse_entry_13(cells, race)
+        elif len(cells) == 12:
+            result = parse_entry_12(cells, race)
         elif len(cells) == 10:
             result = parse_entry_10(cells, race)
         elif len(cells) == 8:
@@ -146,6 +148,10 @@ def parse_result(cells, race):
     result.trainer_id = formatter("\d+", get_from_a(cells[15]))
     result.owner_id = formatter("\d+", get_from_a(cells[19]))
     result.prize = formatter("\d*,?\d*.?\d+", cells[20].string, "float")
+    result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
+    result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
+    result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
+    result.roi = round(result.odds * 100, 2)
 
     return result
 
@@ -167,6 +173,33 @@ def parse_entry_13(cells, race):
     result.weight_diff = formatter("\d+\(([+-]?\d+)\)", cells[8].string, "int")
     result.odds = formatter("\d+.\d+", cells[9].string, "float")
     result.odor = formatter("\d+", cells[10].string, "int")
+    result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
+    result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
+    result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
+    result.roi = round(result.odds * 100, 2)
+
+    return result
+
+
+def parse_entry_12(cells, race):
+    result = Result()
+
+    result.race = race
+    result.bracket = formatter("\d+", cells[0].string, "int")
+    result.horse_num = formatter("\d+", cells[1].string, "int")
+    result.horse_id = formatter("\d+", get_from_a(cells[3]))
+    result.key = str(race) + "-" + result.horse_id
+    result.sex = formatter("[牡牝騸セ]", cells[4].string)
+    result.age = formatter("\d+", cells[4].string, "int")
+    result.burden = formatter("(\d+).?\d?", cells[5].string, "float")
+    result.jockey_id = formatter("\d+", get_from_a(cells[6]))
+    result.trainer_id = formatter("\d+", get_from_a(cells[7]))
+    result.odds = formatter("\d+.\d+", cells[8].string, "float")
+    result.odor = formatter("\d+", cells[9].string, "int")
+    result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
+    result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
+    result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
+    result.roi = round(result.odds * 100, 2)
 
     return result
 
@@ -184,6 +217,10 @@ def parse_entry_10(cells, race):
     result.trainer_id = formatter("\d+", get_from_a(cells[5]))
     result.odds = formatter("\d+.\d+", cells[6].string, "float")
     result.odor = formatter("\d+", cells[7].string, "int")
+    result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
+    result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
+    result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
+    result.roi = round(result.odds * 100, 2)
 
     return result
 
@@ -201,8 +238,20 @@ def parse_entry_8(cells, race):
     result.trainer_id = formatter("\d+", get_from_a(cells[5]))
     result.odds = 0
     result.odor = 0
+    result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
+    result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
+    result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
+    result.roi = round(result.odds * 100, 2)
 
     return result
+
+
+def enrich_data(result):
+    result.run_cnt = cal_t3r_horse(result.horse_id, result.race.race_dt)["run_cnt"]
+    result.t3r_horse = cal_t3r_horse(result.horse_id, result.race.race_dt)["t3r_horse"]
+    result.t3r_jockey = cal_jockey(result.jockey_id, result.race.race_dt)
+    result.roi = round(result.odds * 100, 2)
+    result.save()
 
 
 def was_existed(soup):
