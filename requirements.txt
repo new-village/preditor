@@ -49,6 +49,7 @@ qtconsole==4.3.1
 requests==2.18.4
 scikit-learn==0.19.1
 scipy==1.0.1
+seaborn==0.8.1
 Send2Trash==1.5.0
 simplegeneric==0.8.1
 six==1.11.0
