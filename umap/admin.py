@@ -5,10 +5,10 @@ from umap.models import Result, Race, Prediction
 
 class ResultInline(admin.TabularInline):
     model = Result
-    fields = ("rank", "bracket", "horse_num", "horse_id", ("sex", "age"), "finish_time", "odds", "prize",
-              "run_cnt", "t3r_horse", "t3r_jockey", "roi", "clf_result", "reg_result")
-    readonly_fields = ("rank", "bracket", "horse_num", "horse_id", "sex", "age", "finish_time", "odds", "prize",
-                       "run_cnt", "t3r_horse", "t3r_jockey", "roi", "clf_result", "reg_result")
+    fields = ("rank", "bracket", "horse_num", "horse_name", ("sex", "age"), "jockey_name", "finish_time", "odds",
+              "prize", "cnt_run", "t3r_horse", "t3r_jockey", "avg_ror", "clf_result", "reg_result")
+    readonly_fields = ("rank", "bracket", "horse_num", "horse_name", "sex", "age", "jockey_name", "finish_time", "odds",
+                       "prize", "cnt_run", "t3r_horse", "t3r_jockey", "avg_ror", "clf_result", "reg_result")
     ordering = ["rank", "horse_num"]
 
     def has_delete_permission(self, request, obj):
@@ -27,12 +27,12 @@ class RaceAdmin(admin.ModelAdmin):
 
 
 class ResultAdmin(admin.ModelAdmin):
-    list_display = ("rank", "bracket", "horse_num", "horse_id", "sex", "age", "finish_time", "odds", "odor")
+    list_display = ("rank", "bracket", "horse_num", "horse_name", "sex", "age", "finish_time", "odds", "odor")
     search_fields = ["key", "race__race_id"]
 
 
 class PredictionAdmin(admin.ModelAdmin):
-    list_display = ("label", "type", "recall", "precision", "note", "updated_at")
+    list_display = ("label", "target", "recall", "precision", "note", "updated_at")
 
 
 admin.site.register(Race, RaceAdmin)

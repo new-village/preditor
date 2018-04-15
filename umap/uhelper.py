@@ -1,5 +1,6 @@
 import re
 
+from django.db.models import Avg
 from requests import Session, HTTPError
 import bs4 as bs
 
@@ -52,19 +53,24 @@ def get_from_a(data, target="url"):
     return value
 
 
-def cal_t3r_horse(horse_id, race_dt):
-    query = Result.objects.filter(horse_id=horse_id, race__race_dt__lt=race_dt).exclude(rank=0)
-    run_all = query.count()
-    run_t3 = query.filter(rank__lte=3).count()
+def cal_jky_hist(jockey_id, race_dt):
+    rtn = 0.0
+    query = Result.objects.filter(jockey_id=jockey_id, race__race_dt__lt=race_dt).exclude(rank=0).order_by("-race__race_dt")[:50]
+    cnt = query.count()
+    if cnt != 0:
+        rtn = round(len([rec for rec in query if rec.rank <= 3]) / cnt, 3)
+    return rtn
 
-    ratio = round(run_t3 / run_all, 2) if run_all != 0 else 0
-    return {"run_cnt": run_all, "t3r_horse": ratio}
 
-
-def cal_jockey(jockey_id, race_dt):
-    query = Result.objects.filter(jockey_id=jockey_id, race__race_dt__lt=race_dt).exclude(rank=0)
-    run_all = query.count()
-    run_t3 = query.filter(rank__lte=3).count()
-
-    ratio = round(run_t3 / run_all, 2) if run_all != 0 else 0
-    return ratio
+def cal_hrs_hist(horse_id, race_dt):
+    rtn = {"cnt_run": 0, "t3r_horse": 0.0, "avg_ror": 0.0, "avg_prize": 0.0, "avg_last3f": 0.0}
+    query = Result.objects.filter(horse_id=horse_id, race__race_dt__lt=race_dt).exclude(rank=0).order_by("-race__race_dt")[:5]
+    cnt = query.count()
+    if cnt != 0:
+        top3 = [rec.odds for rec in query if rec.rank <= 3]
+        rtn["cnt_run"] = cnt
+        rtn["t3r_horse"] = round(len(top3) / cnt, 3)
+        rtn["avg_ror"] = round(sum(top3) / cnt, 3)
+        rtn["avg_prize"] = round(sum([rec.prize for rec in query]) / cnt, 3)
+        rtn["avg_last3f"] = round(sum([rec.last3f_time for rec in query]) / cnt, 3)
+    return rtn

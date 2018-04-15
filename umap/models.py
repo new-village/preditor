@@ -54,10 +54,12 @@ class Result(models.Model):
     bracket = models.IntegerField(null=True)                    # 1（枠番）
     horse_num = models.IntegerField(null=True)                  # 2（馬番）
     horse_id = models.CharField(max_length=12, db_index=True)   # 2012102013（馬ID）
+    horse_name = models.CharField(max_length=80)                # キタサンブラック（馬名）
     sex = models.CharField(max_length=4)                        # 牡（性別）
     age = models.IntegerField(null=True)                        # 5（年齢）
     burden = models.FloatField(null=True)                       # 57（斤量）
     jockey_id = models.CharField(max_length=10)                 # 00666（騎手ID）
+    jockey_name = models.CharField(max_length=80)               # 武豊（騎手名）
     finish_time = models.FloatField(null=True)                  # 153.6（タイム）
     last3f_time = models.FloatField(null=True)                  # 34.6（上がり）
     odds = models.FloatField(null=True)                         # 4.7（オッズ）
@@ -65,12 +67,16 @@ class Result(models.Model):
     weight = models.IntegerField(null=True)                     # 540（馬体重）
     weight_diff = models.IntegerField(null=True)                # -2（体重差）
     trainer_id = models.CharField(max_length=10)                # 01110（調教師）
+    trainer_name = models.CharField(max_length=80)              # 01110（調教師名）
     owner_id = models.CharField(max_length=12)                  # 01110（馬主）
+    owner_name = models.CharField(max_length=80)                # 01110（馬主）
     prize = models.FloatField(null=True)                        # 3000.12（賞金）
-    run_cnt = models.IntegerField(null=True)                    # 出走回数
-    t3r_horse = models.FloatField(null=True)                    # 複勝率（競走馬）
-    t3r_jockey = models.FloatField(null=True)                   # 複勝率（騎手）
-    roi = models.FloatField(null=True)                          # 回収率
+    t3r_jockey = models.FloatField(null=True)                   # 騎手複勝率（直近10走）
+    cnt_run = models.IntegerField(null=True)                    # 出走回数
+    t3r_horse = models.FloatField(null=True)                    # 競走馬複勝率（直近5走）
+    avg_ror = models.FloatField(null=True)                      # 平均回収率（直近5走）
+    avg_prize = models.FloatField(null=True)                    # 平均獲得賞金（直近5走）
+    avg_last3f = models.FloatField(null=True)                   # 平均上り3Fタイム（直近5走）
     clf_result = models.NullBooleanField()                      # 予想結果（分類）
     reg_result = models.FloatField(null=True)                   # 予想結果（回帰）
 
@@ -84,8 +90,8 @@ class Prediction(models.Model):
         verbose_name_plural = "予測モデル"
 
     label = models.CharField(primary_key=True, max_length=80)
-    bin = models.BinaryField(null=False)
-    type = models.CharField(max_length=80)
+    trained = models.BinaryField(null=False)
+    target = models.CharField(max_length=80)
     recall = models.FloatField(null=False)
     precision = models.FloatField(null=False)
     note = models.TextField(null=True)

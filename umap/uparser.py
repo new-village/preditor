@@ -7,7 +7,7 @@ from django.db import transaction
 from django.db.models import Count, Max, Avg
 
 from umap.models import Race, Result
-from umap.uhelper import formatter, get_from_a, cal_t3r_horse, cal_jockey
+from umap.uhelper import formatter, get_from_a, cal_jky_hist, cal_hrs_hist
 
 
 @transaction.atomic
@@ -128,11 +128,13 @@ def parse_result(cells, race):
     result.bracket = formatter("\d+", cells[1].string, "int")
     result.horse_num = formatter("\d+", cells[2].string, "int")
     result.horse_id = formatter("\d+", get_from_a(cells[3]))
+    result.horse_name = formatter("[^!-~\xa0]+", get_from_a(cells[3], "name"))
     result.key = str(race) + "-" + result.horse_id
     result.sex = formatter("[牡牝騸セ]", cells[4].string)
     result.age = formatter("\d+", cells[4].string, "int")
     result.burden = formatter("(\d+).?\d?", cells[5].string, "float")
     result.jockey_id = formatter("\d+", get_from_a(cells[6]))
+    result.jockey_name = formatter("[^!-~\xa0]+", get_from_a(cells[6], "name"))
 
     if cells[7].string is not None:
         tmp_time = re.split(r"[:.]", cells[7].string)
@@ -146,12 +148,10 @@ def parse_result(cells, race):
     result.weight = formatter("(\d+)\([+-]?\d*\)", cells[14].string, "int")
     result.weight_diff = formatter("\d+\(([+-]?\d+)\)", cells[14].string, "int")
     result.trainer_id = formatter("\d+", get_from_a(cells[15]))
+    result.trainer_name = formatter("[^!-~\xa0]+", get_from_a(cells[15], "name"))
     result.owner_id = formatter("\d+", get_from_a(cells[19]))
+    result.owner_name = formatter("[^!-~\xa0]+", get_from_a(cells[19], "name"))
     result.prize = formatter("\d*,?\d*.?\d+", cells[20].string, "float")
-    result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
-    result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
-    result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
-    result.roi = round(result.odds * 100, 2) if result.rank <= 3 else 0
 
     return result
 
@@ -163,19 +163,20 @@ def parse_entry_13(cells, race):
     result.bracket = formatter("\d+", cells[0].string, "int")
     result.horse_num = formatter("\d+", cells[1].string, "int")
     result.horse_id = formatter("\d+", get_from_a(cells[3]))
+    result.horse_name = formatter("[^!-~\xa0]+", get_from_a(cells[3], "name"))
     result.key = str(race) + "-" + result.horse_id
     result.sex = formatter("[牡牝騸セ]", cells[4].string)
     result.age = formatter("\d+", cells[4].string, "int")
     result.burden = formatter("(\d+).?\d?", cells[5].string, "float")
     result.jockey_id = formatter("\d+", get_from_a(cells[6]))
+    result.jockey_name = formatter("[^!-~\xa0]+", get_from_a(cells[6], "name"))
     result.trainer_id = formatter("\d+", get_from_a(cells[7]))
+    result.trainer_name = formatter("[^!-~\xa0]+", get_from_a(cells[7], "name"))
     result.weight = formatter("(\d+)\([+-]?\d*\)", cells[8].string, "int")
     result.weight_diff = formatter("\d+\(([+-]?\d+)\)", cells[8].string, "int")
     result.odds = formatter("\d+.\d+", cells[9].string, "float")
     result.odor = formatter("\d+", cells[10].string, "int")
-    result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
-    result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
-    result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
+    result = enrich_data(result)
 
     return result
 
@@ -187,17 +188,18 @@ def parse_entry_12(cells, race):
     result.bracket = formatter("\d+", cells[0].string, "int")
     result.horse_num = formatter("\d+", cells[1].string, "int")
     result.horse_id = formatter("\d+", get_from_a(cells[3]))
+    result.horse_name = formatter("[^!-~\xa0]+", get_from_a(cells[3], "name"))
     result.key = str(race) + "-" + result.horse_id
     result.sex = formatter("[牡牝騸セ]", cells[4].string)
     result.age = formatter("\d+", cells[4].string, "int")
     result.burden = formatter("(\d+).?\d?", cells[5].string, "float")
     result.jockey_id = formatter("\d+", get_from_a(cells[6]))
+    result.jockey_name = formatter("[^!-~\xa0]+", get_from_a(cells[6], "name"))
     result.trainer_id = formatter("\d+", get_from_a(cells[7]))
+    result.trainer_name = formatter("[^!-~\xa0]+", get_from_a(cells[7], "name"))
     result.odds = formatter("\d+.\d+", cells[8].string, "float")
     result.odor = formatter("\d+", cells[9].string, "int")
-    result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
-    result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
-    result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
+    result = enrich_data(result)
 
     return result
 
@@ -207,17 +209,18 @@ def parse_entry_10(cells, race):
 
     result.race = race
     result.horse_id = formatter("\d+", get_from_a(cells[1]))
+    result.horse_name = formatter("[^!-~\xa0]+", get_from_a(cells[1], "name"))
     result.key = str(race) + "-" + result.horse_id
     result.sex = formatter("[牡牝騸セ]", cells[2].string)
     result.age = formatter("\d+", cells[2].string, "int")
     result.burden = formatter("(\d+).?\d?", cells[3].string, "float")
     result.jockey_id = formatter("\d+", get_from_a(cells[4]))
+    result.jockey_name = formatter("[^!-~\xa0]+", get_from_a(cells[4], "name"))
     result.trainer_id = formatter("\d+", get_from_a(cells[5]))
+    result.trainer_name = formatter("[^!-~\xa0]+", get_from_a(cells[5], "name"))
     result.odds = formatter("\d+.\d+", cells[6].string, "float")
     result.odor = formatter("\d+", cells[7].string, "int")
-    result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
-    result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
-    result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
+    result = enrich_data(result)
 
     return result
 
@@ -227,27 +230,37 @@ def parse_entry_8(cells, race):
 
     result.race = race
     result.horse_id = formatter("\d+", get_from_a(cells[1]))
+    result.horse_name = formatter("[^!-~\xa0]+", get_from_a(cells[1], "name"))
     result.key = str(race) + "-" + result.horse_id
     result.sex = formatter("[牡牝騸セ]", cells[2].string)
     result.age = formatter("\d+", cells[2].string, "int")
     result.burden = formatter("(\d+).?\d?", cells[3].string, "float")
     result.jockey_id = formatter("\d+", get_from_a(cells[4]))
+    result.jockey_name = formatter("[^!-~\xa0]+", get_from_a(cells[4], "name"))
     result.trainer_id = formatter("\d+", get_from_a(cells[5]))
+    result.trainer_name = formatter("[^!-~\xa0]+", get_from_a(cells[5], "name"))
     result.odds = 0
     result.odor = 0
-    result.run_cnt = cal_t3r_horse(result.horse_id, race.race_dt)["run_cnt"]
-    result.t3r_horse = cal_t3r_horse(result.horse_id, race.race_dt)["t3r_horse"]
-    result.t3r_jockey = cal_jockey(result.jockey_id, race.race_dt)
+    result = enrich_data(result)
 
     return result
 
 
+@transaction.atomic
+def enrich_data_wrapper():
+    for result in Result.objects.all():
+        enrich_data(result)
+
+
 def enrich_data(result):
-    result.run_cnt = cal_t3r_horse(result.horse_id, result.race.race_dt)["run_cnt"]
-    result.t3r_horse = cal_t3r_horse(result.horse_id, result.race.race_dt)["t3r_horse"]
-    result.t3r_jockey = cal_jockey(result.jockey_id, result.race.race_dt)
-    result.roi = round(result.odds * 100, 2) if result.rank <= 3 else 0
-    result.save()
+    result.t3r_jockey = cal_jky_hist(result.jockey_id, result.race.race_dt)
+    hrs_hist = cal_hrs_hist(result.horse_id, result.race.race_dt)
+    result.cnt_run = hrs_hist["cnt_run"]
+    result.t3r_horse = hrs_hist["t3r_horse"]
+    result.avg_ror = hrs_hist["avg_ror"]
+    result.avg_prize = hrs_hist["avg_prize"]
+    result.avg_last3f = hrs_hist["avg_last3f"]
+    return result
 
 
 def was_existed(soup):

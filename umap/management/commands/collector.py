@@ -9,7 +9,7 @@ from django.db.models import Min
 
 from umap.models import Race, Result
 from umap.uhelper import get_soup
-from umap.uparser import insert_race, insert_entry, update_race, update_race_entry, was_existed, enrich_data
+from umap.uparser import insert_race, insert_entry, update_race, update_race_entry, was_existed, enrich_data_wrapper
 
 latest = datetime.now().date() - timedelta(days=3)
 
@@ -37,8 +37,7 @@ class Command(BaseCommand):
         if option:
             collect_data("result")
             print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [ENRICH]")
-            for result in Result.objects.all():
-                enrich_data(result)
+            enrich_data_wrapper()
         else:
             for mode in ["result", "entry"]:
                 collect_data(mode)
@@ -109,3 +108,4 @@ def collect_data(mode):
                 update_race_entry(soup, race)
             else:
                 update_race(soup, race)
+        sleep(1)
