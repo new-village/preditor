@@ -55,7 +55,7 @@ def get_from_a(data, target="url"):
 
 def cal_jky_hist(jockey_id, race_dt):
     rtn = 0.0
-    query = Result.objects.filter(jockey_id=jockey_id, race__race_dt__lt=race_dt).exclude(rank=0).order_by("-race__race_dt")[:50]
+    query = Result.objects.filter(jockey_id=jockey_id, race__result_flg=True, race__race_dt__lt=race_dt).exclude(rank=0).order_by("-race__race_dt")[:50]
     cnt = query.count()
     if cnt != 0:
         rtn = round(len([rec for rec in query if rec.rank <= 3]) / cnt, 3)
@@ -64,7 +64,7 @@ def cal_jky_hist(jockey_id, race_dt):
 
 def cal_hrs_hist(horse_id, race_dt):
     rtn = {"cnt_run": 0, "t3r_horse": 0.0, "avg_ror": 0.0, "avg_prize": 0.0, "avg_last3f": 0.0}
-    query = Result.objects.filter(horse_id=horse_id, race__race_dt__lt=race_dt).exclude(rank=0).order_by("-race__race_dt")[:5]
+    query = Result.objects.filter(horse_id=horse_id, race__result_flg=True, race__race_dt__lt=race_dt).exclude(rank=0).order_by("-race__race_dt")[:5]
     cnt = query.count()
     if cnt != 0:
         top3 = [rec.odds for rec in query if rec.rank <= 3]
