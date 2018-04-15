@@ -22,7 +22,7 @@ class RaceAdmin(admin.ModelAdmin):
     list_display = ("race_dt", "place_name", "round", "title", "course", "weather", "condition",
                     "head_count", "max_prize", "odds_stdev", "result_flg")
     ordering = ["-result_flg", "-race_dt", "race_id"]
-    search_fields = ["race_id", "race_dt", "title", "result__horse_name"]
+    search_fields = ["race_id", "race_dt", "title", "results__horse_name", "place_name"]
     inlines = [ResultInline]
 
 
