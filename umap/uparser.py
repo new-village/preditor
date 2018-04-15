@@ -248,8 +248,9 @@ def parse_entry_8(cells, race):
 
 @transaction.atomic
 def enrich_data_wrapper():
-    for result in Result.objects.all():
+    for result in Result.objects.filter(race__result_flg=True):
         enrich_data(result)
+        result.save()
 
 
 def enrich_data(result):
