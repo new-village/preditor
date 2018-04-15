@@ -22,13 +22,13 @@ class RaceAdmin(admin.ModelAdmin):
     list_display = ("race_dt", "place_name", "round", "title", "course", "weather", "condition",
                     "head_count", "max_prize", "odds_stdev", "result_flg")
     ordering = ["-result_flg", "-race_dt", "race_id"]
-    search_fields = ["race_id", "race_dt"]
+    search_fields = ["race_id", "race_dt", "title", "result__horse_name"]
     inlines = [ResultInline]
 
 
 class ResultAdmin(admin.ModelAdmin):
     list_display = ("rank", "bracket", "horse_num", "horse_name", "sex", "age", "finish_time", "odds", "odor")
-    search_fields = ["key", "race__race_id"]
+    search_fields = ["race__race_id", "race__title", "horse_name"]
 
 
 class PredictionAdmin(admin.ModelAdmin):
