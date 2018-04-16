@@ -78,7 +78,9 @@ class Result(models.Model):
     avg_prize = models.FloatField(null=True)                    # 平均獲得賞金（直近5走）
     avg_last3f = models.FloatField(null=True)                   # 平均上り3Fタイム（直近5走）
     clf_result = models.NullBooleanField()                      # 予想結果（分類）
+    clf_result2 = models.IntegerField(null=True)                # 予想結果（分類）
     reg_result = models.FloatField(null=True)                   # 予想結果（回帰）
+    reg_result2 = models.FloatField(null=True)                  # 予想結果（回帰）
 
     def __str__(self):
         return str(self.race_id)

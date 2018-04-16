@@ -86,7 +86,9 @@ class Migration(migrations.Migration):
                 ('avg_prize', models.FloatField(null=True)),
                 ('avg_last3f', models.FloatField(null=True)),
                 ('clf_result', models.NullBooleanField()),
+                ('clf_result2', models.IntegerField(null=True)),
                 ('reg_result', models.FloatField(null=True)),
+                ('reg_result2', models.FloatField(null=True)),
                 ('race', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='results', to='umap.Race')),
             ],
             options={
