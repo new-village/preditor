@@ -6,9 +6,11 @@ from umap.models import Result, Race, Prediction
 class ResultInline(admin.TabularInline):
     model = Result
     fields = ("rank", "bracket", "horse_num", "horse_name", ("sex", "age"), "jockey_name", "finish_time", "odds",
-              "prize", "cnt_run", "t3r_horse", "t3r_jockey", "avg_ror", "clf_result", "reg_result")
+              "prize", "cnt_run", "t3r_horse", "t3r_jockey", "avg_ror", "clf_result", "clf_result2",
+              "reg_result", "reg_result2")
     readonly_fields = ("rank", "bracket", "horse_num", "horse_name", "sex", "age", "jockey_name", "finish_time", "odds",
-                       "prize", "cnt_run", "t3r_horse", "t3r_jockey", "avg_ror", "clf_result", "reg_result")
+                       "prize", "cnt_run", "t3r_horse", "t3r_jockey", "avg_ror", "clf_result", "clf_result2",
+                       "reg_result", "reg_result2")
     ordering = ["rank", "horse_num"]
 
     def has_delete_permission(self, request, obj):
