@@ -32,6 +32,7 @@ class Command(BaseCommand):
         for url in sportsnavi_urls(option):
             soup = get_soup(url)
             insert_race(soup)
+            sleep(5)
 
         # Get result & entry data
         if option:
@@ -108,4 +109,4 @@ def collect_data(mode):
                 update_race_entry(soup, race)
             else:
                 update_race(soup, race)
-        sleep(1)
+        sleep(5)
