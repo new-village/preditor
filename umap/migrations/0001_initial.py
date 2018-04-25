@@ -13,13 +13,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Prediction',
+            name='Pmodel',
             fields=[
-                ('label', models.CharField(max_length=80, primary_key=True, serialize=False)),
-                ('trained', models.BinaryField()),
+                ('title', models.CharField(max_length=80, primary_key=True, serialize=False)),
+                ('model_bin', models.BinaryField()),
                 ('target', models.CharField(max_length=80)),
-                ('recall', models.FloatField()),
-                ('precision', models.FloatField()),
+                ('explanatory', models.TextField(null=True)),
                 ('note', models.TextField(null=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
             ],
@@ -85,15 +84,24 @@ class Migration(migrations.Migration):
                 ('avg_ror', models.FloatField(null=True)),
                 ('avg_prize', models.FloatField(null=True)),
                 ('avg_last3f', models.FloatField(null=True)),
-                ('clf_result', models.NullBooleanField()),
-                ('clf_result2', models.IntegerField(null=True)),
-                ('reg_result', models.FloatField(null=True)),
-                ('reg_result2', models.FloatField(null=True)),
                 ('race', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='results', to='umap.Race')),
             ],
             options={
                 'verbose_name': '出走情報',
                 'verbose_name_plural': '出走情報',
+            },
+        ),
+        migrations.CreateModel(
+            name='Expect',
+            fields=[
+                ('result',
+                 models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False,
+                                      to='umap.Result')),
+                ('rf_top3', models.NullBooleanField()),
+            ],
+            options={
+                'verbose_name': '予測結果',
+                'verbose_name_plural': '予測結果',
             },
         ),
         migrations.AddIndex(

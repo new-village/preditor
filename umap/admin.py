@@ -1,16 +1,14 @@
 from django.contrib import admin
 
-from umap.models import Result, Race, Prediction
+from umap.models import Result, Race, Pmodel
 
 
 class ResultInline(admin.TabularInline):
     model = Result
     fields = ("rank", "bracket", "horse_num", "horse_name", ("sex", "age"), "jockey_name", "finish_time", "odds",
-              "prize", "cnt_run", "t3r_horse", "t3r_jockey", "avg_ror", "clf_result", "clf_result2",
-              "reg_result", "reg_result2")
-    readonly_fields = ("rank", "bracket", "horse_num", "horse_name", "sex", "age", "jockey_name", "finish_time", "odds",
-                       "prize", "cnt_run", "t3r_horse", "t3r_jockey", "avg_ror", "clf_result", "clf_result2",
-                       "reg_result", "reg_result2")
+              "prize", "cnt_run", "t3r_horse", "t3r_jockey", "avg_ror")
+    readonly_fields = ("rank", "bracket", "horse_num", "horse_name", "sex", "age", "jockey_name", "finish_time",
+                       "odds", "prize", "cnt_run", "t3r_horse", "t3r_jockey", "avg_ror")
     ordering = ["rank", "horse_num"]
 
     def has_delete_permission(self, request, obj):
@@ -33,10 +31,10 @@ class ResultAdmin(admin.ModelAdmin):
     search_fields = ["race__race_id", "race__title", "horse_name"]
 
 
-class PredictionAdmin(admin.ModelAdmin):
-    list_display = ("label", "target", "recall", "precision", "note", "updated_at")
+class PmodelAdmin(admin.ModelAdmin):
+    list_display = ("title", "note", "updated_at")
 
 
 admin.site.register(Race, RaceAdmin)
 admin.site.register(Result, ResultAdmin)
-admin.site.register(Prediction, PredictionAdmin)
+admin.site.register(Pmodel, PmodelAdmin)

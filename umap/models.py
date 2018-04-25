@@ -77,27 +77,34 @@ class Result(models.Model):
     avg_ror = models.FloatField(null=True)                      # 平均回収率（直近5走）
     avg_prize = models.FloatField(null=True)                    # 平均獲得賞金（直近5走）
     avg_last3f = models.FloatField(null=True)                   # 平均上り3Fタイム（直近5走）
-    clf_result = models.NullBooleanField()                      # 予想結果（分類）
-    clf_result2 = models.IntegerField(null=True)                # 予想結果（分類）
-    reg_result = models.FloatField(null=True)                   # 予想結果（回帰）
-    reg_result2 = models.FloatField(null=True)                  # 予想結果（回帰）
 
     def __str__(self):
         return str(self.race_id)
 
 
-class Prediction(models.Model):
+class Pmodel(models.Model):
     class Meta:
         verbose_name = "予測モデル"
         verbose_name_plural = "予測モデル"
 
-    label = models.CharField(primary_key=True, max_length=80)
-    trained = models.BinaryField(null=False)
+    title = models.CharField(primary_key=True, max_length=80)
+    model_bin = models.BinaryField(null=False)
     target = models.CharField(max_length=80)
-    recall = models.FloatField(null=False)
-    precision = models.FloatField(null=False)
+    explanatory = models.TextField(null=True)
     note = models.TextField(null=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return str(self.label)
+        return str(self.title)
+
+
+class Expect(models.Model):
+    class Meta:
+        verbose_name = "予測結果"
+        verbose_name_plural = "予測結果"
+
+    result = models.OneToOneField(Result, on_delete=models.CASCADE, primary_key=True)
+    rf_top3 = models.NullBooleanField()                      # 予想結果（分類）
+
+    def __str__(self):
+        return str(self.result)

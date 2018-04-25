@@ -30,6 +30,7 @@ class Command(BaseCommand):
         option = options["from"]
         # Get race schedule
         for url in sportsnavi_urls(option):
+            print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [GET] " + url)
             soup = get_soup(url)
             insert_race(soup)
             sleep(5)
