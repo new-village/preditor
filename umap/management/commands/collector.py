@@ -39,10 +39,11 @@ class Command(BaseCommand):
         if option:
             collect_data("result")
             print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [ENRICH]")
-            enrich_data_wrapper()
+            enrich_data_wrapper(date(int(option[0][0:4]), int(option[0][4:6]), 1))
         else:
             for mode in ["result", "entry"]:
                 collect_data(mode)
+            enrich_data_wrapper(latest)
 
         # Delete uncompleted data
         print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [DELETE]")

@@ -176,7 +176,6 @@ def parse_entry_13(cells, race):
     result.weight_diff = formatter("\d+\(([+-]?\d+)\)", cells[8].string, "int")
     result.odds = formatter("\d+.\d+", cells[9].string, "float")
     result.odor = formatter("\d+", cells[10].string, "int")
-    result = enrich_data(result)
 
     return result
 
@@ -199,7 +198,6 @@ def parse_entry_12(cells, race):
     result.trainer_name = formatter("[^!-~\xa0]+", get_from_a(cells[7], "name"))
     result.odds = formatter("\d+.\d+", cells[8].string, "float")
     result.odor = formatter("\d+", cells[9].string, "int")
-    result = enrich_data(result)
 
     return result
 
@@ -220,7 +218,6 @@ def parse_entry_10(cells, race):
     result.trainer_name = formatter("[^!-~\xa0]+", get_from_a(cells[5], "name"))
     result.odds = formatter("\d+.\d+", cells[6].string, "float")
     result.odor = formatter("\d+", cells[7].string, "int")
-    result = enrich_data(result)
 
     return result
 
@@ -241,14 +238,13 @@ def parse_entry_8(cells, race):
     result.trainer_name = formatter("[^!-~\xa0]+", get_from_a(cells[5], "name"))
     result.odds = 0
     result.odor = 0
-    result = enrich_data(result)
 
     return result
 
 
 @transaction.atomic
-def enrich_data_wrapper():
-    for result in Result.objects.filter(race__result_flg=True):
+def enrich_data_wrapper(from_dt):
+    for result in Result.objects.filter(race__race_dt=from_dt):
         enrich_data(result)
         result.save()
 
