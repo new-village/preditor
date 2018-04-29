@@ -1,16 +1,17 @@
 import re
+from datetime import date, datetime, timedelta
 
-from django.db.models import Avg
 from requests import Session, HTTPError
 import bs4 as bs
 
 from umap.models import Result
 
 
-def get_soup(url):
+def get_soup(_url):
+    print(str_now() + " [GET] " + _url)
     try:
         session = Session()
-        html = session.get(url)
+        html = session.get(_url)
         html.encoding = html.apparent_encoding
         soup = bs.BeautifulSoup(html.content, "html.parser", from_encoding=html.apparent_encoding)
     except HTTPError as e:
@@ -53,9 +54,15 @@ def get_from_a(data, target="url"):
     return value
 
 
+def fore_end(_date):
+    year = _date.year
+    month = _date.month
+    return date(year, month, 1)
+
+
 def cal_jky_hist(jockey_id, race_dt):
     rtn = 0.0
-    query = Result.objects.filter(jockey_id=jockey_id, race__result_flg=True, race__race_dt__lt=race_dt).exclude(rank=0).order_by("-race__race_dt")[:50]
+    query = Result.objects.filter(jockey_id=jockey_id, race__result_flg=True, race__race_dt__lt=race_dt).exclude(rank=0, rank__isnull=True).order_by("-race__race_dt")[:50]
     cnt = query.count()
     if cnt != 0:
         rtn = round(len([rec for rec in query if rec.rank <= 3]) / cnt, 3)
@@ -78,3 +85,7 @@ def cal_hrs_hist(horse_id, race_dt):
         rtn["avg_prize"] = round(sum([rec.prize for rec in last5]) / l5_cnt, 3)
         rtn["avg_last3f"] = round(sum([rec.last3f_time for rec in last5]) / l5_cnt, 3)
     return rtn
+
+
+def str_now():
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")

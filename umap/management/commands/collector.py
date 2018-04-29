@@ -5,11 +5,12 @@ from time import sleep
 import sys
 from django.core.management import BaseCommand
 from dateutil.relativedelta import relativedelta
+from django.db import transaction
 from django.db.models import Min
 
 from umap.models import Race, Result
-from umap.uhelper import get_soup
-from umap.uparser import insert_race, insert_entry, update_race, update_race_entry, was_existed, enrich_data_wrapper
+from umap.uhelper import get_soup, str_now, fore_end
+from umap.uparser import insert_entry, update_race_entry, enrich_data, was_created, update_race, insert_race
 
 latest = datetime.now().date() - timedelta(days=3)
 
@@ -27,41 +28,46 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        option = options["from"]
-        # Get race schedule
-        for url in sportsnavi_urls(option):
-            print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [GET] " + url)
-            soup = get_soup(url)
-            insert_race(soup)
+        # Set argument date if the args is available, or Set fore end date of this month
+        from_dt = arg_parser(options["from"])
+
+        # Get race list from SportsNavi
+        for url in sportsnavi_urls(from_dt):
+            page = get_soup(url)
+            insert_race(page)
             sleep(5)
 
-        # Get result & entry data
-        if option:
-            collect_data("result")
-            print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [ENRICH]")
-            enrich_data_wrapper(date(int(option[0][0:4]), int(option[0][4:6]), 1))
-        else:
-            for mode in ["result", "entry"]:
-                collect_data(mode)
-            enrich_data_wrapper(latest)
+        # Get race result from Netkeiba.com
+        for race in Race.objects.filter(race_dt__lt=latest, result_flg=False):
+            get_netkeiba_result(race)
+            sleep(5)
+
+        # Get race entry from Netkeiba.com
+        if from_dt == latest:
+            for race in Race.objects.filter(race_dt__gte=latest, result_flg=False):
+                get_netkeiba_entry(race)
+                sleep(5)
 
         # Delete uncompleted data
-        print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [DELETE]")
+        print(str_now() + " [DELETE]")
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
 
+        # Calc explanatory variable
+        # TODO: レース単位でデータ取得（レコード内でネストしたResult混み）を取得したい
+        print(str_now() + " [ENRICH] ")
+        for result in Result.objects.filter(race__race_dt__gte=fore_end(from_dt)):
+            enrich_data(result)
+
+        print(str_now() + " [FINISH]")
         sys.exit()
 
 
-def sportsnavi_urls(option):
+def sportsnavi_urls(start):
     # Set URL parameter
-    start_date = latest
-    end_date = start_date + relativedelta(months=+1, day=1)
-
-    # Override URL parameter, if command is had argument.
-    if option:
-        string_date = option[0]
-        start_date = date(int(string_date[0:4]), int(string_date[4:6]), 1)
-        end_date = Race.objects.aggregate(Min('race_dt'))['race_dt__min']
+    if start == latest:
+        end = start + relativedelta(months=+1, day=1)
+    else:
+        end = Race.objects.aggregate(Min('race_dt'))['race_dt__min']
 
     # Set variables
     base_url = "https://keiba.yahoo.co.jp/schedule/list/{YEAR}/?month={MONTH}"
@@ -70,45 +76,41 @@ def sportsnavi_urls(option):
 
     # Make URL by setting parameters
     urls = list()
-    while start_date <= end_date:
+    while start <= end:
         # CREATE URL
-        url = yr.sub(start_date.strftime('%Y'), base_url)
-        url = mo.sub(start_date.strftime('%m'), url)
+        url = yr.sub(start.strftime('%Y'), base_url)
+        url = mo.sub(start.strftime('%m'), url)
         urls.append(url)
-        start_date = start_date + relativedelta(months=+1, day=1)
+        start = start + relativedelta(months=+1, day=1)
 
     # Return list type url
     return urls
 
 
-def netkeiba_urls(mode="result"):
-    urls = list()
-
-    if mode == "result":
-        # Get race_id whose result flag is FALSE
-        races = Race.objects.filter(race_dt__lt=latest, result_flg=False).values("race_id")
-        base_url = "http://db.netkeiba.com/race/"
-    if mode == "entry":
-        # Get race_id whose result flag is FALSE
-        races = Race.objects.filter(race_dt__gte=latest, result_flg=False).values("race_id")
-        base_url = "http://race.netkeiba.com/?pid=race_old&id=c"
-
-    # Make URL by race_ids
-    for race in races:
-        urls.append(base_url + race["race_id"])
-
-    return urls
+@transaction.atomic
+def get_netkeiba_result(race):
+    page = get_soup("http://db.netkeiba.com/race/" + race.race_id)
+    mode = was_created(page)
+    if mode:
+        insert_entry(page, race)
+        update_race(mode, page, race)
 
 
-def collect_data(mode):
-    for url in netkeiba_urls(mode):
-        print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [GET] " + url)
-        soup = get_soup(url)
-        race = was_existed(soup)
-        if race:
-            insert_entry(soup, race)
-            if mode == "entry":
-                update_race_entry(soup, race)
-            else:
-                update_race(soup, race)
-        sleep(5)
+@transaction.atomic
+def get_netkeiba_entry(race):
+    page = get_soup("http://race.netkeiba.com/?pid=race_old&id=c" + race.race_id)
+    if was_created(page):
+        insert_entry(page, race)
+        update_race_entry(page, race)
+
+
+def arg_parser(_from):
+    # Get option date
+    if _from is not None:
+        str_arg = _from[0]
+        rtn_dt = date(int(str_arg[0:4]), int(str_arg[4:6]), 1)
+    # Or fore end date from latest
+    else:
+        rtn_dt = latest
+
+    return rtn_dt

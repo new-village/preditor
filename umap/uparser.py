@@ -41,7 +41,15 @@ def insert_race(soup):
     return
 
 
-def update_race(soup, race):
+def update_race(_mode, _page, _race):
+    if _mode == "result":
+        update_race_result(_page, _race)
+    elif _mode == "entry":
+        update_race_entry(_page, _race)
+    return
+
+
+def update_race_result(soup, race):
     race.title = soup.find("title").string.split(u"｜")[0]
     race.grade = formatter("\((G\d)\)", str(soup.find("dl", {"class": "racedata"}).find("h1")))
 
@@ -52,17 +60,8 @@ def update_race(soup, race):
     race.weather = formatter("晴|曇|小雨|雨|小雪|雪", line[1])
     race.condition = formatter("良|稍重|重|不良", line[2])
 
-    race.head_count = race.results.aggregate(Count("rank"))["rank__count"]
-    race.max_prize = race.results.aggregate(Max("prize"))["prize__max"]
-    # entryのlen(cells)が8の場合、オッズが存在せずエラーになる為、エラー回避ロジックを実装。
-    try:
-        race.odds_stdev = round(statistics.pstdev(race.results.exclude(rank=0).values_list('odds', flat=True)), 2)
-    except statistics.StatisticsError:
-        pass
-
     race.result_flg = True
     race.save()
-
     return
 
 
@@ -79,11 +78,6 @@ def update_race_entry(soup, race):
     race.condition = formatter("良|稍重|重|不良", conditions[2])
     race.head_count = formatter("\d+", otherdata[1].string, "int")
     race.max_prize = formatter("\d+", otherdata[2].string, "int")
-    # entryのlen(cells)が8の場合、オッズが存在せずエラーになる為、エラー回避ロジックを実装。
-    try:
-        race.odds_stdev = round(statistics.pstdev(race.results.values_list('odds', flat=True)), 2)
-    except statistics.StatisticsError:
-        pass
 
     race.save()
     return
@@ -92,11 +86,10 @@ def update_race_entry(soup, race):
 @transaction.atomic
 def insert_entry(soup, race):
     # Extract Entry or Result Table
-    table = soup.findAll("table",  {"class": ["race_table_old", "race_table_01"]})
+    table = soup.find("table",  {"class": ["race_table_old", "race_table_01"]})
 
-    if len(table) == 1:
-        table = table[0]
-    else:
+    # Create dummy table for avoiding loop error.
+    if table is None:
         table = bs4.BeautifulSoup("<tr><td></td></tr>", "html.parser")
 
     for row in table.findAll("tr"):
@@ -257,24 +250,25 @@ def enrich_data(result):
     result.avg_ror = hrs_hist["avg_ror"]
     result.avg_prize = hrs_hist["avg_prize"]
     result.avg_last3f = hrs_hist["avg_last3f"]
-    return result
+    result.save()
+    return
 
 
-def was_existed(soup):
-    fmt = re.compile("(\d+/\d+/\d+|\d+年\d+月\d+日)")
+def was_created(soup):
+    # What kind of soup?
     val = soup.find("title").string
-
-    if fmt.search(val) is not None:
-        race_id = formatter("\d+", soup.find("li", {"class": ["race_navi_result", "race_navi_shutuba"]}).a.get("href"))
-        race = Race.objects.get(pk=race_id)
+    if re.search("\d+/\d+/\d+", val) is not None:
+        rtn_code = "entry"
+    elif re.search("\d+年\d+月\d+日", val) is not None:
+        rtn_code = "result"
     else:
-        race = None
+        rtn_code = None
 
     # When the table is not exist on entry page, set abort process flag
     if len(soup.findAll("table",  {"class": ["race_table_old", "race_table_01"]})) == 0:
-        race = None
+        rtn_code = None
 
-    return race
+    return rtn_code
 
 
 def to_place_name(place_id):
