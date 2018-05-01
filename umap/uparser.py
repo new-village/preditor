@@ -83,7 +83,6 @@ def update_race_entry(soup, race):
     return
 
 
-@transaction.atomic
 def insert_entry(soup, race):
     # Extract Entry or Result Table
     table = soup.find("table",  {"class": ["race_table_old", "race_table_01"]})

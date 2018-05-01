@@ -38,14 +38,16 @@ class Command(BaseCommand):
             sleep(5)
 
         # Get race result from Netkeiba.com
+        base_url = "http://db.netkeiba.com/race/"
         for race in Race.objects.filter(race_dt__lt=latest, result_flg=False):
-            get_netkeiba_result(race)
+            get_netkeiba_data(base_url, race)
             sleep(5)
 
         # Get race entry from Netkeiba.com
+        base_url = "http://race.netkeiba.com/?pid=race_old&id=c"
         if from_dt == latest:
             for race in Race.objects.filter(race_dt__gte=latest, result_flg=False):
-                get_netkeiba_entry(race)
+                get_netkeiba_data(base_url, race)
                 sleep(5)
 
         # Delete uncompleted data
@@ -88,20 +90,12 @@ def sportsnavi_urls(start):
 
 
 @transaction.atomic
-def get_netkeiba_result(race):
-    page = get_soup("http://db.netkeiba.com/race/" + race.race_id)
+def get_netkeiba_data(_url, _race):
+    page = get_soup(_url + _race.race_id)
     mode = was_created(page)
     if mode:
-        insert_entry(page, race)
-        update_race(mode, page, race)
-
-
-@transaction.atomic
-def get_netkeiba_entry(race):
-    page = get_soup("http://race.netkeiba.com/?pid=race_old&id=c" + race.race_id)
-    if was_created(page):
-        insert_entry(page, race)
-        update_race_entry(page, race)
+        insert_entry(page, _race)
+        update_race(mode, page, _race)
 
 
 def arg_parser(_from):
