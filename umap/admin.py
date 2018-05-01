@@ -4,9 +4,11 @@ from umap.models import Result, Race, Pmodel, Expect
 
 
 class ResultInline(admin.TabularInline):
+    flist = ["rank", "bracket", "horse_num", "horse_name", "sex", "age", "jockey_name", "finish_time",
+                "odds", "prize", "cnt_run", "t3r_horse", "t3r_jockey", "avg_ror", "expect_top3"]
     model = Result
-    fields = ("rank", "bracket", "horse_num", "horse_name", ("sex", "age"), "jockey_name", "finish_time",
-                       "odds", "prize", "cnt_run", "t3r_horse", "t3r_jockey", "avg_ror")
+    fields = flist
+    readonly_fields = flist
     ordering = ["rank", "horse_num"]
 
     def has_delete_permission(self, request, obj):
@@ -14,16 +16,6 @@ class ResultInline(admin.TabularInline):
 
     def has_add_permission(self, request):
         return False
-
-    def get_readonly_fields(self, request, obj=None):
-        # make all fields readonly
-        readonly_fields = list(set(
-            [field.name for field in self.opts.local_fields] +
-            [field.name for field in self.opts.local_many_to_many]
-        ))
-        if 'is_submitted' in readonly_fields:
-            readonly_fields.remove('is_submitted')
-        return readonly_fields
 
 
 class RaceAdmin(admin.ModelAdmin):

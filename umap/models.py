@@ -78,6 +78,10 @@ class Result(models.Model):
     avg_prize = models.FloatField(null=True)                    # 平均獲得賞金（直近5走）
     avg_last3f = models.FloatField(null=True)                   # 平均上り3Fタイム（直近5走）
 
+    def expect_top3(self):
+        obj = Expect.objects.get(pk=self.key).values("rf_top3")
+        return obj
+
     def __str__(self):
         return str(self.race_id)
 
