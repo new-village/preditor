@@ -2,7 +2,7 @@ from django.db import transaction
 from django.db.models import Max, StdDev
 
 from umap.models import Result
-from umap.uhelper import str_now
+from umap.uhelper import str_now, round_3
 
 
 @transaction.atomic
@@ -17,7 +17,7 @@ def enrich_data(_races):
 def enrich_race(_race):
     _race.head_count = _race.results.exclude(rank=0).count()
     _race.max_prize = _race.results.exclude(rank=0).aggregate(Max("prize"))["prize__max"]
-    _race.odds_stdev = round(_race.results.exclude(rank=0).aggregate(StdDev("odds"))["odds__stddev"], 3)
+    _race.odds_stdev = round_3(_race.results.exclude(rank=0).aggregate(StdDev("odds"))["odds__stddev"])
     _race.save()
     return
 

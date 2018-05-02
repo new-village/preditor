@@ -60,3 +60,7 @@ def fore_end(_date):
 
 def str_now():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+
+def round_3(_value):
+    return round(_value, 3) if _value is not None else 0
