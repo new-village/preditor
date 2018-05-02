@@ -84,7 +84,7 @@ class Result(models.Model):
     avg_last3f = models.FloatField(null=True)                   # 平均上り3Fタイム（直近5走）
 
     def expect_top3(self):
-        obj = Expect.objects.get(pk=self.key).values("rf_top3")
+        obj = Expect.objects.get(pk=self.key).rf_top3
         return obj
 
     def __str__(self):
