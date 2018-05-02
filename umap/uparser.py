@@ -1,13 +1,11 @@
 import re
-import statistics
 import bs4
 from datetime import date
 
 from django.db import transaction
-from django.db.models import Count, Max, Avg
 
 from umap.models import Race, Result
-from umap.uhelper import formatter, get_from_a, cal_jky_hist, cal_hrs_hist
+from umap.uhelper import formatter, get_from_a
 
 
 @transaction.atomic
@@ -234,23 +232,7 @@ def parse_entry_8(cells, race):
     return result
 
 
-@transaction.atomic
-def enrich_data_wrapper(from_dt):
-    for result in Result.objects.filter(race__race_dt=from_dt):
-        enrich_data(result)
-        result.save()
 
-
-def enrich_data(result):
-    result.t3r_jockey = cal_jky_hist(result.jockey_id, result.race.race_dt)
-    hrs_hist = cal_hrs_hist(result.horse_id, result.race.race_dt)
-    result.cnt_run = hrs_hist["cnt_run"]
-    result.t3r_horse = hrs_hist["t3r_horse"]
-    result.avg_ror = hrs_hist["avg_ror"]
-    result.avg_prize = hrs_hist["avg_prize"]
-    result.avg_last3f = hrs_hist["avg_last3f"]
-    result.save()
-    return
 
 
 def was_created(soup):

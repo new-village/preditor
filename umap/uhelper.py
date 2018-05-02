@@ -1,10 +1,8 @@
 import re
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 
 from requests import Session, HTTPError
 import bs4 as bs
-
-from umap.models import Result
 
 
 def get_soup(_url):
@@ -58,33 +56,6 @@ def fore_end(_date):
     year = _date.year
     month = _date.month
     return date(year, month, 1)
-
-
-def cal_jky_hist(jockey_id, race_dt):
-    rtn = 0.0
-    query = Result.objects.filter(jockey_id=jockey_id, race__result_flg=True, race__race_dt__lt=race_dt).exclude(rank=0, rank__isnull=True).order_by("-race__race_dt")[:50]
-    cnt = query.count()
-    if cnt != 0:
-        rtn = round(len([rec for rec in query if rec.rank <= 3]) / cnt, 3)
-    return rtn
-
-
-def cal_hrs_hist(horse_id, race_dt):
-    rtn = {"cnt_run": 0, "t3r_horse": 0.0, "avg_ror": 0.0, "avg_prize": 0.0, "avg_last3f": 0.0}
-    query = Result.objects.filter(horse_id=horse_id, race__result_flg=True, race__race_dt__lt=race_dt).exclude(rank=0).order_by("-race__race_dt")
-    cnt = query.count()
-
-    last5 = query[:5]
-    l5_cnt = query[:5].count()
-
-    if l5_cnt != 0:
-        top3 = [rec.odds for rec in last5 if rec.rank <= 3]
-        rtn["cnt_run"] = cnt
-        rtn["t3r_horse"] = round(len(top3) / l5_cnt, 3)
-        rtn["avg_ror"] = round(sum(top3) / l5_cnt, 3)
-        rtn["avg_prize"] = round(sum([rec.prize for rec in last5]) / l5_cnt, 3)
-        rtn["avg_last3f"] = round(sum([rec.last3f_time for rec in last5]) / l5_cnt, 3)
-    return rtn
 
 
 def str_now():

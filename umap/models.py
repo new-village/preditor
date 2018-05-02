@@ -35,6 +35,11 @@ class Race(models.Model):
 
         return course
 
+    def _result_list(self):
+        return [result for result in Result.objects.filter(race__race_id=self.race_id)]
+
+    result_list = property(_result_list)
+
     def __str__(self):
         return str(self.times)+"回"+str(self.place_name)+str(self.days)+"日目 "+str(self.round)+"R"
 

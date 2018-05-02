@@ -8,9 +8,10 @@ from dateutil.relativedelta import relativedelta
 from django.db import transaction
 from django.db.models import Min
 
-from umap.models import Race, Result
+from umap.models import Race
+from umap.uenricher import enrich_data
 from umap.uhelper import get_soup, str_now, fore_end
-from umap.uparser import insert_entry, update_race_entry, enrich_data, was_created, update_race, insert_race
+from umap.uparser import insert_entry, was_created, update_race, insert_race
 
 latest = datetime.now().date() - timedelta(days=3)
 
@@ -55,10 +56,7 @@ class Command(BaseCommand):
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
 
         # Calc explanatory variable
-        # TODO: レース単位でデータ取得（レコード内でネストしたResult混み）を取得したい
-        print(str_now() + " [ENRICH] ")
-        for result in Result.objects.filter(race__race_dt__gte=fore_end(from_dt)):
-            enrich_data(result)
+        enrich_data(Race.objects.filter(race_dt__gte=fore_end(from_dt)))
 
         print(str_now() + " [FINISH]")
         sys.exit()
