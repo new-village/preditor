@@ -8,7 +8,7 @@ from dateutil.relativedelta import relativedelta
 from django.db import transaction
 from django.db.models import Min
 
-from umap.models import Race
+from umap.models import Race, Result
 from umap.uenricher import enrich_data
 from umap.uhelper import get_soup, str_now, fore_end
 from umap.uparser import insert_entry, was_created, update_race, insert_race
@@ -54,6 +54,7 @@ class Command(BaseCommand):
         # Delete uncompleted data
         print(str_now() + " [DELETE]")
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
+        Result.objects.filter(result_flg=False, horse_num__isnull=True).delete()
 
         # Calc explanatory variable
         enrich_data(Race.objects.filter(race_dt__gte=fore_end(from_dt)))
