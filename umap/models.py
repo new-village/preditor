@@ -1,3 +1,6 @@
+import gzip
+import pickle
+
 from django.db import models
 
 
@@ -32,7 +35,6 @@ class Race(models.Model):
             course = str(self.type)+str(self.length)+"m"
         else:
             course = ""
-
         return course
 
     def _result_list(self):
@@ -103,6 +105,14 @@ class Pmodel(models.Model):
     note = models.TextField(null=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def set(self, model):
+        self.mbin = gzip.compress(pickle.dumps(model))
+
+    def get(self):
+        return pickle.loads(gzip.decompress(self.mbin))
+
+    model_bin = property(get, set)
+
     def __str__(self):
         return str(self.title)
 
@@ -113,7 +123,9 @@ class Expect(models.Model):
         verbose_name_plural = "予測結果"
 
     result = models.OneToOneField(Result, on_delete=models.CASCADE, primary_key=True)
-    rf_top3 = models.NullBooleanField()                      # 予想結果（分類）
+    rf_v1 = models.NullBooleanField()                      # 予想結果（分類）
+    rf_v2 = models.NullBooleanField()                      # 予想結果（分類）
+    rf_v3 = models.NullBooleanField()                      # 予想結果（分類）
 
     def __str__(self):
         return str(self.result)

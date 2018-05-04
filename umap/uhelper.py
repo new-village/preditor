@@ -2,7 +2,10 @@ import re
 from datetime import date, datetime
 
 from requests import Session, HTTPError
+import pandas as pd
 import bs4 as bs
+
+from umap.models import Result
 
 
 def get_soup(_url):
@@ -64,3 +67,12 @@ def str_now():
 
 def round_3(_value):
     return round(_value, 3) if _value is not None else 0
+
+
+def pd_result(columns, result_flg):
+    results = Result.objects.filter(race__result_flg=result_flg).exclude(rank=0).values(*columns)
+    df = pd.DataFrame.from_records(results)
+
+    # Formalization
+    df.rename(columns={"race__max_prize": "race_prize", "race__weather": "weather", "race__condition": "condition", "race__head_count": "head_count", "race__odds_stdev": "odds_stdev"})
+    return df
