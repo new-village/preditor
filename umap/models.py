@@ -100,8 +100,10 @@ class Pmodel(models.Model):
 
     title = models.CharField(primary_key=True, max_length=80)
     mbin = models.BinaryField(null=True)
-    target = models.CharField(max_length=80)
-    explanatory = models.TextField(null=True)
+    method = models.CharField(max_length=80)
+    columns = models.TextField(null=True)
+    recall = models.FloatField(null=True)
+    precision = models.FloatField(null=True)
     note = models.TextField(null=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -125,7 +127,8 @@ class Expect(models.Model):
     result = models.OneToOneField(Result, on_delete=models.CASCADE, primary_key=True)
     rf_v1 = models.NullBooleanField()                      # 予想結果（分類）
     rf_v2 = models.NullBooleanField()                      # 予想結果（分類）
-    rf_v3 = models.NullBooleanField()                      # 予想結果（分類）
+    svc_v1 = models.NullBooleanField()                      # 予想結果（分類）
+    svc_v2 = models.NullBooleanField()                      # 予想結果（分類）
 
     def __str__(self):
         return str(self.result)

@@ -70,9 +70,9 @@ def round_3(_value):
 
 
 def pd_result(columns, result_flg):
-    results = Result.objects.filter(race__result_flg=result_flg).exclude(rank=0).values(*columns)
+    results = Result.objects.filter(race__result_flg=result_flg).exclude(rank=0, odds=0).values(*columns)
     df = pd.DataFrame.from_records(results)
 
     # Formalization
-    df.rename(columns={"race__max_prize": "race_prize", "race__weather": "weather", "race__condition": "condition", "race__head_count": "head_count", "race__odds_stdev": "odds_stdev"})
+    df = df.rename(columns={"race__max_prize": "race_prize", "race__weather": "weather", "race__condition": "condition", "race__head_count": "head_count", "race__odds_stdev": "odds_stdev"})
     return df
