@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             name='Pmodel',
             fields=[
                 ('title', models.CharField(max_length=80, primary_key=True, serialize=False)),
-                ('_bin', models.TextField(blank=True, db_column='bin')),
+                ('mbin', models.BinaryField(null=True)),
                 ('target', models.CharField(max_length=80)),
                 ('explanatory', models.TextField(null=True)),
                 ('note', models.TextField(null=True)),

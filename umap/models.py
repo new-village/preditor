@@ -1,5 +1,3 @@
-import base64
-
 from django.db import models
 
 
@@ -99,19 +97,11 @@ class Pmodel(models.Model):
         verbose_name_plural = "予測モデル"
 
     title = models.CharField(primary_key=True, max_length=80)
-    _bin = models.TextField(db_column='bin', blank=True)
+    mbin = models.BinaryField(null=True)
     target = models.CharField(max_length=80)
     explanatory = models.TextField(null=True)
     note = models.TextField(null=True)
     updated_at = models.DateTimeField(auto_now=True)
-
-    def set_bin(self, data):
-        self._pbin = base64.encodebytes(data)
-
-    def get_bin(self):
-        return base64.decodebytes(self._pbin)
-
-    bin = property(get_bin, set_bin)
 
     def __str__(self):
         return str(self.title)
