@@ -57,7 +57,7 @@ class Command(BaseCommand):
         Result.objects.filter(horse_num__isnull=True).delete()
 
         # Calc explanatory variable
-        enrich_data(Race.objects.filter(race_dt__gte=fore_end(from_dt)))
+        enrich_data(Race.objects.filter(race_dt__gte=fore_end(from_dt)).order_by("-race_dt"))
 
         print(str_now() + " [FINISH]")
         sys.exit()
