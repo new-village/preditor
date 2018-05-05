@@ -65,10 +65,15 @@ class Command(BaseCommand):
 
 def sportsnavi_urls(start):
     # Set URL parameter
-    if start == latest:
-        end = start + relativedelta(months=+1, day=1)
-    else:
+    end = None
+
+    # Set TO date when execution with FROM option
+    if start != latest:
         end = Race.objects.aggregate(Min('race_dt'))['race_dt__min']
+
+    # Set To date When the undefining of FROM option or Initial execution of collector with FROM option
+    if end is None:
+        end = latest + relativedelta(months=+1, day=1)
 
     # Set variables
     base_url = "https://keiba.yahoo.co.jp/schedule/list/{YEAR}/?month={MONTH}"
