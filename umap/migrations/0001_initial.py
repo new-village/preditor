@@ -47,6 +47,7 @@ class Migration(migrations.Migration):
                 ('condition', models.CharField(max_length=16)),
                 ('head_count', models.IntegerField(null=True)),
                 ('max_prize', models.FloatField(null=True)),
+                ('z_prize', models.FloatField(null=True)),
                 ('odds_stdev', models.FloatField(null=True)),
                 ('result_flg', models.BooleanField(default=False)),
             ],
@@ -86,6 +87,7 @@ class Migration(migrations.Migration):
                 ('avg_ror', models.FloatField(null=True)),
                 ('avg_prize', models.FloatField(null=True)),
                 ('avg_last3f', models.FloatField(null=True)),
+                ('avg_rate', models.FloatField(null=True)),
                 ('race', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='results', to='umap.Race')),
             ],
             options={

@@ -1,24 +1,27 @@
 from django.db import transaction
-from django.db.models import Max, StdDev
+from django.db.models import Max, StdDev, Avg
 
-from umap.models import Result
+from umap.models import Result, Race
 from umap.uhelper import str_now, round_3
 
 
 @transaction.atomic
 def enrich_data(_races):
+    params = {"avg_prize": round(Race.objects.filter(result_flg=True).aggregate(Avg("max_prize"))["max_prize__avg"], 3),
+              "std_prize": round(Race.objects.filter(result_flg=True).aggregate(StdDev("max_prize"))["max_prize__stddev"], 3)}
     for race in _races:
         print(str_now() + " [ENRICH] " + race.race_id)
-        enrich_race(race)
+        enrich_race(race, params)
         enrich_results(race.result_list)
     return
 
 
-def enrich_race(_race):
+def enrich_race(_race, _params):
     # set head_count and max_prize from result data
     if _race.result_flg:
         _race.head_count = _race.results.exclude(rank=0).count()
         _race.max_prize = _race.results.exclude(rank=0).aggregate(Max("prize"))["prize__max"]
+        _race.z_prize = round((_race.max_prize - _params["avg_prize"]) / _params["std_prize"], 3)
     _race.odds_stdev = round_3(_race.results.exclude(rank=0).aggregate(StdDev("odds"))["odds__stddev"])
     _race.save()
     return
@@ -34,6 +37,7 @@ def enrich_results(_results):
         result.avg_ror = hrs_hist["avg_ror"]
         result.avg_prize = hrs_hist["avg_prize"]
         result.avg_last3f = hrs_hist["avg_last3f"]
+        result.avg_rate = hrs_hist["avg_rate"]
         result.save()
     return
 
@@ -48,7 +52,7 @@ def cal_jky_hist(jockey_id, race_dt):
 
 
 def cal_hrs_hist(horse_id, race_dt):
-    rtn = {"cnt_run": 0, "t3r_horse": 0.0, "avg_ror": 0.0, "avg_prize": 0.0, "avg_last3f": 0.0}
+    rtn = {"cnt_run": 0, "t3r_horse": 0.0, "avg_ror": 0.0, "avg_prize": 0.0, "avg_last3f": 0.0, "avg_rate": 0.0}
     query = Result.objects.filter(horse_id=horse_id, race__result_flg=True, race__race_dt__lt=race_dt).exclude(rank=0).order_by("-race__race_dt")
     cnt = query.count()
 
@@ -62,4 +66,5 @@ def cal_hrs_hist(horse_id, race_dt):
         rtn["avg_ror"] = round(sum(top3) / l5_cnt, 3)
         rtn["avg_prize"] = round(sum([rec.prize for rec in last5]) / l5_cnt, 3)
         rtn["avg_last3f"] = round(sum([rec.last3f_time for rec in last5]) / l5_cnt, 3)
+        rtn["avg_rate"] = round(sum([rec.rank_rate() for rec in last5]) / l5_cnt, 3)
     return rtn

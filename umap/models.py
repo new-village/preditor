@@ -2,6 +2,7 @@ import gzip
 import pickle
 
 from django.db import models
+from django.db.models import Avg, StdDev
 
 
 class Race(models.Model):
@@ -27,6 +28,7 @@ class Race(models.Model):
     condition = models.CharField(max_length=16)             # 良（馬場状態）
     head_count = models.IntegerField(null=True)             # 16（頭数）
     max_prize = models.FloatField(null=True)                # 34000.0（優勝賞金）
+    z_prize = models.FloatField(null=True)                  # 優勝賞金のZ値
     odds_stdev = models.FloatField(null=True)               # 15.3（オッズ標準偏差）
     result_flg = models.BooleanField(default=False)
 
@@ -78,12 +80,19 @@ class Result(models.Model):
     owner_id = models.CharField(max_length=12)                  # 01110（馬主）
     owner_name = models.CharField(max_length=80)                # 01110（馬主）
     prize = models.FloatField(null=True)                        # 3000.12（賞金）
-    t3r_jockey = models.FloatField(null=True)                   # 騎手複勝率（直近10走）
+    t3r_jockey = models.FloatField(null=True)                   # 騎手複勝率（直近50走）
     cnt_run = models.IntegerField(null=True)                    # 出走回数
     t3r_horse = models.FloatField(null=True)                    # 競走馬複勝率（直近5走）
     avg_ror = models.FloatField(null=True)                      # 平均回収率（直近5走）
     avg_prize = models.FloatField(null=True)                    # 平均獲得賞金（直近5走）
     avg_last3f = models.FloatField(null=True)                   # 平均上り3Fタイム（直近5走）
+    avg_rate = models.FloatField(null=True)                     # 平均レート（直近5走）
+
+    def rank_rate(self):
+        rank = self.rank if self.rank is not None else 0
+        ref_rank = (rank * 2 / self.race.head_count) if self.race.head_count else 0
+        rank_rate = (1 - ref_rank + self.race.z_prize) if self.race.z_prize else 0
+        return rank_rate
 
     def top3_v1(self):
         obj = Expect.objects.get(pk=self.key).svc_v1
