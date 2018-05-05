@@ -6,41 +6,52 @@ The system is possible to provide all functions about prediction like extract da
 
 
 ## How to Start
-If you would like to start your environment, you have to do below.
+Prerequisites: You have to set up in advance below:
+* Python 3.6
+* PostgreSQL
+* sudo privileges without password
 
+If you would like to start this project in your environment, you have to do below:
 1. Clone this project.
 2. To set up the environment, execute the following command in terminal:
 ```console
 # Install Libraries
 pip install -r requirements.txt --upgrade
 ```
-3. To define the database information, rename "mysite/local_template.py" to "mysite/local.py"
-4. To set up the database, execute the following command in terminal:
+3. To available of the local setting variables, rename "mysite/local_template.py" to "mysite/local.py".
+4. To define the database information, change database connection parameters of "mysite/local.py".
+* You have to set up database in advance (I recommend to use PostgreSQL).
+5. To set up the Schema, execute the following command in terminal:
 ```console
 # Setup databases
-./manage.py makemigrations
+cd ${PYTHON_PROJECT_DIR}
 ./manage.py migrate
 # Create administrator
 ./manage.py createsuperuser
 # Set password of jupyter
 jupyter notebook password
 ```
-5. To start data collection, execute the following command in terminal:
+7. To available of web console, change EXC_USER and VENV_DIR of startup.sh.
+```shell
+EXC_USER=preditor
+VENV_DIR=/home/${EXC_USER}/.venv/preditor
+```
+8. Execute startup.sh
+```console
+cd ${PYTHON_PROJECT_DIR}
+chmod +x startup.sh
+./startup.sh
+```
+* You can access Django admin view (http://127.0.0.1/admin)
+* Also access Jupyter notebook (http://127.0.0.1:8888/)
+* After a short time, start collection of latest race data
+9. To collect history data, execute the following command in terminal:
 ```console
 # Start Shell
-./manage.py collector
-./manage.py collector --from YYYYMMDD
+./manage.py collector --from 20170101
 ```
-
-## Management View
-This app can provide data management view. If you would like to access, you have to do below.
-```console
-# Run server
-nohup sudo `which python3` ./manage.py runserver 0.0.0.0:80 &
-nohup ./manage.py shell_plus --notebook &
-```
-* Index View: http://127.0.0.1/
-* Jupyter: http://127.0.0.1:8888/
+* 20170101 means collecting race data from January 1, 2017 to This Month. if you would like to collect more, you can set older date formatted at YYYYMMDD.
+10. To prediction future races, execute Sample.ipynb from jupyter notebook.
 
 
 ## History
@@ -48,7 +59,7 @@ nohup ./manage.py shell_plus --notebook &
 |:----------:|:-------:|--------------------------------------------------------------------------------------|
 | 2018/01/07 |   1.0   | Released Initial Version. It is only possible to collect and enrich horse race data. |
 | 2018/02/12 |   1.5   | Support PostgreSQL and Jupter Notebook. Improve crawling logic.                      |
-| 2018/04/02 |   2.0   | Refactoring architecture.                                                            |
+| 2018/05/05 |   2.0   | Adding sample model and operating functions. Improving application architecture.     |
 
 
 ## Reference
