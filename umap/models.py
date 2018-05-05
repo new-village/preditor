@@ -89,9 +89,13 @@ class Result(models.Model):
         obj = Expect.objects.get(pk=self.key).svc_v1
         return obj
 
+    top3_v1.boolean = True
+
     def top3_v2(self):
         obj = Expect.objects.get(pk=self.key).rf_v1
         return obj
+
+    top3_v2.boolean = True
 
     def __str__(self):
         return str(self.race_id)
