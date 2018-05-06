@@ -101,7 +101,7 @@ class Result(models.Model):
     top3_v1.boolean = True
 
     def top3_v2(self):
-        obj = Expect.objects.get(pk=self.key).rf_v1
+        obj = Expect.objects.get(pk=self.key).svc_v2
         return obj
 
     top3_v2.boolean = True
