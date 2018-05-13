@@ -32,7 +32,7 @@ class ResultAdmin(admin.ModelAdmin):
 
 
 class PmodelAdmin(admin.ModelAdmin):
-    list_display = ("title", "note", "updated_at")
+    list_display = ("title", "method", "recall", "precision", "note", "updated_at")
 
 
 admin.site.register(Race, RaceAdmin)
