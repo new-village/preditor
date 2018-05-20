@@ -9,8 +9,7 @@ from django.db import transaction
 from django.db.models import Min
 
 from umap.models import Race, Result
-from umap.uenricher import enrich_data
-from umap.uhelper import get_soup, str_now, fore_end
+from umap.uhelper import get_soup, str_now
 from umap.uparser import insert_entry, was_created, update_race, insert_race
 
 latest = datetime.now().date() - timedelta(days=3)
@@ -55,9 +54,6 @@ class Command(BaseCommand):
         print(str_now() + " [DELETE]")
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
         Result.objects.filter(horse_num__isnull=True).delete()
-
-        # Calc explanatory variable
-        enrich_data(Race.objects.filter(race_dt__gte=fore_end(from_dt)).order_by("race_dt"))
 
         print(str_now() + " [FINISH]")
         sys.exit()

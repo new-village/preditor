@@ -47,8 +47,6 @@ class Migration(migrations.Migration):
                 ('condition', models.CharField(max_length=16)),
                 ('head_count', models.IntegerField(null=True)),
                 ('max_prize', models.FloatField(null=True)),
-                ('z_prize', models.FloatField(null=True)),
-                ('odds_stdev', models.FloatField(null=True)),
                 ('result_flg', models.BooleanField(default=False)),
             ],
             options={
@@ -81,13 +79,6 @@ class Migration(migrations.Migration):
                 ('owner_id', models.CharField(max_length=12)),
                 ('owner_name', models.CharField(max_length=80)),
                 ('prize', models.FloatField(null=True)),
-                ('t3r_jockey', models.FloatField(null=True)),
-                ('cnt_run', models.IntegerField(null=True)),
-                ('t3r_horse', models.FloatField(null=True)),
-                ('avg_ror', models.FloatField(null=True)),
-                ('avg_prize', models.FloatField(null=True)),
-                ('avg_last3f', models.FloatField(null=True)),
-                ('avg_rate', models.FloatField(null=True)),
                 ('race', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='results', to='umap.Race')),
             ],
             options={
