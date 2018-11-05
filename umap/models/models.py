@@ -94,21 +94,6 @@ class Result(models.Model):
         return str(self.race_id)
 
 
-class Variable(models.Model):
-    class Meta:
-        verbose_name = "加工変数"
-        verbose_name_plural = "加工変数"
-
-    result = models.OneToOneField(Result, on_delete=models.CASCADE, primary_key=True)
-    hrs_prz_max = models.FloatField(null=True)                      # 競走馬：最大獲得賞金
-    hrs_prz_avg = models.FloatField(null=True)                      # 競走馬：平均獲得賞金
-    jky_prz_max = models.FloatField(null=True)                      # 騎手：最大獲得賞金
-    jky_prz_avg = models.FloatField(null=True)                      # 騎手：平均獲得賞金
-
-    def __str__(self):
-        return str(self.result)
-
-
 class Pmodel(models.Model):
     class Meta:
         verbose_name = "予測モデル"
