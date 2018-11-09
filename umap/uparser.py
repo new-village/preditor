@@ -66,12 +66,13 @@ def update_race_result(soup, race):
 def update_race_entry(soup, race):
     # Parse HTML
     racedata = soup.find("dl", {"class": "racedata"}).find("dd")
-    conditions = racedata.find("span").string.split(u"\xa0/\xa0")
+    course = racedata.find_all("p")[0].string
+    conditions = racedata.find_all("p")[1].string.split(u"\xa0/\xa0")
     otherdata = soup.find("div", {"class": "race_otherdata"}).findAll('p')
 
     race.title = formatter("[^!-~\xa0]+", str(racedata.find('h1')))
-    race.type = to_course_full(formatter("[芝ダ障]", conditions[0]))
-    race.length = formatter("\d+", conditions[0], "int")
+    race.type = to_course_full(formatter("[芝ダ障]", course))
+    race.length = formatter("\d+", course, "int")
     race.weather = formatter("晴|曇|小雨|雨|小雪|雪", conditions[1])
     race.condition = formatter("良|稍重|重|不良", conditions[2])
     race.head_count = formatter("\d+", otherdata[1].string, "int")
@@ -261,5 +262,5 @@ def to_place_name(place_id):
 
 def to_course_full(abbr):
     master = {"ダ": "ダート", "障": "障害", "芝": "芝"}
-    course_full = master[abbr]
+    course_full = master[abbr] if abbr is not '' else 0
     return course_full
