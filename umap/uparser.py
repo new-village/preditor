@@ -120,7 +120,7 @@ def parse_result(cells, race):
     result.horse_num = formatter("\d+", cells[2].string, "int")
     result.horse_id = formatter("\d+", get_from_a(cells[3]))
     result.horse_name = formatter("[^!-~\xa0]+", get_from_a(cells[3], "name"))
-    result.key = str(race) + "-" + result.horse_id
+    result.key = race.race_id + result.horse_id
     result.sex = formatter("[牡牝騸セ]", cells[4].string)
     result.age = formatter("\d+", cells[4].string, "int")
     result.burden = formatter("(\d+).?\d?", cells[5].string, "float")
@@ -155,7 +155,7 @@ def parse_entry_13(cells, race):
     result.horse_num = formatter("\d+", cells[1].string, "int")
     result.horse_id = formatter("\d+", get_from_a(cells[3]))
     result.horse_name = formatter("[^!-~\xa0]+", get_from_a(cells[3], "name"))
-    result.key = str(race) + "-" + result.horse_id
+    result.key = race.race_id + result.horse_id
     result.sex = formatter("[牡牝騸セ]", cells[4].string)
     result.age = formatter("\d+", cells[4].string, "int")
     result.burden = formatter("(\d+).?\d?", cells[5].string, "float")
@@ -179,7 +179,7 @@ def parse_entry_12(cells, race):
     result.horse_num = formatter("\d+", cells[1].string, "int")
     result.horse_id = formatter("\d+", get_from_a(cells[3]))
     result.horse_name = formatter("[^!-~\xa0]+", get_from_a(cells[3], "name"))
-    result.key = str(race) + "-" + result.horse_id
+    result.key = race.race_id + result.horse_id
     result.sex = formatter("[牡牝騸セ]", cells[4].string)
     result.age = formatter("\d+", cells[4].string, "int")
     result.burden = formatter("(\d+).?\d?", cells[5].string, "float")
@@ -199,7 +199,7 @@ def parse_entry_10(cells, race):
     result.race = race
     result.horse_id = formatter("\d+", get_from_a(cells[1]))
     result.horse_name = formatter("[^!-~\xa0]+", get_from_a(cells[1], "name"))
-    result.key = str(race) + "-" + result.horse_id
+    result.key = race.race_id + result.horse_id
     result.sex = formatter("[牡牝騸セ]", cells[2].string)
     result.age = formatter("\d+", cells[2].string, "int")
     result.burden = formatter("(\d+).?\d?", cells[3].string, "float")
@@ -219,7 +219,7 @@ def parse_entry_8(cells, race):
     result.race = race
     result.horse_id = formatter("\d+", get_from_a(cells[1]))
     result.horse_name = formatter("[^!-~\xa0]+", get_from_a(cells[1], "name"))
-    result.key = str(race) + "-" + result.horse_id
+    result.key = race.race_id + result.horse_id
     result.sex = formatter("[牡牝騸セ]", cells[2].string)
     result.age = formatter("\d+", cells[2].string, "int")
     result.burden = formatter("(\d+).?\d?", cells[3].string, "float")
@@ -231,9 +231,6 @@ def parse_entry_8(cells, race):
     result.odor = 0
 
     return result
-
-
-
 
 
 def was_created(soup):
