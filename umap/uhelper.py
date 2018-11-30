@@ -75,4 +75,5 @@ def pd_result(columns, result_flg):
 
     # Formalization
     df = df.rename(columns={"race__max_prize": "max_prize", "race__weather": "weather", "race__condition": "condition", "race__head_count": "head_count", "race__odds_stdev": "odds_stdev", "race__race_id": "race_id", "race__race_dt": "race_dt"})
+    df = df.set_index("key")
     return df
