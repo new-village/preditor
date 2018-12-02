@@ -4,7 +4,7 @@ from umap.models import Result, Race, Pmodel
 
 
 class ResultInline(admin.TabularInline):
-    flist = ["rank", "bracket", "horse_num", "horse_name", "sex", "age", "jockey_name", "finish_time",
+    flist = ["rank", "bracket", "horse_num", "horse_name", "sex", "age", "jockey_name", "weight", "finish_time",
                 "odds", "prize", "top3_v1", "top3_v2"]
     model = Result
     fields = flist
