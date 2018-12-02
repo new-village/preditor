@@ -70,7 +70,7 @@ def round_3(_value):
 
 
 def pd_result(columns, result_flg):
-    results = Result.objects.filter(race__result_flg=result_flg).exclude(rank=0, odds=0).values(*columns)
+    results = Result.objects.filter(race__result_flg=result_flg).exclude(rank=0, odds=0, race__type="障害").values(*columns)
     df = pd.DataFrame.from_records(results)
 
     # Formalization
