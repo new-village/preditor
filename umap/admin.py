@@ -5,7 +5,7 @@ from umap.models import Result, Race, Pmodel
 
 class ResultInline(admin.TabularInline):
     flist = ["rank", "bracket", "horse_num", "horse_name", "sex", "age", "jockey_name", "weight", "finish_time",
-                "odds", "prize", "top3_v1", "top3_v2"]
+                "odds", "prize", "clf1", "clf2"]
     model = Result
     fields = flist
     readonly_fields = flist
@@ -31,7 +31,7 @@ class ResultAdmin(admin.ModelAdmin):
 
 
 class PmodelAdmin(admin.ModelAdmin):
-    list_display = ("title", "method", "recall", "precision", "note", "updated_at")
+    list_display = ("title", "method", "columns", "recall", "precision", "note", "updated_at")
 
 
 admin.site.register(Race, RaceAdmin)

@@ -78,17 +78,17 @@ class Result(models.Model):
     owner_name = models.CharField(max_length=80)                # 01110（馬主）
     prize = models.FloatField(null=True)                        # 3000.12（賞金）
 
-    def top3_v1(self):
-        obj = Expect.objects.get(pk=self.key).svc_v1
+    def clf1(self):
+        obj = Expect.objects.get(pk=self.key).clf_result1
         return obj
 
-    top3_v1.boolean = True
+    clf1.boolean = True
 
-    def top3_v2(self):
-        obj = Expect.objects.get(pk=self.key).svc_v2
+    def clf2(self):
+        obj = Expect.objects.get(pk=self.key).clf_result2
         return obj
 
-    top3_v2.boolean = True
+    clf2.boolean = True
 
     def __str__(self):
         return str(self.race_id)
@@ -126,10 +126,10 @@ class Expect(models.Model):
         verbose_name_plural = "予測結果"
 
     result = models.OneToOneField(Result, on_delete=models.CASCADE, primary_key=True)
-    rf_v1 = models.NullBooleanField()                      # 予想結果（分類）
-    rf_v2 = models.NullBooleanField()                      # 予想結果（分類）
-    svc_v1 = models.NullBooleanField()                      # 予想結果（分類）
-    svc_v2 = models.NullBooleanField()                      # 予想結果（分類）
+    clf_result1 = models.NullBooleanField()                      # 予想結果（分類）
+    clf_result2 = models.NullBooleanField()                      # 予想結果（分類）
+    clf_result3 = models.NullBooleanField()                      # 予想結果（分類）
+    clf_result4 = models.NullBooleanField()                      # 予想結果（分類）
 
     def __str__(self):
         return str(self.result)
