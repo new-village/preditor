@@ -54,7 +54,7 @@ def update_race_result(soup, race):
     # RACE DETAILS
     line = soup.find("dl", attrs={"class": "racedata"}).find("span").string.split(u"\xa0/\xa0")
     race.type = to_course_full(formatter("[芝ダ障]", line[0]))
-    race.length = formatter("\d+", line[0], "int")
+    race.length = formatter("\d{4}", line[0], "int")
     race.weather = formatter("晴|曇|小雨|雨|小雪|雪", line[1])
     race.condition = formatter("良|稍重|重|不良", line[2])
 
@@ -72,7 +72,7 @@ def update_race_entry(soup, race):
 
     race.title = formatter("[^!-~\xa0]+", str(racedata.find('h1')))
     race.type = to_course_full(formatter("[芝ダ障]", course))
-    race.length = formatter("\d+", course, "int")
+    race.length = formatter("\d{4}", course, "int")
     race.weather = formatter("晴|曇|小雨|雨|小雪|雪", conditions[1])
     race.condition = formatter("良|稍重|重|不良", conditions[2])
     race.head_count = formatter("\d+", otherdata[1].string, "int")
