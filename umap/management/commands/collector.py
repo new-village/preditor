@@ -8,10 +8,6 @@ from dateutil.relativedelta import relativedelta
 from django.db import transaction
 from django.db.models import Min
 
-try:
-    from umap.management.commands.analyzer import start_analysis
-except ImportError:
-    pass
 from umap.models import Race, Result
 from umap.uhelper import get_soup, str_now
 from umap.uparser import insert_entry, was_created, update_race, insert_race
@@ -59,11 +55,6 @@ class Command(BaseCommand):
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
         Result.objects.filter(horse_num__isnull=True).delete()
 
-        try:
-            start_analysis(from_dt)
-        except:
-            pass
-
         print(str_now() + " [FINISH]")
         sys.exit()
 
@@ -78,7 +69,7 @@ def sportsnavi_urls(start):
 
     # Set To date When the undefining of FROM option or Initial execution of collector with FROM option
     if end is None:
-        end = latest + relativedelta(months=+1, day=1)
+        end = latest + timedelta(weeks=2)
 
     # Set variables
     base_url = "https://keiba.yahoo.co.jp/schedule/list/{YEAR}/?month={MONTH}"
