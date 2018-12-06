@@ -5,7 +5,6 @@ from time import sleep
 import sys
 from django.core.management import BaseCommand
 from dateutil.relativedelta import relativedelta
-from django.db import transaction
 from django.db.models import Min
 
 from umap.models import Race, Result
@@ -53,7 +52,6 @@ class Command(BaseCommand):
         # Delete uncompleted data
         print(str_now() + " [DELETE]")
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
-        Result.objects.filter(horse_num__isnull=True).delete()
 
         print(str_now() + " [FINISH]")
         sys.exit()
