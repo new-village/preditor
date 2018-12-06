@@ -3,6 +3,7 @@ import bs4
 from datetime import date
 
 from django.db import transaction
+from django.db.models import Max, Count
 
 from umap.models import Race, Result
 from umap.uhelper import formatter, get_from_a
@@ -58,8 +59,8 @@ def update_race_result(soup, race):
     race.weather = formatter("晴|曇|小雨|雨|小雪|雪", line[1])
     race.condition = formatter("良|稍重|重|不良", line[2])
 
-    # TODO: Issues(#5) Add head_count and max prize variables
-    # race.head_count, race.max_prize = functionx
+    # RACE SUMMARY INFORMATION
+    race.head_count, race.max_prize = agg_results(race)
 
     race.result_flg = True
     race.save()
@@ -269,3 +270,11 @@ def to_course_full(abbr):
     master = {"ダ": "ダート", "障": "障害", "芝": "芝"}
     course_full = master[abbr] if abbr is not '' else 0
     return course_full
+
+
+def agg_results(_race):
+    query = Result.objects.filter(race__race_id=_race.race_id).exclude(rank=0).aggregate(Max("prize"), Count("key"))
+    head_count = round(query["key__count"], 2) if query["key__count"] is not None else 0
+    max_prize = round(query["prize__max"], 2) if query["prize__max"] is not None else 0
+
+    return [head_count, max_prize]
