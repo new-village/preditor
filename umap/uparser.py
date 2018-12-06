@@ -113,11 +113,11 @@ def insert_entry(soup, race):
         elif len(cells) == 8:
             result = parse_entry_8(cells, race)
 
-        if result.rank == 1:
-            time_of_first = result.finish_time
-
         if 'result' in locals():
             result.save()
+
+            if result.rank == 1:
+                time_of_first = result.finish_time
 
     return
 
@@ -143,7 +143,7 @@ def parse_result(cells, race, tof):
         tmp_time = [int(i) for i in tmp_time]  # Type conversion
         tmp_sec = (tmp_time[0] * 60 + tmp_time[1]) + (tmp_time[2] / 10)
         result.finish_time = tmp_sec
-    result.time_lag = result.finish_time - tof if result.finish_time is not None and tof != 0 else 0
+    result.time_lag = round(result.finish_time - tof, 2) if result.finish_time is not None and tof != 0 else 0
 
     result.last3f_time = formatter("\d+.\d+", cells[11].string, "float")
     result.odds = formatter("\d+.\d+", cells[12].string, "float")
