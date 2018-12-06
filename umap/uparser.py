@@ -95,13 +95,15 @@ def insert_entry(soup, race):
     if table is None:
         table = bs4.BeautifulSoup("<tr><td></td></tr>", "html.parser")
 
+    time_of_first = 0
+
     for row in table.findAll("tr"):
         cells = row.findAll("td")
 
         # IF the table is not listed all information, abort parse.
 
         if len(cells) == 21:
-            result = parse_result(cells, race)
+            result = parse_result(cells, race, time_of_first)
         elif len(cells) == 13:
             result = parse_entry_13(cells, race)
         elif len(cells) == 12:
@@ -111,8 +113,8 @@ def insert_entry(soup, race):
         elif len(cells) == 8:
             result = parse_entry_8(cells, race)
 
-        # TODO: ISSUES(#11) add logic to calc the diff with first
-        # if result.rank = 1: time_of_first = result.finish_time
+        if result.rank == 1:
+            time_of_first = result.finish_time
 
         if 'result' in locals():
             result.save()
@@ -120,7 +122,7 @@ def insert_entry(soup, race):
     return
 
 
-def parse_result(cells, race):
+def parse_result(cells, race, tof):
     result = Result()
 
     result.race = race
@@ -141,6 +143,7 @@ def parse_result(cells, race):
         tmp_time = [int(i) for i in tmp_time]  # Type conversion
         tmp_sec = (tmp_time[0] * 60 + tmp_time[1]) + (tmp_time[2] / 10)
         result.finish_time = tmp_sec
+    result.time_lag = result.finish_time - tof if result.finish_time is not None and tof != 0 else 0
 
     result.last3f_time = formatter("\d+.\d+", cells[11].string, "float")
     result.odds = formatter("\d+.\d+", cells[12].string, "float")
