@@ -67,6 +67,7 @@ class Result(models.Model):
     jockey_id = models.CharField(max_length=10)                 # 00666（騎手ID）
     jockey_name = models.CharField(max_length=80)               # 武豊（騎手名）
     finish_time = models.FloatField(null=True)                  # 153.6（タイム）
+    # TODO: ISSUES(#10) - add column to store diff time with first
     last3f_time = models.FloatField(null=True)                  # 34.6（上がり）
     odds = models.FloatField(null=True)                         # 4.7（オッズ）
     odor = models.IntegerField(null=True)                       # 2（人気順）

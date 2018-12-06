@@ -58,6 +58,9 @@ def update_race_result(soup, race):
     race.weather = formatter("晴|曇|小雨|雨|小雪|雪", line[1])
     race.condition = formatter("良|稍重|重|不良", line[2])
 
+    # TODO: Issues(#5) Add head_count and max prize variables
+    # race.head_count, race.max_prize = functionx
+
     race.result_flg = True
     race.save()
     return
@@ -82,6 +85,7 @@ def update_race_entry(soup, race):
     return
 
 
+@transaction.atomic
 def insert_entry(soup, race):
     # Extract Entry or Result Table
     table = soup.find("table",  {"class": ["race_table_old", "race_table_01"]})
@@ -94,6 +98,7 @@ def insert_entry(soup, race):
         cells = row.findAll("td")
 
         # IF the table is not listed all information, abort parse.
+
         if len(cells) == 21:
             result = parse_result(cells, race)
         elif len(cells) == 13:
@@ -104,6 +109,9 @@ def insert_entry(soup, race):
             result = parse_entry_10(cells, race)
         elif len(cells) == 8:
             result = parse_entry_8(cells, race)
+
+        # TODO: ISSUES(#11) add logic to calc the diff with first
+        # if result.rank = 1: time_of_first = result.finish_time
 
         if 'result' in locals():
             result.save()

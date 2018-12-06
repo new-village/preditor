@@ -89,13 +89,13 @@ def sportsnavi_urls(start):
     return urls
 
 
-@transaction.atomic
 def get_netkeiba_data(_url, _race):
     page = get_soup(_url + _race.race_id)
     mode = was_created(page)
     if mode:
         insert_entry(page, _race)
         update_race(mode, page, _race)
+        # TODO: ISSUES(#7) add payback
 
 
 def arg_parser(_from):
