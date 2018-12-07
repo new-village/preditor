@@ -52,7 +52,7 @@ class Command(BaseCommand):
         # Delete uncompleted data
         print(str_now() + " [DELETE]")
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
-        Result.objects.filter(horse_num__isnull=True, result_flg=True).delete()
+        Result.objects.filter(horse_num__isnull=True, race__result_flg=True).delete()
 
         print(str_now() + " [FINISH]")
         sys.exit()
