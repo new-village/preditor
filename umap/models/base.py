@@ -91,6 +91,18 @@ class Result(models.Model):
 
     clf2.boolean = True
 
+    def buy1(self):
+        obj = Expect.objects.get(pk=self.key).buy1
+        return obj
+
+    clf1.boolean = True
+
+    def buy2(self):
+        obj = Expect.objects.get(pk=self.key).buy2
+        return obj
+
+    clf2.boolean = True
+
     def __str__(self):
         return str(self.race_id)
 
@@ -131,6 +143,8 @@ class Expect(models.Model):
     clf_result2 = models.NullBooleanField()                      # 予想結果（分類）
     clf_result3 = models.NullBooleanField()                      # 予想結果（分類）
     clf_result4 = models.NullBooleanField()                      # 予想結果（分類）
+    buy1 = models.NullBooleanField()
+    buy2 = models.NullBooleanField()
 
     def __str__(self):
         return str(self.result)
