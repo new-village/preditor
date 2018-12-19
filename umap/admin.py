@@ -4,11 +4,10 @@ from umap.models import Result, Race, Pmodel
 
 
 class ResultInline(admin.TabularInline):
-    flist = ["rank", "bracket", "horse_num", "horse_name", "sex", "age", "jockey_name", "weight", "finish_time",
-                "time_lag", "odds", "prize", "clf1", "clf2", "buy1", "buy2"]
+    fields = ["rank", "bracket", "horse_num", "horse_name", "sex", "age", "jockey_name", "weight", "finish_time",
+              "time_lag", "odds", "prize"]
     model = Result
-    fields = flist
-    readonly_fields = flist
+    readonly_fields = fields
     ordering = ["rank", "horse_num"]
 
     def has_delete_permission(self, request, obj):

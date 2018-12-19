@@ -79,30 +79,6 @@ class Result(models.Model):
     owner_name = models.CharField(max_length=80)                # 01110（馬主）
     prize = models.FloatField(null=True)                        # 3000.12（賞金）
 
-    def clf1(self):
-        obj = Expect.objects.get(pk=self.key).clf_result1
-        return obj
-
-    clf1.boolean = True
-
-    def clf2(self):
-        obj = Expect.objects.get(pk=self.key).clf_result2
-        return obj
-
-    clf2.boolean = True
-
-    def buy1(self):
-        obj = Expect.objects.get(pk=self.key).buy1
-        return obj
-
-    clf1.boolean = True
-
-    def buy2(self):
-        obj = Expect.objects.get(pk=self.key).buy2
-        return obj
-
-    clf2.boolean = True
-
     def __str__(self):
         return str(self.race_id)
 
