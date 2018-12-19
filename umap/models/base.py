@@ -116,7 +116,7 @@ class Expect(models.Model):
         verbose_name_plural = "予測結果"
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    result = models.OneToOneField(Result, on_delete=models.CASCADE, null=True)
+    result = models.ForeignKey(Result, on_delete=models.CASCADE, null=True)
     pm_name = models.CharField(max_length=80, null=True)
     clf_result = models.NullBooleanField()
 
