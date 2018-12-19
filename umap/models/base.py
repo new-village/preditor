@@ -139,12 +139,8 @@ class Expect(models.Model):
         verbose_name_plural = "予測結果"
 
     result = models.OneToOneField(Result, on_delete=models.CASCADE, primary_key=True)
-    clf_result1 = models.NullBooleanField()                      # 予想結果（分類）
-    clf_result2 = models.NullBooleanField()                      # 予想結果（分類）
-    clf_result3 = models.NullBooleanField()                      # 予想結果（分類）
-    clf_result4 = models.NullBooleanField()                      # 予想結果（分類）
-    buy1 = models.NullBooleanField()
-    buy2 = models.NullBooleanField()
+    pm_name = models.CharField(max_length=80, null=True)
+    clf_result = models.NullBooleanField()
 
     def __str__(self):
         return str(self.result)
