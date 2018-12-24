@@ -70,6 +70,11 @@ def round_3(_value):
 
 
 def pd_result(columns, result_flg):
+    if "key" not in columns:
+        columns.append("key")
+
+    print(columns)
+
     results = Result.objects.filter(race__result_flg=result_flg).exclude(rank=0).exclude(odds=0).exclude(race__type="障害").values(*columns)
     df = pd.DataFrame.from_records(results)
 
