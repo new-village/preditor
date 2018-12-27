@@ -24216,3 +24216,1488 @@ Not Found: /favicon.ico
 [I 19:47:18.649 NotebookApp] Starting buffering for 7025f981-8eea-4d96-ba2c-8577427114a4:9e78ea61ff3a48b185b53add0d9adc69
 [I 19:47:24.221 NotebookApp] Kernel shutdown: 7025f981-8eea-4d96-ba2c-8577427114a4
 [I 19:47:44.664 NotebookApp] Starting buffering for db551d1a-1595-4f77-9449-c55a6e8cbf91:e93dd290153d40828be882ca93936ed2
+[26/Dec/2018 21:30:22] "GET / HTTP/1.0" 200 39
+[I 21:53:14.277 NotebookApp] 302 GET / (139.162.83.10) 4.93ms
+[26/Dec/2018 22:09:32] "GET / HTTP/1.1" 200 39
+[I 22:31:15.509 NotebookApp] Saving file at /Sample.ipynb
+[W 22:31:15.511 NotebookApp] Notebook Sample.ipynb is not trusted
+[I 22:32:46.704 NotebookApp] Saving file at /Sample.ipynb
+[W 22:32:46.706 NotebookApp] Notebook Sample.ipynb is not trusted
+[I 22:32:47.865 NotebookApp] Starting buffering for 746f074f-fec7-4b5c-8e30-216f81e16afa:b10de54ee2454cd481cfda302dfb3156
+[26/Dec/2018 22:32:54] "GET /admin HTTP/1.1" 301 0
+[26/Dec/2018 22:32:54] "GET /admin/ HTTP/1.1" 200 4627
+[26/Dec/2018 22:32:55] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[26/Dec/2018 22:32:55] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[26/Dec/2018 22:32:55] "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[26/Dec/2018 22:32:55] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[26/Dec/2018 22:32:55] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[26/Dec/2018 22:32:55] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[26/Dec/2018 22:32:55] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+[26/Dec/2018 22:32:55] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+[26/Dec/2018 22:32:55] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+[I 22:32:59.474 NotebookApp] 302 GET / (113.43.221.194) 1.38ms
+[W 22:33:04.186 NotebookApp] Notebook Sample.ipynb is not trusted
+[I 22:33:06.347 NotebookApp] Adapting to protocol v5.1 for kernel 746f074f-fec7-4b5c-8e30-216f81e16afa
+[26/Dec/2018 22:33:37] "GET / HTTP/1.1" 200 39
+[I 22:35:12.108 NotebookApp] Saving file at /Sample.ipynb
+[W 22:35:12.109 NotebookApp] Notebook Sample.ipynb is not trusted
+[I 22:35:33.182 NotebookApp] Starting buffering for 746f074f-fec7-4b5c-8e30-216f81e16afa:c6af4e625a5940ad9bba3092098af810
+[I 22:35:34.606 NotebookApp] Kernel shutdown: 746f074f-fec7-4b5c-8e30-216f81e16afa
+[26/Dec/2018 22:41:09] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[26/Dec/2018 22:41:09] "  /*à     Cookie: mstshash=Administr" 400 -
+[26/Dec/2018 22:41:30] "GET / HTTP/1.1" 200 39
+[26/Dec/2018 23:03:50] "OPTIONS / HTTP/1.1" 200 39
+[26/Dec/2018 23:16:15] "GET / HTTP/1.0" 200 39
+Session data corrupted
+[26/Dec/2018 23:17:14] "GET /admin/umap/race/?p=207 HTTP/1.1" 302 0
+Session data corrupted
+[26/Dec/2018 23:17:15] "GET /admin/login/?next=/admin/umap/race/%3Fp%3D207 HTTP/1.1" 200 1891
+Not Found: /favicon.ico
+[26/Dec/2018 23:17:15] "GET /favicon.ico HTTP/1.1" 404 2277
+[26/Dec/2018 23:31:58] "GET / HTTP/1.1" 200 39
+[26/Dec/2018 23:32:43] "GET / HTTP/1.1" 200 39
+[26/Dec/2018 23:37:24] "GET /admin/ HTTP/1.1" 200 4627
+[26/Dec/2018 23:37:29] "GET /admin/umap/pmodel/ HTTP/1.1" 200 6771
+[26/Dec/2018 23:37:29] "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[26/Dec/2018 23:37:29] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[26/Dec/2018 23:37:29] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[26/Dec/2018 23:37:29] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[26/Dec/2018 23:37:29] "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[26/Dec/2018 23:37:29] "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[26/Dec/2018 23:37:29] "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[26/Dec/2018 23:37:29] "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[26/Dec/2018 23:37:29] "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[26/Dec/2018 23:37:29] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[26/Dec/2018 23:37:29] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[27/Dec/2018 00:38:09] "GET / HTTP/1.1" 200 39
+[27/Dec/2018 00:43:20] "GET / HTTP/1.0" 200 39
+[27/Dec/2018 01:02:07] "GET / HTTP/1.0" 200 39
+[27/Dec/2018 01:11:42] "GET / HTTP/1.1" 200 39
+[27/Dec/2018 01:19:05] "GET / HTTP/1.1" 200 39
+Not Found: /index.php
+[27/Dec/2018 02:14:17] "GET /index.php HTTP/1.1" 404 2279
+Not Found: /phpmyadmin/index.php
+[27/Dec/2018 02:14:17] "GET /phpmyadmin/index.php HTTP/1.1" 404 2312
+[27/Dec/2018 02:32:15] "GET / HTTP/1.1" 200 39
+----------------------------------------
+Exception happened during processing of request from ('61.219.11.151', 63943)
+Traceback (most recent call last):
+  File "/usr/lib64/python3.6/socketserver.py", line 639, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib64/python3.6/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib64/python3.6/socketserver.py", line 696, in __init__
+    self.handle()
+  File "/home/alumina/.venv/preditor/lib64/python3.6/site-packages/django/core/servers/basehttp.py", line 139, in handle
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib64/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[27/Dec/2018 03:16:07] "GET / HTTP/1.0" 200 39
+[27/Dec/2018 03:18:47] "GET / HTTP/1.0" 200 39
+[27/Dec/2018 04:17:17] "GET / HTTP/1.1" 200 39
+[27/Dec/2018 04:34:00] "GET / HTTP/1.1" 200 39
+[27/Dec/2018 05:12:18] "GET / HTTP/1.1" 200 39
+Not Found: /http:/www.msftncsi.com/ncsi.txt
+[27/Dec/2018 05:12:19] "GET http://www.msftncsi.com/ncsi.txt HTTP/1.1" 404 1705
+Not Found: /HNAP1/
+[27/Dec/2018 05:12:21] "GET /HNAP1/ HTTP/1.1" 404 2270
+Not Found: /hudson/script
+[27/Dec/2018 05:12:22] "GET /hudson/script HTTP/1.1" 404 2291
+Not Found: /script
+[27/Dec/2018 05:12:23] "GET /script HTTP/1.1" 404 2270
+Not Found: /sqlite/main.php
+[27/Dec/2018 05:12:24] "GET /sqlite/main.php HTTP/1.1" 404 2297
+Not Found: /sqlitemanager/main.php
+[27/Dec/2018 05:12:25] "GET /sqlitemanager/main.php HTTP/1.1" 404 2318
+Not Found: /SQLiteManager/main.php
+[27/Dec/2018 05:12:27] "GET /SQLiteManager/main.php HTTP/1.1" 404 2318
+Not Found: /SQLite/main.php
+[27/Dec/2018 05:12:28] "GET /SQLite/main.php HTTP/1.1" 404 2297
+Not Found: /SQlite/main.php
+[27/Dec/2018 05:12:29] "GET /SQlite/main.php HTTP/1.1" 404 2297
+Not Found: /main.php
+[27/Dec/2018 05:12:30] "GET /main.php HTTP/1.1" 404 2276
+Not Found: /test/sqlite/SQLiteManager-1.2.0/SQLiteManager-1.2.0/main.php
+[27/Dec/2018 05:12:31] "GET /test/sqlite/SQLiteManager-1.2.0/SQLiteManager-1.2.0/main.php HTTP/1.1" 404 2432
+Not Found: /SQLiteManager-1.2.4/main.php
+[27/Dec/2018 05:12:32] "GET /SQLiteManager-1.2.4/main.php HTTP/1.1" 404 2336
+Not Found: /agSearch/SQlite/main.php
+[27/Dec/2018 05:12:33] "GET /agSearch/SQlite/main.php HTTP/1.1" 404 2324
+Not Found: /phpmyadmin/
+[27/Dec/2018 05:12:35] "GET /phpmyadmin/ HTTP/1.1" 404 2285
+Not Found: /phpMyAdmin/
+[27/Dec/2018 05:12:36] "GET /phpMyAdmin/ HTTP/1.1" 404 2285
+Not Found: /PMA/
+[27/Dec/2018 05:12:37] "GET /PMA/ HTTP/1.1" 404 2264
+Not Found: /pma/
+[27/Dec/2018 05:12:38] "GET /pma/ HTTP/1.1" 404 2264
+[27/Dec/2018 05:12:40] "GET /admin/ HTTP/1.1" 302 0
+[27/Dec/2018 05:12:41] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1855
+Not Found: /dbadmin/
+[27/Dec/2018 05:12:42] "GET /dbadmin/ HTTP/1.1" 404 2276
+Not Found: /mysql/
+[27/Dec/2018 05:12:43] "GET /mysql/ HTTP/1.1" 404 2270
+Not Found: /myadmin/
+[27/Dec/2018 05:12:44] "GET /myadmin/ HTTP/1.1" 404 2276
+Not Found: /openserver/phpmyadmin/
+[27/Dec/2018 05:12:45] "GET /openserver/phpmyadmin/ HTTP/1.1" 404 2318
+Not Found: /phpmyadmin2/
+[27/Dec/2018 05:12:46] "GET /phpmyadmin2/ HTTP/1.1" 404 2288
+Not Found: /phpMyAdmin2/
+[27/Dec/2018 05:12:47] "GET /phpMyAdmin2/ HTTP/1.1" 404 2288
+Not Found: /phpMyAdmin-2/
+[27/Dec/2018 05:12:48] "GET /phpMyAdmin-2/ HTTP/1.1" 404 2291
+Not Found: /php-my-admin/
+[27/Dec/2018 05:12:50] "GET /php-my-admin/ HTTP/1.1" 404 2291
+Not Found: /phpMyAdmin-2.2.3/
+[27/Dec/2018 05:12:51] "GET /phpMyAdmin-2.2.3/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.2.6/
+[27/Dec/2018 05:12:53] "GET /phpMyAdmin-2.2.6/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.5.1/
+[27/Dec/2018 05:12:54] "GET /phpMyAdmin-2.5.1/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.5.4/
+[27/Dec/2018 05:12:55] "GET /phpMyAdmin-2.5.4/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.5.5-rc1/
+[27/Dec/2018 05:12:56] "GET /phpMyAdmin-2.5.5-rc1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.5.5-rc2/
+[27/Dec/2018 05:12:58] "GET /phpMyAdmin-2.5.5-rc2/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.5.5/
+[27/Dec/2018 05:12:59] "GET /phpMyAdmin-2.5.5/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.5.5-pl1/
+[27/Dec/2018 05:13:00] "GET /phpMyAdmin-2.5.5-pl1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.5.6-rc1/
+[27/Dec/2018 05:13:01] "GET /phpMyAdmin-2.5.6-rc1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.5.6-rc2/
+[27/Dec/2018 05:13:02] "GET /phpMyAdmin-2.5.6-rc2/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.5.6/
+[27/Dec/2018 05:13:03] "GET /phpMyAdmin-2.5.6/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.5.7/
+[27/Dec/2018 05:13:05] "GET /phpMyAdmin-2.5.7/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.5.7-pl1/
+[27/Dec/2018 05:13:06] "GET /phpMyAdmin-2.5.7-pl1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.0-alpha/
+[27/Dec/2018 05:13:07] "GET /phpMyAdmin-2.6.0-alpha/ HTTP/1.1" 404 2321
+Not Found: /phpMyAdmin-2.6.0-alpha2/
+[27/Dec/2018 05:13:08] "GET /phpMyAdmin-2.6.0-alpha2/ HTTP/1.1" 404 2324
+Not Found: /phpMyAdmin-2.6.0-beta1/
+[27/Dec/2018 05:13:10] "GET /phpMyAdmin-2.6.0-beta1/ HTTP/1.1" 404 2321
+Not Found: /phpMyAdmin-2.6.0-beta2/
+[27/Dec/2018 05:13:11] "GET /phpMyAdmin-2.6.0-beta2/ HTTP/1.1" 404 2321
+Not Found: /phpMyAdmin-2.6.0-rc1/
+[27/Dec/2018 05:13:12] "GET /phpMyAdmin-2.6.0-rc1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.0-rc2/
+[27/Dec/2018 05:13:13] "GET /phpMyAdmin-2.6.0-rc2/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.0-rc3/
+[27/Dec/2018 05:13:15] "GET /phpMyAdmin-2.6.0-rc3/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.0/
+[27/Dec/2018 05:13:16] "GET /phpMyAdmin-2.6.0/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.6.0-pl1/
+[27/Dec/2018 05:13:17] "GET /phpMyAdmin-2.6.0-pl1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.0-pl2/
+[27/Dec/2018 05:13:18] "GET /phpMyAdmin-2.6.0-pl2/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.0-pl3/
+[27/Dec/2018 05:13:19] "GET /phpMyAdmin-2.6.0-pl3/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.1-rc1/
+[27/Dec/2018 05:13:20] "GET /phpMyAdmin-2.6.1-rc1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.1-rc2/
+[27/Dec/2018 05:13:21] "GET /phpMyAdmin-2.6.1-rc2/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.1/
+[27/Dec/2018 05:13:23] "GET /phpMyAdmin-2.6.1/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.6.1-pl1/
+[27/Dec/2018 05:13:24] "GET /phpMyAdmin-2.6.1-pl1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.1-pl2/
+[27/Dec/2018 05:13:25] "GET /phpMyAdmin-2.6.1-pl2/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.1-pl3/
+[27/Dec/2018 05:13:26] "GET /phpMyAdmin-2.6.1-pl3/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.2-rc1/
+[27/Dec/2018 05:13:28] "GET /phpMyAdmin-2.6.2-rc1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.2-beta1/
+[27/Dec/2018 05:13:29] "GET /phpMyAdmin-2.6.2-beta1/ HTTP/1.1" 404 2321
+Not Found: /phpMyAdmin-2.6.2-rc1/
+[27/Dec/2018 05:13:30] "GET /phpMyAdmin-2.6.2-rc1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.2/
+[27/Dec/2018 05:13:31] "GET /phpMyAdmin-2.6.2/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.6.2-pl1/
+[27/Dec/2018 05:13:32] "GET /phpMyAdmin-2.6.2-pl1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.3/
+[27/Dec/2018 05:13:34] "GET /phpMyAdmin-2.6.3/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.6.3-rc1/
+[27/Dec/2018 05:13:35] "GET /phpMyAdmin-2.6.3-rc1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.3/
+[27/Dec/2018 05:13:36] "GET /phpMyAdmin-2.6.3/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.6.3-pl1/
+[27/Dec/2018 05:13:38] "GET /phpMyAdmin-2.6.3-pl1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.4-rc1/
+[27/Dec/2018 05:13:39] "GET /phpMyAdmin-2.6.4-rc1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.4-pl1/
+[27/Dec/2018 05:13:40] "GET /phpMyAdmin-2.6.4-pl1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.4-pl2/
+[27/Dec/2018 05:13:41] "GET /phpMyAdmin-2.6.4-pl2/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.4-pl3/
+[27/Dec/2018 05:13:43] "GET /phpMyAdmin-2.6.4-pl3/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.4-pl4/
+[27/Dec/2018 05:13:44] "GET /phpMyAdmin-2.6.4-pl4/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.6.4/
+[27/Dec/2018 05:13:45] "GET /phpMyAdmin-2.6.4/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.7.0-beta1/
+[27/Dec/2018 05:13:46] "GET /phpMyAdmin-2.7.0-beta1/ HTTP/1.1" 404 2321
+Not Found: /phpMyAdmin-2.7.0-rc1/
+[27/Dec/2018 05:13:47] "GET /phpMyAdmin-2.7.0-rc1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.7.0-pl1/
+[27/Dec/2018 05:13:49] "GET /phpMyAdmin-2.7.0-pl1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.7.0-pl2/
+[27/Dec/2018 05:13:50] "GET /phpMyAdmin-2.7.0-pl2/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.7.0/
+[27/Dec/2018 05:13:51] "GET /phpMyAdmin-2.7.0/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.8.0-beta1/
+[27/Dec/2018 05:13:52] "GET /phpMyAdmin-2.8.0-beta1/ HTTP/1.1" 404 2321
+Not Found: /phpMyAdmin-2.8.0-rc1/
+[27/Dec/2018 05:13:53] "GET /phpMyAdmin-2.8.0-rc1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.8.0-rc2/
+[27/Dec/2018 05:13:54] "GET /phpMyAdmin-2.8.0-rc2/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.8.0/
+[27/Dec/2018 05:13:55] "GET /phpMyAdmin-2.8.0/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.8.0.1/
+[27/Dec/2018 05:13:57] "GET /phpMyAdmin-2.8.0.1/ HTTP/1.1" 404 2309
+Not Found: /phpMyAdmin-2.8.0.2/
+[27/Dec/2018 05:13:58] "GET /phpMyAdmin-2.8.0.2/ HTTP/1.1" 404 2309
+Not Found: /phpMyAdmin-2.8.0.3/
+[27/Dec/2018 05:13:59] "GET /phpMyAdmin-2.8.0.3/ HTTP/1.1" 404 2309
+Not Found: /phpMyAdmin-2.8.0.4/
+[27/Dec/2018 05:14:00] "GET /phpMyAdmin-2.8.0.4/ HTTP/1.1" 404 2309
+Not Found: /phpMyAdmin-2.8.1-rc1/
+[27/Dec/2018 05:14:02] "GET /phpMyAdmin-2.8.1-rc1/ HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-2.8.1/
+[27/Dec/2018 05:14:03] "GET /phpMyAdmin-2.8.1/ HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin-2.8.2/
+[27/Dec/2018 05:14:04] "GET /phpMyAdmin-2.8.2/ HTTP/1.1" 404 2303
+Not Found: /sqlmanager/
+[27/Dec/2018 05:14:05] "GET /sqlmanager/ HTTP/1.1" 404 2285
+Not Found: /mysqlmanager/
+[27/Dec/2018 05:14:06] "GET /mysqlmanager/ HTTP/1.1" 404 2291
+Not Found: /p/m/a/
+[27/Dec/2018 05:14:08] "GET /p/m/a/ HTTP/1.1" 404 2270
+Not Found: /PMA2005/
+[27/Dec/2018 05:14:09] "GET /PMA2005/ HTTP/1.1" 404 2276
+Not Found: /pma2005/
+[27/Dec/2018 05:14:11] "GET /pma2005/ HTTP/1.1" 404 2276
+Not Found: /phpmanager/
+[27/Dec/2018 05:14:12] "GET /phpmanager/ HTTP/1.1" 404 2285
+Not Found: /php-myadmin/
+[27/Dec/2018 05:14:13] "GET /php-myadmin/ HTTP/1.1" 404 2288
+Not Found: /phpmy-admin/
+[27/Dec/2018 05:14:14] "GET /phpmy-admin/ HTTP/1.1" 404 2288
+Not Found: /webadmin/
+[27/Dec/2018 05:14:15] "GET /webadmin/ HTTP/1.1" 404 2279
+Not Found: /sqlweb/
+[27/Dec/2018 05:14:17] "GET /sqlweb/ HTTP/1.1" 404 2273
+Not Found: /websql/
+[27/Dec/2018 05:14:18] "GET /websql/ HTTP/1.1" 404 2273
+Not Found: /webdb/
+[27/Dec/2018 05:14:19] "GET /webdb/ HTTP/1.1" 404 2270
+Not Found: /mysqladmin/
+[27/Dec/2018 05:14:20] "GET /mysqladmin/ HTTP/1.1" 404 2285
+Not Found: /mysql-admin/
+[27/Dec/2018 05:14:22] "GET /mysql-admin/ HTTP/1.1" 404 2288
+[27/Dec/2018 05:34:45] "GET / HTTP/1.0" 200 39
+[27/Dec/2018 05:34:54] "GET / HTTP/1.0" 200 39
+[27/Dec/2018 05:34:56] "GET / HTTP/1.0" 200 39
+[27/Dec/2018 06:12:45] "GET / HTTP/1.0" 200 39
+[27/Dec/2018 07:06:51] "GET / HTTP/1.1" 200 39
+[27/Dec/2018 07:28:42] "GET / HTTP/1.1" 200 39
+[27/Dec/2018 07:50:39] code 400, message Bad request syntax ('\x04\x01\x00P´£qR\x00')
+[27/Dec/2018 07:50:39] " P´£qR " 400 -
+Session data corrupted
+[27/Dec/2018 08:09:53] "GET /admin/umap/race/?p=207 HTTP/1.1" 302 0
+Session data corrupted
+[27/Dec/2018 08:09:53] "GET /admin/login/?next=/admin/umap/race/%3Fp%3D207 HTTP/1.1" 200 1891
+[27/Dec/2018 08:09:53] "GET /static/admin/css/login.css HTTP/1.1" 304 0
+[27/Dec/2018 08:09:53] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[27/Dec/2018 08:09:54] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[27/Dec/2018 08:09:54] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[27/Dec/2018 08:09:54] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+[27/Dec/2018 08:09:54] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+[27/Dec/2018 08:09:54] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[27/Dec/2018 08:09:54] "GET /favicon.ico HTTP/1.1" 404 2277
+[27/Dec/2018 08:46:56] "GET / HTTP/1.1" 200 39
+[27/Dec/2018 08:47:25] "GET / HTTP/1.0" 200 39
+[27/Dec/2018 08:47:26] "GET / HTTP/1.0" 200 39
+[27/Dec/2018 08:55:22] "GET / HTTP/1.1" 200 39
+[I 08:57:14.664 NotebookApp] 302 GET / (113.43.221.194) 2.85ms
+[I 08:58:03.409 NotebookApp] Uploading file to /02_SvcGridSearch_20181226v1.ipynb
+[W 08:58:03.411 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 08:58:11.132 NotebookApp] Kernel shutdown: db551d1a-1595-4f77-9449-c55a6e8cbf91
+[W 08:58:13.396 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 08:58:14.472 NotebookApp] Kernel started: 3e62b179-e0ed-4d4f-ae3e-a00be65226c6
+[I 08:58:16.268 NotebookApp] Adapting to protocol v5.1 for kernel 3e62b179-e0ed-4d4f-ae3e-a00be65226c6
+[I 09:00:16.971 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 09:00:17.467 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[27/Dec/2018 09:02:03] "GET /admin/ HTTP/1.1" 302 0
+[27/Dec/2018 09:02:13] "GET /admin/ HTTP/1.1" 200 4627
+[27/Dec/2018 09:02:13] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1855
+[27/Dec/2018 09:02:13] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[27/Dec/2018 09:02:13] "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[27/Dec/2018 09:02:13] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[27/Dec/2018 09:02:13] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[27/Dec/2018 09:02:13] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[27/Dec/2018 09:02:14] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[27/Dec/2018 09:02:14] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+[27/Dec/2018 09:02:14] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+[27/Dec/2018 09:02:14] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /admin/umap/race/ HTTP/1.1" 200 63670
+[27/Dec/2018 09:02:30] "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 09:02:30] "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+[27/Dec/2018 09:02:30] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[27/Dec/2018 09:02:31] "GET /admin/ HTTP/1.1" 200 4627
+[27/Dec/2018 09:03:00] "GET /admin/umap/pmodel/ HTTP/1.1" 200 7578
+[27/Dec/2018 09:03:01] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 09:06:43] code 400, message Bad request syntax ('\x05\x02\x00\x02')
+[27/Dec/2018 09:06:43] " " 400 -
+[I 09:14:14.563 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 09:14:14.566 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+Forbidden (CSRF cookie not set.): /
+[27/Dec/2018 09:15:06] "PROPFIND / HTTP/1.1" 403 3086
+Not Found: /webdav/
+[27/Dec/2018 09:15:06] "GET /webdav/ HTTP/1.1" 404 2276
+Not Found: /help.php
+[27/Dec/2018 09:15:06] "GET /help.php HTTP/1.1" 404 2276
+Not Found: /_query.php
+[27/Dec/2018 09:15:10] "GET /_query.php HTTP/1.1" 404 2282
+Not Found: /test.php
+[27/Dec/2018 09:15:10] "GET /test.php HTTP/1.1" 404 2276
+Not Found: /db_pma.php
+[27/Dec/2018 09:15:14] "GET /db_pma.php HTTP/1.1" 404 2282
+Not Found: /logon.php
+[27/Dec/2018 09:15:14] "GET /logon.php HTTP/1.1" 404 2279
+Not Found: /license.php
+[27/Dec/2018 09:15:18] "GET /license.php HTTP/1.1" 404 2285
+Not Found: /log.php
+[27/Dec/2018 09:15:18] "GET /log.php HTTP/1.1" 404 2273
+Not Found: /hell.php
+[27/Dec/2018 09:15:19] "GET /hell.php HTTP/1.1" 404 2276
+Not Found: /pmd_online.php
+[27/Dec/2018 09:15:22] "GET /pmd_online.php HTTP/1.1" 404 2294
+Not Found: /x.php
+[27/Dec/2018 09:15:22] "GET /x.php HTTP/1.1" 404 2267
+Not Found: /htdocs.php
+[27/Dec/2018 09:15:26] "GET /htdocs.php HTTP/1.1" 404 2282
+Not Found: /desktop.ini.php
+[27/Dec/2018 09:15:26] "GET /desktop.ini.php HTTP/1.1" 404 2297
+Not Found: /lala.php
+[27/Dec/2018 09:15:30] "GET /lala.php HTTP/1.1" 404 2276
+Not Found: /lala-dpr.php
+[27/Dec/2018 09:15:30] "GET /lala-dpr.php HTTP/1.1" 404 2288
+Not Found: /wpo.php
+[27/Dec/2018 09:15:34] "GET /wpo.php HTTP/1.1" 404 2273
+Not Found: /text.php
+[27/Dec/2018 09:15:34] "GET /text.php HTTP/1.1" 404 2276
+Not Found: /wp-config.php
+[27/Dec/2018 09:15:35] "GET /wp-config.php HTTP/1.1" 404 2291
+Not Found: /muhstik.php
+[27/Dec/2018 09:15:38] "GET /muhstik.php HTTP/1.1" 404 2285
+Not Found: /muhstik2.php
+[27/Dec/2018 09:15:38] "GET /muhstik2.php HTTP/1.1" 404 2288
+Not Found: /muhstiks.php
+[27/Dec/2018 09:15:39] "GET /muhstiks.php HTTP/1.1" 404 2288
+Not Found: /muhstik-dpr.php
+[27/Dec/2018 09:15:39] "GET /muhstik-dpr.php HTTP/1.1" 404 2297
+Not Found: /uploader.php
+[27/Dec/2018 09:15:42] "GET /uploader.php HTTP/1.1" 404 2288
+Not Found: /cmd.php
+[27/Dec/2018 09:15:42] "GET /cmd.php HTTP/1.1" 404 2273
+Not Found: /cmv.php
+[27/Dec/2018 09:15:46] "GET /cmv.php HTTP/1.1" 404 2273
+Not Found: /cmdd.php
+[27/Dec/2018 09:15:46] "GET /cmdd.php HTTP/1.1" 404 2276
+Not Found: /knal.php
+[27/Dec/2018 09:15:47] "GET /knal.php HTTP/1.1" 404 2276
+Not Found: /cmd.php
+[27/Dec/2018 09:15:50] "GET /cmd.php HTTP/1.1" 404 2273
+Not Found: /shell.php
+[27/Dec/2018 09:15:50] "GET /shell.php HTTP/1.1" 404 2279
+Not Found: /phpmyadmin/scripts/setup.php
+[27/Dec/2018 09:15:58] "GET /phpmyadmin/scripts/setup.php HTTP/1.1" 404 2336
+Not Found: /phpMyAdmin/scripts/setup.php
+[27/Dec/2018 09:15:58] "GET /phpMyAdmin/scripts/setup.php HTTP/1.1" 404 2336
+Not Found: /phpmyadmin/scripts/db___.init.php
+[27/Dec/2018 09:15:59] "GET /phpmyadmin/scripts/db___.init.php HTTP/1.1" 404 2351
+Not Found: /phpMyAdmin/scripts/db___.init.php
+[27/Dec/2018 09:16:02] "GET /phpMyAdmin/scripts/db___.init.php HTTP/1.1" 404 2351
+Not Found: /plugins/weathermap/editor.php
+[27/Dec/2018 09:16:02] "GET /plugins/weathermap/editor.php HTTP/1.1" 404 2339
+Not Found: /cacti/plugins/weathermap/editor.php
+[27/Dec/2018 09:16:02] "GET /cacti/plugins/weathermap/editor.php HTTP/1.1" 404 2357
+Not Found: /wuwu11.php
+[27/Dec/2018 09:16:03] "POST /wuwu11.php HTTP/1.1" 404 2283
+Not Found: /xw1.php
+[27/Dec/2018 09:16:06] "POST /xw1.php HTTP/1.1" 404 2274
+Not Found: /9678.php
+[27/Dec/2018 09:16:08] "POST /9678.php HTTP/1.1" 404 2277
+Not Found: /wc.php
+[27/Dec/2018 09:16:10] "POST /wc.php HTTP/1.1" 404 2271
+Not Found: /xx.php
+[27/Dec/2018 09:16:10] "POST /xx.php HTTP/1.1" 404 2271
+Not Found: /w.php
+[27/Dec/2018 09:16:14] "POST /w.php HTTP/1.1" 404 2268
+Not Found: /sheep.php
+[27/Dec/2018 09:16:14] "POST /sheep.php HTTP/1.1" 404 2280
+Not Found: /db.init.php
+[27/Dec/2018 09:16:19] "POST /db.init.php HTTP/1.1" 404 2286
+Not Found: /db__.init.php
+[27/Dec/2018 09:16:22] "POST /db__.init.php HTTP/1.1" 404 2292
+Not Found: /wp-admins.php
+[27/Dec/2018 09:16:22] "POST /wp-admins.php HTTP/1.1" 404 2292
+Not Found: /m.php
+[27/Dec/2018 09:16:23] "POST /m.php?pbid=open HTTP/1.1" 404 2278
+Not Found: /db_dataml.php
+[27/Dec/2018 09:16:23] "POST /db_dataml.php HTTP/1.1" 404 2292
+Not Found: /db_desql.php
+[27/Dec/2018 09:16:26] "POST /db_desql.php HTTP/1.1" 404 2289
+Not Found: /mx.php
+[27/Dec/2018 09:16:26] "POST /mx.php HTTP/1.1" 404 2271
+Not Found: /wshell.php
+[27/Dec/2018 09:16:27] "POST /wshell.php HTTP/1.1" 404 2283
+Not Found: /qq.php
+[27/Dec/2018 09:16:30] "POST /qq.php HTTP/1.1" 404 2271
+Not Found: /conflg.php
+[27/Dec/2018 09:16:30] "POST /conflg.php HTTP/1.1" 404 2283
+Not Found: /conflg.php
+[27/Dec/2018 09:16:31] "POST /conflg.php HTTP/1.1" 404 2283
+Not Found: /lindex.php
+[27/Dec/2018 09:16:31] "POST /lindex.php HTTP/1.1" 404 2283
+Not Found: /phpstudy.php
+[27/Dec/2018 09:16:31] "POST /phpstudy.php HTTP/1.1" 404 2289
+Not Found: /phpStudy.php
+[27/Dec/2018 09:16:34] "POST /phpStudy.php HTTP/1.1" 404 2289
+Not Found: /weixiao.php
+[27/Dec/2018 09:16:34] "POST /weixiao.php HTTP/1.1" 404 2286
+Not Found: /feixiang.php
+[27/Dec/2018 09:16:37] "POST /feixiang.php HTTP/1.1" 404 2289
+Not Found: /ak47.php
+[27/Dec/2018 09:16:38] "POST /ak47.php HTTP/1.1" 404 2277
+Not Found: /ak48.php
+[27/Dec/2018 09:16:38] "POST /ak48.php HTTP/1.1" 404 2277
+Not Found: /xiao.php
+[27/Dec/2018 09:16:40] "POST /xiao.php HTTP/1.1" 404 2277
+Not Found: /yao.php
+[27/Dec/2018 09:16:42] "POST /yao.php HTTP/1.1" 404 2274
+Not Found: /defect.php
+[27/Dec/2018 09:16:42] "POST /defect.php HTTP/1.1" 404 2283
+Not Found: /q.php
+[27/Dec/2018 09:16:46] "POST /q.php HTTP/1.1" 404 2268
+Not Found: /pe.php
+[27/Dec/2018 09:16:46] "POST /pe.php HTTP/1.1" 404 2271
+Not Found: /hm.php
+[27/Dec/2018 09:16:47] "POST /hm.php HTTP/1.1" 404 2271
+Not Found: /cainiao.php
+[27/Dec/2018 09:16:47] "POST /cainiao.php HTTP/1.1" 404 2286
+Not Found: /zuoshou.php
+[27/Dec/2018 09:16:48] "POST /zuoshou.php HTTP/1.1" 404 2286
+Not Found: /zuo.php
+[27/Dec/2018 09:16:50] "POST /zuo.php HTTP/1.1" 404 2274
+Not Found: /aotu.php
+[27/Dec/2018 09:16:50] "POST /aotu.php HTTP/1.1" 404 2277
+Not Found: /bak.php
+[27/Dec/2018 09:16:54] "POST /bak.php HTTP/1.1" 404 2274
+Not Found: /system.php
+[27/Dec/2018 09:16:54] "POST /system.php HTTP/1.1" 404 2283
+Not Found: /l7.php
+[27/Dec/2018 09:16:58] "POST /l7.php HTTP/1.1" 404 2271
+Not Found: /l8.php
+[27/Dec/2018 09:16:58] "POST /l8.php HTTP/1.1" 404 2271
+Not Found: /q.php
+[27/Dec/2018 09:17:03] "POST /q.php HTTP/1.1" 404 2268
+Not Found: /index.php
+[27/Dec/2018 09:17:18] "GET /index.php HTTP/1.1" 404 2279
+Not Found: /phpmyadmin/index.php
+[27/Dec/2018 09:17:22] "GET /phpmyadmin/index.php HTTP/1.1" 404 2312
+Not Found: /phpMyAdmin/index.php
+[27/Dec/2018 09:17:26] "GET /phpMyAdmin/index.php HTTP/1.1" 404 2312
+Not Found: /pmd/index.php
+[27/Dec/2018 09:17:30] "GET /pmd/index.php HTTP/1.1" 404 2291
+Not Found: /pma/index.php
+[27/Dec/2018 09:17:34] "GET /pma/index.php HTTP/1.1" 404 2291
+Not Found: /PMA/index.php
+[27/Dec/2018 09:17:38] "GET /PMA/index.php HTTP/1.1" 404 2291
+Not Found: /PMA2/index.php
+[27/Dec/2018 09:17:42] "GET /PMA2/index.php HTTP/1.1" 404 2294
+Not Found: /pmamy/index.php
+[27/Dec/2018 09:17:46] "GET /pmamy/index.php HTTP/1.1" 404 2297
+Not Found: /pmamy2/index.php
+[27/Dec/2018 09:17:50] "GET /pmamy2/index.php HTTP/1.1" 404 2300
+Not Found: /mysql/index.php
+[27/Dec/2018 09:17:54] "GET /mysql/index.php HTTP/1.1" 404 2297
+Not Found: /admin/index.php
+[27/Dec/2018 09:17:58] "GET /admin/index.php HTTP/1.1" 404 4527
+Not Found: /db/index.php
+[27/Dec/2018 09:18:02] "GET /db/index.php HTTP/1.1" 404 2288
+Not Found: /dbadmin/index.php
+[27/Dec/2018 09:18:06] "GET /dbadmin/index.php HTTP/1.1" 404 2303
+Not Found: /admin/pma/index.php
+[27/Dec/2018 09:18:10] "GET /admin/pma/index.php HTTP/1.1" 404 4539
+Not Found: /admin/mysql/index.php
+[27/Dec/2018 09:18:14] "GET /admin/mysql/index.php HTTP/1.1" 404 4545
+Not Found: /admin/phpmyadmin/index.php
+[27/Dec/2018 09:18:18] "GET /admin/phpmyadmin/index.php HTTP/1.1" 404 4560
+Not Found: /admin/phpmyadmin2/index.php
+[27/Dec/2018 09:18:22] "GET /admin/phpmyadmin2/index.php HTTP/1.1" 404 4563
+Not Found: /mysql-admin/index.php
+[27/Dec/2018 09:18:26] "GET /mysql-admin/index.php HTTP/1.1" 404 2315
+Not Found: /mysql_admin/index.php
+[27/Dec/2018 09:18:26] "GET /mysql_admin/index.php HTTP/1.1" 404 2315
+Not Found: /phpadmin/index.php
+[27/Dec/2018 09:18:30] "GET /phpadmin/index.php HTTP/1.1" 404 2306
+Not Found: /phpAdmin/index.php
+[27/Dec/2018 09:18:31] "GET /phpAdmin/index.php HTTP/1.1" 404 2306
+Not Found: /phpmyadmin0/index.php
+[27/Dec/2018 09:18:34] "GET /phpmyadmin0/index.php HTTP/1.1" 404 2315
+Not Found: /phpmyadmin1/index.php
+[27/Dec/2018 09:18:35] "GET /phpmyadmin1/index.php HTTP/1.1" 404 2315
+Not Found: /phpmyadmin2/index.php
+[27/Dec/2018 09:18:38] "GET /phpmyadmin2/index.php HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-4.4.0/index.php
+[27/Dec/2018 09:18:38] "GET /phpMyAdmin-4.4.0/index.php HTTP/1.1" 404 2330
+Not Found: /myadmin/index.php
+[27/Dec/2018 09:18:42] "GET /myadmin/index.php HTTP/1.1" 404 2303
+Not Found: /myadmin2/index.php
+[27/Dec/2018 09:18:43] "GET /myadmin2/index.php HTTP/1.1" 404 2306
+Not Found: /xampp/phpmyadmin/index.php
+[27/Dec/2018 09:18:46] "GET /xampp/phpmyadmin/index.php HTTP/1.1" 404 2330
+Not Found: /phpMyadmin_bak/index.php
+[27/Dec/2018 09:18:47] "GET /phpMyadmin_bak/index.php HTTP/1.1" 404 2324
+Not Found: /www/phpMyAdmin/index.php
+[27/Dec/2018 09:18:50] "GET /www/phpMyAdmin/index.php HTTP/1.1" 404 2324
+Not Found: /tools/phpMyAdmin/index.php
+[27/Dec/2018 09:18:51] "GET /tools/phpMyAdmin/index.php HTTP/1.1" 404 2330
+Not Found: /phpmyadmin-old/index.php
+[27/Dec/2018 09:18:54] "GET /phpmyadmin-old/index.php HTTP/1.1" 404 2324
+Not Found: /phpMyAdminold/index.php
+[27/Dec/2018 09:18:54] "GET /phpMyAdminold/index.php HTTP/1.1" 404 2321
+Not Found: /pma-old/index.php
+[27/Dec/2018 09:18:58] "GET /pma-old/index.php HTTP/1.1" 404 2303
+Not Found: /claroline/phpMyAdmin/index.php
+[27/Dec/2018 09:18:59] "GET /claroline/phpMyAdmin/index.php HTTP/1.1" 404 2342
+Not Found: /typo3/phpmyadmin/index.php
+[27/Dec/2018 09:19:02] "GET /typo3/phpmyadmin/index.php HTTP/1.1" 404 2330
+Not Found: /phpma/index.php
+[27/Dec/2018 09:19:03] "GET /phpma/index.php HTTP/1.1" 404 2297
+Not Found: /phpmyadmin/phpmyadmin/index.php
+[27/Dec/2018 09:19:06] "GET /phpmyadmin/phpmyadmin/index.php HTTP/1.1" 404 2345
+Not Found: /phpMyAdmin/phpMyAdmin/index.php
+[27/Dec/2018 09:19:07] "GET /phpMyAdmin/phpMyAdmin/index.php HTTP/1.1" 404 2345
+Not Found: /phpMyAbmin/index.php
+[27/Dec/2018 09:19:10] "GET /phpMyAbmin/index.php HTTP/1.1" 404 2312
+Not Found: /phpMyAdmin__/index.php
+[27/Dec/2018 09:19:12] "GET /phpMyAdmin__/index.php HTTP/1.1" 404 2318
+Not Found: /phpMyAdmin+++---/index.php
+[27/Dec/2018 09:19:14] "GET /phpMyAdmin+++---/index.php HTTP/1.1" 404 2330
+Not Found: /v/index.php
+[27/Dec/2018 09:19:15] "GET /v/index.php HTTP/1.1" 404 2285
+Not Found: /phpmyadm1n/index.php
+[27/Dec/2018 09:19:18] "GET /phpmyadm1n/index.php HTTP/1.1" 404 2312
+Not Found: /phpMyAdm1n/index.php
+[27/Dec/2018 09:19:18] "GET /phpMyAdm1n/index.php HTTP/1.1" 404 2312
+Not Found: /phpMyadmi/index.php
+[27/Dec/2018 09:19:22] "GET /phpMyadmi/index.php HTTP/1.1" 404 2309
+Not Found: /phpMyAdmion/index.php
+[27/Dec/2018 09:19:22] "GET /phpMyAdmion/index.php HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin1/index.php
+[27/Dec/2018 09:19:26] "GET /phpMyAdmin1/index.php HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin123/index.php
+[27/Dec/2018 09:19:27] "GET /phpMyAdmin123/index.php HTTP/1.1" 404 2321
+Not Found: /pwd/index.php
+[27/Dec/2018 09:19:38] "GET /pwd/index.php HTTP/1.1" 404 2291
+Not Found: /phpMyAdmina/index.php
+[27/Dec/2018 09:19:38] "GET /phpMyAdmina/index.php HTTP/1.1" 404 2315
+Not Found: /program/index.php
+[27/Dec/2018 09:19:42] "GET /program/index.php HTTP/1.1" 404 2303
+Not Found: /shopdb/index.php
+[27/Dec/2018 09:19:42] "GET /shopdb/index.php HTTP/1.1" 404 2300
+Not Found: /phppma/index.php
+[27/Dec/2018 09:19:43] "GET /phppma/index.php HTTP/1.1" 404 2300
+Not Found: /phpmy/index.php
+[27/Dec/2018 09:19:43] "GET /phpmy/index.php HTTP/1.1" 404 2297
+Not Found: /mysql/dbadmin/index.php
+[27/Dec/2018 09:19:46] "GET /mysql/dbadmin/index.php HTTP/1.1" 404 2321
+Not Found: /mysql/sqlmanager/index.php
+[27/Dec/2018 09:19:49] "GET /mysql/sqlmanager/index.php HTTP/1.1" 404 2330
+Not Found: /mysql/mysqlmanager/index.php
+[27/Dec/2018 09:19:50] "GET /mysql/mysqlmanager/index.php HTTP/1.1" 404 2336
+Not Found: /wp-content/plugins/portable-phpmyadmin/wp-pma-mod/index.php
+[27/Dec/2018 09:19:52] "GET /wp-content/plugins/portable-phpmyadmin/wp-pma-mod/index.php HTTP/1.1" 404 2429
+[I 09:28:14.536 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 09:28:14.539 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 09:36:14.547 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 09:36:14.550 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+Not Found: /help.php
+[27/Dec/2018 09:38:08] "GET /help.php HTTP/1.1" 404 2276
+Not Found: /java.php
+[27/Dec/2018 09:38:09] "GET /java.php HTTP/1.1" 404 2276
+Not Found: /_query.php
+[27/Dec/2018 09:38:09] "GET /_query.php HTTP/1.1" 404 2282
+Not Found: /test.php
+[27/Dec/2018 09:38:09] "GET /test.php HTTP/1.1" 404 2276
+Not Found: /db_cts.php
+[27/Dec/2018 09:38:09] "GET /db_cts.php HTTP/1.1" 404 2282
+Not Found: /db_pma.php
+[27/Dec/2018 09:38:10] "GET /db_pma.php HTTP/1.1" 404 2282
+Not Found: /logon.php
+[27/Dec/2018 09:38:10] "GET /logon.php HTTP/1.1" 404 2279
+Not Found: /help-e.php
+[27/Dec/2018 09:38:10] "GET /help-e.php HTTP/1.1" 404 2282
+Not Found: /license.php
+[27/Dec/2018 09:38:10] "GET /license.php HTTP/1.1" 404 2285
+Not Found: /log.php
+[27/Dec/2018 09:38:10] "GET /log.php HTTP/1.1" 404 2273
+Not Found: /hell.php
+[27/Dec/2018 09:38:11] "GET /hell.php HTTP/1.1" 404 2276
+Not Found: /pmd_online.php
+[27/Dec/2018 09:38:11] "GET /pmd_online.php HTTP/1.1" 404 2294
+Not Found: /x.php
+[27/Dec/2018 09:38:11] "GET /x.php HTTP/1.1" 404 2267
+Not Found: /shell.php
+[27/Dec/2018 09:38:12] "GET /shell.php HTTP/1.1" 404 2279
+Not Found: /htdocs.php
+[27/Dec/2018 09:38:12] "GET /htdocs.php HTTP/1.1" 404 2282
+Not Found: /desktop.ini.php
+[27/Dec/2018 09:38:12] "GET /desktop.ini.php HTTP/1.1" 404 2297
+Not Found: /z.php
+[27/Dec/2018 09:38:13] "GET /z.php HTTP/1.1" 404 2267
+Not Found: /lala.php
+[27/Dec/2018 09:38:13] "GET /lala.php HTTP/1.1" 404 2276
+Not Found: /lala-dpr.php
+[27/Dec/2018 09:38:13] "GET /lala-dpr.php HTTP/1.1" 404 2288
+Not Found: /wpc.php
+[27/Dec/2018 09:38:13] "GET /wpc.php HTTP/1.1" 404 2273
+Not Found: /wpo.php
+[27/Dec/2018 09:38:14] "GET /wpo.php HTTP/1.1" 404 2273
+Not Found: /text.php
+[27/Dec/2018 09:38:14] "GET /text.php HTTP/1.1" 404 2276
+Not Found: /wp-config.php
+[27/Dec/2018 09:38:14] "GET /wp-config.php HTTP/1.1" 404 2291
+Not Found: /muhstik.php
+[27/Dec/2018 09:38:14] "GET /muhstik.php HTTP/1.1" 404 2285
+Not Found: /muhstik2.php
+[27/Dec/2018 09:38:14] "GET /muhstik2.php HTTP/1.1" 404 2288
+Not Found: /muhstiks.php
+[27/Dec/2018 09:38:15] "GET /muhstiks.php HTTP/1.1" 404 2288
+Not Found: /muhstik-dpr.php
+[27/Dec/2018 09:38:15] "GET /muhstik-dpr.php HTTP/1.1" 404 2297
+Not Found: /lol.php
+[27/Dec/2018 09:38:15] "GET /lol.php HTTP/1.1" 404 2273
+Not Found: /uploader.php
+[27/Dec/2018 09:38:15] "GET /uploader.php HTTP/1.1" 404 2288
+Not Found: /cmd.php
+[27/Dec/2018 09:38:16] "GET /cmd.php HTTP/1.1" 404 2273
+Not Found: /cmx.php
+[27/Dec/2018 09:38:16] "GET /cmx.php HTTP/1.1" 404 2273
+Not Found: /cmv.php
+[27/Dec/2018 09:38:16] "GET /cmv.php HTTP/1.1" 404 2273
+Not Found: /cmdd.php
+[27/Dec/2018 09:38:16] "GET /cmdd.php HTTP/1.1" 404 2276
+Not Found: /knal.php
+[27/Dec/2018 09:38:17] "GET /knal.php HTTP/1.1" 404 2276
+Not Found: /cmd.php
+[27/Dec/2018 09:38:17] "GET /cmd.php HTTP/1.1" 404 2273
+Not Found: /shell.php
+[27/Dec/2018 09:38:17] "GET /shell.php HTTP/1.1" 404 2279
+Not Found: /appserv.php
+[27/Dec/2018 09:38:17] "GET /appserv.php HTTP/1.1" 404 2285
+Not Found: /scripts/setup.php
+[27/Dec/2018 09:38:17] "GET /scripts/setup.php HTTP/1.1" 404 2303
+Not Found: /phpmyadmin/scripts/setup.php
+[27/Dec/2018 09:38:18] "GET /phpmyadmin/scripts/setup.php HTTP/1.1" 404 2336
+Not Found: /phpMyAdmin/scripts/setup.php
+[27/Dec/2018 09:38:18] "GET /phpMyAdmin/scripts/setup.php HTTP/1.1" 404 2336
+Not Found: /phpmyadmin/scripts/db___.init.php
+[27/Dec/2018 09:38:18] "GET /phpmyadmin/scripts/db___.init.php HTTP/1.1" 404 2351
+Not Found: /phpMyAdmin/scripts/db___.init.php
+[27/Dec/2018 09:38:18] "GET /phpMyAdmin/scripts/db___.init.php HTTP/1.1" 404 2351
+Not Found: /plugins/weathermap/editor.php
+[27/Dec/2018 09:38:19] "GET /plugins/weathermap/editor.php HTTP/1.1" 404 2339
+Not Found: /cacti/plugins/weathermap/editor.php
+[27/Dec/2018 09:38:19] "GET /cacti/plugins/weathermap/editor.php HTTP/1.1" 404 2357
+Not Found: /wuwu11.php
+[27/Dec/2018 09:38:19] "POST /wuwu11.php HTTP/1.1" 404 2283
+Not Found: /xw.php
+[27/Dec/2018 09:38:19] "POST /xw.php HTTP/1.1" 404 2271
+Not Found: /xw1.php
+[27/Dec/2018 09:38:19] "POST /xw1.php HTTP/1.1" 404 2274
+Not Found: /9678.php
+[27/Dec/2018 09:38:20] "POST /9678.php HTTP/1.1" 404 2277
+Not Found: /wc.php
+[27/Dec/2018 09:38:20] "POST /wc.php HTTP/1.1" 404 2271
+Not Found: /xx.php
+[27/Dec/2018 09:38:20] "POST /xx.php HTTP/1.1" 404 2271
+Not Found: /s.php
+[27/Dec/2018 09:38:20] "POST /s.php HTTP/1.1" 404 2268
+Not Found: /w.php
+[27/Dec/2018 09:38:21] "POST /w.php HTTP/1.1" 404 2268
+Not Found: /sheep.php
+[27/Dec/2018 09:38:21] "POST /sheep.php HTTP/1.1" 404 2280
+Not Found: /db.init.php
+[27/Dec/2018 09:38:25] "POST /db.init.php HTTP/1.1" 404 2286
+Not Found: /db_session.init.php
+[27/Dec/2018 09:38:25] "POST /db_session.init.php HTTP/1.1" 404 2310
+Not Found: /db__.init.php
+[27/Dec/2018 09:38:26] "POST /db__.init.php HTTP/1.1" 404 2292
+Not Found: /wp-admins.php
+[27/Dec/2018 09:38:26] "POST /wp-admins.php HTTP/1.1" 404 2292
+Not Found: /m.php
+[27/Dec/2018 09:38:26] "POST /m.php?pbid=open HTTP/1.1" 404 2278
+Not Found: /db_dataml.php
+[27/Dec/2018 09:38:26] "POST /db_dataml.php HTTP/1.1" 404 2292
+Not Found: /db_desql.php
+[27/Dec/2018 09:38:26] "POST /db_desql.php HTTP/1.1" 404 2289
+Not Found: /mx.php
+[27/Dec/2018 09:38:27] "POST /mx.php HTTP/1.1" 404 2271
+Not Found: /wshell.php
+[27/Dec/2018 09:38:27] "POST /wshell.php HTTP/1.1" 404 2283
+Not Found: /xshell.php
+[27/Dec/2018 09:38:27] "POST /xshell.php HTTP/1.1" 404 2283
+Not Found: /qq.php
+[27/Dec/2018 09:38:27] "POST /qq.php HTTP/1.1" 404 2271
+Not Found: /conflg.php
+[27/Dec/2018 09:38:28] "POST /conflg.php HTTP/1.1" 404 2283
+Not Found: /conflg.php
+[27/Dec/2018 09:38:28] "POST /conflg.php HTTP/1.1" 404 2283
+Not Found: /lindex.php
+[27/Dec/2018 09:38:28] "POST /lindex.php HTTP/1.1" 404 2283
+Not Found: /phpstudy.php
+[27/Dec/2018 09:38:28] "POST /phpstudy.php HTTP/1.1" 404 2289
+Not Found: /phpStudy.php
+[27/Dec/2018 09:38:29] "POST /phpStudy.php HTTP/1.1" 404 2289
+Not Found: /weixiao.php
+[27/Dec/2018 09:38:29] "POST /weixiao.php HTTP/1.1" 404 2286
+Not Found: /feixiang.php
+[27/Dec/2018 09:38:29] "POST /feixiang.php HTTP/1.1" 404 2289
+Not Found: /ak47.php
+[27/Dec/2018 09:38:29] "POST /ak47.php HTTP/1.1" 404 2277
+Not Found: /ak48.php
+[27/Dec/2018 09:38:30] "POST /ak48.php HTTP/1.1" 404 2277
+Not Found: /xiao.php
+[27/Dec/2018 09:38:30] "POST /xiao.php HTTP/1.1" 404 2277
+Not Found: /yao.php
+[27/Dec/2018 09:38:30] "POST /yao.php HTTP/1.1" 404 2274
+Not Found: /defect.php
+[27/Dec/2018 09:38:30] "POST /defect.php HTTP/1.1" 404 2283
+Not Found: /webslee.php
+[27/Dec/2018 09:38:30] "POST /webslee.php HTTP/1.1" 404 2286
+Not Found: /q.php
+[27/Dec/2018 09:38:31] "POST /q.php HTTP/1.1" 404 2268
+Not Found: /pe.php
+[27/Dec/2018 09:38:31] "POST /pe.php HTTP/1.1" 404 2271
+Not Found: /hm.php
+[27/Dec/2018 09:38:31] "POST /hm.php HTTP/1.1" 404 2271
+Not Found: /cainiao.php
+[27/Dec/2018 09:38:31] "POST /cainiao.php HTTP/1.1" 404 2286
+Not Found: /zuoshou.php
+[27/Dec/2018 09:38:32] "POST /zuoshou.php HTTP/1.1" 404 2286
+Not Found: /zuo.php
+[27/Dec/2018 09:38:32] "POST /zuo.php HTTP/1.1" 404 2274
+Not Found: /aotu.php
+[27/Dec/2018 09:38:32] "POST /aotu.php HTTP/1.1" 404 2277
+Not Found: /cmd.php
+[27/Dec/2018 09:38:32] "POST /cmd.php HTTP/1.1" 404 2274
+Not Found: /bak.php
+[27/Dec/2018 09:38:33] "POST /bak.php HTTP/1.1" 404 2274
+Not Found: /system.php
+[27/Dec/2018 09:38:33] "POST /system.php HTTP/1.1" 404 2283
+Not Found: /l6.php
+[27/Dec/2018 09:38:33] "POST /l6.php HTTP/1.1" 404 2271
+Not Found: /l7.php
+[27/Dec/2018 09:38:33] "POST /l7.php HTTP/1.1" 404 2271
+Not Found: /l8.php
+[27/Dec/2018 09:38:33] "POST /l8.php HTTP/1.1" 404 2271
+Not Found: /q.php
+[27/Dec/2018 09:38:34] "POST /q.php HTTP/1.1" 404 2268
+Not Found: /56.php
+[27/Dec/2018 09:38:34] "POST /56.php HTTP/1.1" 404 2271
+Not Found: /mz.php
+[27/Dec/2018 09:38:34] "POST /mz.php HTTP/1.1" 404 2271
+Not Found: /xx.php
+[27/Dec/2018 09:38:34] "POST /xx.php HTTP/1.1" 404 2271
+Not Found: /yumo.php
+[27/Dec/2018 09:38:35] "POST /yumo.php HTTP/1.1" 404 2277
+Not Found: /min.php
+[27/Dec/2018 09:38:35] "POST /min.php HTTP/1.1" 404 2274
+Not Found: /wan.php
+[27/Dec/2018 09:38:35] "POST /wan.php HTTP/1.1" 404 2274
+Not Found: /wanan.php
+[27/Dec/2018 09:38:35] "POST /wanan.php HTTP/1.1" 404 2280
+Not Found: /ssaa.php
+[27/Dec/2018 09:38:36] "POST /ssaa.php HTTP/1.1" 404 2277
+Not Found: /qq.php
+[27/Dec/2018 09:38:36] "POST /qq.php HTTP/1.1" 404 2271
+Not Found: /aw.php
+[27/Dec/2018 09:38:36] "POST /aw.php HTTP/1.1" 404 2271
+Not Found: /12.php
+[27/Dec/2018 09:38:36] "POST /12.php HTTP/1.1" 404 2271
+Not Found: /hh.php
+[27/Dec/2018 09:38:36] "POST /hh.php HTTP/1.1" 404 2271
+Not Found: /ak.php
+[27/Dec/2018 09:38:37] "POST /ak.php HTTP/1.1" 404 2271
+Not Found: /ip.php
+[27/Dec/2018 09:38:37] "POST /ip.php HTTP/1.1" 404 2271
+Not Found: /infoo.php
+[27/Dec/2018 09:38:37] "POST /infoo.php HTTP/1.1" 404 2280
+Not Found: /qq.php
+[27/Dec/2018 09:38:37] "POST /qq.php HTTP/1.1" 404 2271
+Not Found: /qwe.php
+[27/Dec/2018 09:38:38] "POST /qwe.php HTTP/1.1" 404 2274
+Not Found: /1213.php
+[27/Dec/2018 09:38:38] "POST /1213.php HTTP/1.1" 404 2277
+Not Found: /post.php
+[27/Dec/2018 09:38:38] "POST /post.php HTTP/1.1" 404 2277
+Not Found: /aaaa.php
+[27/Dec/2018 09:38:38] "POST /aaaa.php HTTP/1.1" 404 2277
+Not Found: /h1.php
+[27/Dec/2018 09:38:39] "POST /h1.php HTTP/1.1" 404 2271
+Not Found: /test.php
+[27/Dec/2018 09:38:39] "POST /test.php HTTP/1.1" 404 2277
+Not Found: /3.php
+[27/Dec/2018 09:38:39] "POST /3.php HTTP/1.1" 404 2268
+Not Found: /phpinfi.php
+[27/Dec/2018 09:38:39] "POST /phpinfi.php HTTP/1.1" 404 2286
+Not Found: /9510.php
+[27/Dec/2018 09:38:39] "POST /9510.php HTTP/1.1" 404 2277
+Not Found: /python.php
+[27/Dec/2018 09:38:40] "POST /python.php HTTP/1.1" 404 2283
+Not Found: /default.php
+[27/Dec/2018 09:38:40] "POST /default.php HTTP/1.1" 404 2286
+Not Found: /sean.php
+[27/Dec/2018 09:38:40] "POST /sean.php HTTP/1.1" 404 2277
+Not Found: /app.php
+[27/Dec/2018 09:38:40] "POST /app.php HTTP/1.1" 404 2274
+Not Found: /help.php
+[27/Dec/2018 09:38:41] "POST /help.php HTTP/1.1" 404 2277
+Not Found: /tiandi.php
+[27/Dec/2018 09:38:41] "POST /tiandi.php HTTP/1.1" 404 2283
+Not Found: /miao.php
+[27/Dec/2018 09:38:41] "POST /miao.php HTTP/1.1" 404 2277
+Not Found: /xz.php
+[27/Dec/2018 09:38:41] "POST /xz.php HTTP/1.1" 404 2271
+Not Found: /linuxse.php
+[27/Dec/2018 09:38:42] "POST /linuxse.php HTTP/1.1" 404 2286
+Not Found: /zuoindex.php
+[27/Dec/2018 09:38:42] "POST /zuoindex.php HTTP/1.1" 404 2289
+Not Found: /zshmindex.php
+[27/Dec/2018 09:38:42] "POST /zshmindex.php HTTP/1.1" 404 2292
+Not Found: /tomcat.php
+[27/Dec/2018 09:38:42] "POST /tomcat.php HTTP/1.1" 404 2283
+Not Found: /ceshi.php
+[27/Dec/2018 09:38:42] "POST /ceshi.php HTTP/1.1" 404 2280
+Not Found: /1hou.php
+[27/Dec/2018 09:38:43] "POST /1hou.php HTTP/1.1" 404 2277
+Not Found: /ou2.php
+[27/Dec/2018 09:38:43] "POST /ou2.php HTTP/1.1" 404 2274
+Not Found: /zuos.php
+[27/Dec/2018 09:38:43] "POST /zuos.php HTTP/1.1" 404 2277
+Not Found: /zuoss.php
+[27/Dec/2018 09:38:43] "POST /zuoss.php HTTP/1.1" 404 2280
+Not Found: /zuoshss.php
+[27/Dec/2018 09:38:44] "POST /zuoshss.php HTTP/1.1" 404 2286
+Not Found: /boots.php
+[27/Dec/2018 09:38:44] "POST /boots.php HTTP/1.1" 404 2280
+Not Found: /she.php
+[27/Dec/2018 09:38:44] "POST /she.php HTTP/1.1" 404 2274
+Not Found: /s.php
+[27/Dec/2018 09:38:44] "POST /s.php HTTP/1.1" 404 2268
+Not Found: /qw.php
+[27/Dec/2018 09:38:45] "POST /qw.php HTTP/1.1" 404 2271
+Not Found: /test.php
+[27/Dec/2018 09:38:45] "POST /test.php HTTP/1.1" 404 2277
+Not Found: /caonma.php
+[27/Dec/2018 09:38:45] "POST /caonma.php HTTP/1.1" 404 2283
+Not Found: /ss.php
+[27/Dec/2018 09:38:45] "POST /ss.php HTTP/1.1" 404 2271
+Not Found: /wcp.php
+[27/Dec/2018 09:38:45] "POST /wcp.php HTTP/1.1" 404 2274
+Not Found: /u.php
+[27/Dec/2018 09:38:46] "POST /u.php HTTP/1.1" 404 2268
+Not Found: /uuu.php
+[27/Dec/2018 09:38:46] "POST /uuu.php HTTP/1.1" 404 2274
+Not Found: /sss.php
+[27/Dec/2018 09:38:46] "POST /sss.php HTTP/1.1" 404 2274
+Not Found: /1.php
+[27/Dec/2018 09:38:46] "POST /1.php HTTP/1.1" 404 2268
+Not Found: /2.php
+[27/Dec/2018 09:38:47] "POST /2.php HTTP/1.1" 404 2268
+Not Found: /core.php
+[27/Dec/2018 09:38:47] "POST /core.php HTTP/1.1" 404 2277
+Not Found: /qaz.php
+[27/Dec/2018 09:38:47] "POST /qaz.php HTTP/1.1" 404 2274
+Not Found: /sha.php
+[27/Dec/2018 09:38:47] "POST /sha.php HTTP/1.1" 404 2274
+Not Found: /ppx.php
+[27/Dec/2018 09:38:48] "POST /ppx.php HTTP/1.1" 404 2274
+Not Found: /1.php
+[27/Dec/2018 09:38:48] "POST /1.php HTTP/1.1" 404 2268
+Not Found: /confg.php
+[27/Dec/2018 09:38:48] "POST /confg.php HTTP/1.1" 404 2280
+Not Found: /conf1g.php
+[27/Dec/2018 09:38:48] "POST /conf1g.php HTTP/1.1" 404 2283
+Not Found: /confg.php
+[27/Dec/2018 09:38:48] "POST /confg.php HTTP/1.1" 404 2280
+Not Found: /confg.php
+[27/Dec/2018 09:38:49] "POST /confg.php HTTP/1.1" 404 2280
+Not Found: /confg.php
+[27/Dec/2018 09:38:49] "POST /confg.php HTTP/1.1" 404 2280
+Not Found: /ver.php
+[27/Dec/2018 09:38:49] "POST /ver.php HTTP/1.1" 404 2274
+Not Found: /hack.php
+[27/Dec/2018 09:38:49] "POST /hack.php HTTP/1.1" 404 2277
+Not Found: /qa.php
+[27/Dec/2018 09:38:50] "POST /qa.php HTTP/1.1" 404 2271
+Not Found: /Ss.php
+[27/Dec/2018 09:38:50] "POST /Ss.php HTTP/1.1" 404 2271
+Not Found: /xxx.php
+[27/Dec/2018 09:38:50] "POST /xxx.php HTTP/1.1" 404 2274
+Not Found: /92.php
+[27/Dec/2018 09:38:50] "POST /92.php HTTP/1.1" 404 2271
+Not Found: /z.php
+[27/Dec/2018 09:38:51] "POST /z.php HTTP/1.1" 404 2268
+Not Found: /x.php
+[27/Dec/2018 09:38:51] "POST /x.php HTTP/1.1" 404 2268
+Not Found: /dexgp.php
+[27/Dec/2018 09:38:51] "POST /dexgp.php HTTP/1.1" 404 2280
+Not Found: /nuoxi.php
+[27/Dec/2018 09:38:51] "POST /nuoxi.php HTTP/1.1" 404 2280
+Not Found: /godkey.php
+[27/Dec/2018 09:38:52] "POST /godkey.php HTTP/1.1" 404 2283
+Not Found: /okokok.php
+[27/Dec/2018 09:38:52] "POST /okokok.php HTTP/1.1" 404 2283
+Not Found: /erwa.php
+[27/Dec/2018 09:38:52] "POST /erwa.php HTTP/1.1" 404 2277
+Not Found: /pma.php
+[27/Dec/2018 09:38:52] "POST /pma.php HTTP/1.1" 404 2274
+Not Found: /ruyi.php
+[27/Dec/2018 09:38:52] "POST /ruyi.php HTTP/1.1" 404 2277
+Not Found: /51314.php
+[27/Dec/2018 09:38:53] "POST /51314.php HTTP/1.1" 404 2280
+Not Found: /5201314.php
+[27/Dec/2018 09:38:53] "POST /5201314.php HTTP/1.1" 404 2286
+Not Found: /fusheng.php
+[27/Dec/2018 09:38:53] "POST /fusheng.php HTTP/1.1" 404 2286
+Not Found: /general.php
+[27/Dec/2018 09:38:53] "POST /general.php HTTP/1.1" 404 2286
+Not Found: /repeat.php
+[27/Dec/2018 09:38:54] "POST /repeat.php HTTP/1.1" 404 2283
+Not Found: /ldw.php
+[27/Dec/2018 09:38:54] "POST /ldw.php HTTP/1.1" 404 2274
+Not Found: /api.php
+[27/Dec/2018 09:38:54] "POST /api.php HTTP/1.1" 404 2274
+Not Found: /s1.php
+[27/Dec/2018 09:38:54] "POST /s1.php HTTP/1.1" 404 2271
+Not Found: /xiaodai.php
+[27/Dec/2018 09:38:55] "POST /xiaodai.php HTTP/1.1" 404 2286
+Not Found: /hello.php
+[27/Dec/2018 09:38:55] "POST /hello.php HTTP/1.1" 404 2280
+Not Found: /admn.php
+[27/Dec/2018 09:38:59] "POST /admn.php HTTP/1.1" 404 2277
+Not Found: /hell.php
+[27/Dec/2018 09:38:59] "POST /hell.php HTTP/1.1" 404 2277
+Not Found: /xp.php
+[27/Dec/2018 09:38:59] "POST /xp.php HTTP/1.1" 404 2271
+Not Found: /1.php
+[27/Dec/2018 09:39:00] "POST /1.php HTTP/1.1" 404 2268
+Not Found: /2.php
+[27/Dec/2018 09:39:00] "POST /2.php HTTP/1.1" 404 2268
+Not Found: /p.php
+[27/Dec/2018 09:39:00] "POST /p.php HTTP/1.1" 404 2268
+Not Found: /1.php
+[27/Dec/2018 09:39:00] "POST /1.php HTTP/1.1" 404 2268
+Not Found: /a.php
+[27/Dec/2018 09:39:01] "POST /a.php HTTP/1.1" 404 2268
+Not Found: /m.php
+[27/Dec/2018 09:39:01] "POST /m.php HTTP/1.1" 404 2268
+Not Found: /conf.php
+[27/Dec/2018 09:39:01] "POST /conf.php HTTP/1.1" 404 2277
+Not Found: /123.php
+[27/Dec/2018 09:39:01] "POST /123.php HTTP/1.1" 404 2274
+Not Found: /HX.php
+[27/Dec/2018 09:39:02] "POST /HX.php HTTP/1.1" 404 2271
+Not Found: /diy.php
+[27/Dec/2018 09:39:02] "POST /diy.php HTTP/1.1" 404 2274
+Not Found: /666.php
+[27/Dec/2018 09:39:02] "POST /666.php HTTP/1.1" 404 2274
+Not Found: /777.php
+[27/Dec/2018 09:39:02] "POST /777.php HTTP/1.1" 404 2274
+Not Found: /qwq.php
+[27/Dec/2018 09:39:03] "POST /qwq.php HTTP/1.1" 404 2274
+Not Found: /.php
+[27/Dec/2018 09:39:03] "POST /.php HTTP/1.1" 404 2265
+Not Found: /infos.php
+[27/Dec/2018 09:39:03] "POST /infos.php HTTP/1.1" 404 2280
+Not Found: /x.php
+[27/Dec/2018 09:39:03] "POST /x.php HTTP/1.1" 404 2268
+Not Found: /htfr.php
+[27/Dec/2018 09:39:03] "POST /htfr.php HTTP/1.1" 404 2277
+Not Found: /zzk.php
+[27/Dec/2018 09:39:04] "POST /zzk.php HTTP/1.1" 404 2274
+Not Found: /toor.php
+[27/Dec/2018 09:39:04] "POST /toor.php HTTP/1.1" 404 2277
+Not Found: /uu.php
+[27/Dec/2018 09:39:04] "POST /uu.php HTTP/1.1" 404 2271
+Not Found: /aa.php
+[27/Dec/2018 09:39:04] "POST /aa.php HTTP/1.1" 404 2271
+Not Found: /wb.php
+[27/Dec/2018 09:39:05] "POST /wb.php HTTP/1.1" 404 2271
+Not Found: /yj.php
+[27/Dec/2018 09:39:05] "POST /yj.php HTTP/1.1" 404 2271
+Not Found: /z.php
+[27/Dec/2018 09:39:05] "POST /z.php HTTP/1.1" 404 2268
+Not Found: /7.php
+[27/Dec/2018 09:39:05] "POST /7.php HTTP/1.1" 404 2268
+Not Found: /xiaoma.php
+[27/Dec/2018 09:39:05] "POST /xiaoma.php HTTP/1.1" 404 2283
+Not Found: /xiaomae.php
+[27/Dec/2018 09:39:06] "POST /xiaomae.php HTTP/1.1" 404 2286
+Not Found: /xiaomar.php
+[27/Dec/2018 09:39:06] "POST /xiaomar.php HTTP/1.1" 404 2286
+Not Found: /qq.php
+[27/Dec/2018 09:39:06] "POST /qq.php HTTP/1.1" 404 2271
+Not Found: /data.php
+[27/Dec/2018 09:39:06] "POST /data.php HTTP/1.1" 404 2277
+Not Found: /log.php
+[27/Dec/2018 09:39:07] "POST /log.php HTTP/1.1" 404 2274
+Not Found: /fack.php
+[27/Dec/2018 09:39:07] "POST /fack.php HTTP/1.1" 404 2277
+Not Found: /angge.php
+[27/Dec/2018 09:39:07] "POST /angge.php HTTP/1.1" 404 2280
+Not Found: /cxfm666.php
+[27/Dec/2018 09:39:08] "POST /cxfm666.php HTTP/1.1" 404 2286
+Not Found: /db.php
+[27/Dec/2018 09:39:08] "POST /db.php HTTP/1.1" 404 2271
+Not Found: /hacly.php
+[27/Dec/2018 09:39:08] "POST /hacly.php HTTP/1.1" 404 2280
+Not Found: /xiaomo.php
+[27/Dec/2018 09:39:08] "POST /xiaomo.php HTTP/1.1" 404 2283
+Not Found: /xiaoyu.php
+[27/Dec/2018 09:39:09] "POST /xiaoyu.php HTTP/1.1" 404 2283
+Not Found: /xiaohei.php
+[27/Dec/2018 09:39:09] "POST /xiaohei.php HTTP/1.1" 404 2286
+Not Found: /j.php
+[27/Dec/2018 09:39:09] "POST /j.php HTTP/1.1" 404 2268
+Not Found: /qq5262.php
+[27/Dec/2018 09:39:09] "POST /qq5262.php HTTP/1.1" 404 2283
+Not Found: /MCLi.php
+[27/Dec/2018 09:39:10] "POST /MCLi.php HTTP/1.1" 404 2277
+Not Found: /MCLi.php
+[27/Dec/2018 09:39:10] "POST /MCLi.php HTTP/1.1" 404 2277
+Not Found: /zxc1.php
+[27/Dec/2018 09:39:10] "POST /zxc1.php HTTP/1.1" 404 2277
+Not Found: /zxc0.php
+[27/Dec/2018 09:39:10] "POST /zxc0.php HTTP/1.1" 404 2277
+Not Found: /zxc1.php
+[27/Dec/2018 09:39:11] "POST /zxc1.php HTTP/1.1" 404 2277
+Not Found: /zxc2.php
+[27/Dec/2018 09:39:11] "POST /zxc2.php HTTP/1.1" 404 2277
+Not Found: /indexa.php
+[27/Dec/2018 09:39:11] "POST /indexa.php HTTP/1.1" 404 2283
+Not Found: /51.php
+[27/Dec/2018 09:39:11] "POST /51.php HTTP/1.1" 404 2271
+Not Found: /cadre.php
+[27/Dec/2018 09:39:12] "POST /cadre.php HTTP/1.1" 404 2280
+Not Found: /mm.php
+[27/Dec/2018 09:39:12] "POST /mm.php HTTP/1.1" 404 2271
+Not Found: /test.php
+[27/Dec/2018 09:39:12] "POST /test.php HTTP/1.1" 404 2277
+Not Found: /1q.php
+[27/Dec/2018 09:39:12] "POST /1q.php HTTP/1.1" 404 2271
+Not Found: /index.php
+[27/Dec/2018 09:39:12] "GET /index.php HTTP/1.1" 404 2279
+Not Found: /phpmyadmin/index.php
+[27/Dec/2018 09:39:13] "GET /phpmyadmin/index.php HTTP/1.1" 404 2312
+Not Found: /phpMyAdmin/index.php
+[27/Dec/2018 09:39:13] "GET /phpMyAdmin/index.php HTTP/1.1" 404 2312
+Not Found: /pmd/index.php
+[27/Dec/2018 09:39:13] "GET /pmd/index.php HTTP/1.1" 404 2291
+Not Found: /pma/index.php
+[27/Dec/2018 09:39:13] "GET /pma/index.php HTTP/1.1" 404 2291
+Not Found: /PMA/index.php
+[27/Dec/2018 09:39:14] "GET /PMA/index.php HTTP/1.1" 404 2291
+Not Found: /PMA2/index.php
+[27/Dec/2018 09:39:14] "GET /PMA2/index.php HTTP/1.1" 404 2294
+Not Found: /pmamy/index.php
+[27/Dec/2018 09:39:14] "GET /pmamy/index.php HTTP/1.1" 404 2297
+Not Found: /pmamy2/index.php
+[27/Dec/2018 09:39:14] "GET /pmamy2/index.php HTTP/1.1" 404 2300
+Not Found: /mysql/index.php
+[27/Dec/2018 09:39:15] "GET /mysql/index.php HTTP/1.1" 404 2297
+Not Found: /db/index.php
+[27/Dec/2018 09:39:18] "GET /db/index.php HTTP/1.1" 404 2288
+Not Found: /dbadmin/index.php
+[27/Dec/2018 09:39:18] "GET /dbadmin/index.php HTTP/1.1" 404 2303
+Not Found: /web/phpMyAdmin/index.php
+[27/Dec/2018 09:39:18] "GET /web/phpMyAdmin/index.php HTTP/1.1" 404 2324
+Not Found: /admin/pma/index.php
+[27/Dec/2018 09:39:18] "GET /admin/pma/index.php HTTP/1.1" 404 4539
+Not Found: /admin/PMA/index.php
+[27/Dec/2018 09:39:19] "GET /admin/PMA/index.php HTTP/1.1" 404 4539
+Not Found: /admin/mysql/index.php
+[27/Dec/2018 09:39:19] "GET /admin/mysql/index.php HTTP/1.1" 404 4545
+Not Found: /admin/mysql2/index.php
+[27/Dec/2018 09:39:19] "GET /admin/mysql2/index.php HTTP/1.1" 404 4548
+Not Found: /admin/phpmyadmin/index.php
+[27/Dec/2018 09:39:19] "GET /admin/phpmyadmin/index.php HTTP/1.1" 404 4560
+Not Found: /admin/phpMyAdmin/index.php
+[27/Dec/2018 09:39:20] "GET /admin/phpMyAdmin/index.php HTTP/1.1" 404 4560
+Not Found: /admin/phpmyadmin2/index.php
+[27/Dec/2018 09:39:20] "GET /admin/phpmyadmin2/index.php HTTP/1.1" 404 4563
+Not Found: /mysqladmin/index.php
+[27/Dec/2018 09:39:20] "GET /mysqladmin/index.php HTTP/1.1" 404 2312
+Not Found: /mysql-admin/index.php
+[27/Dec/2018 09:39:20] "GET /mysql-admin/index.php HTTP/1.1" 404 2315
+Not Found: /mysql_admin/index.php
+[27/Dec/2018 09:39:21] "GET /mysql_admin/index.php HTTP/1.1" 404 2315
+Not Found: /phpadmin/index.php
+[27/Dec/2018 09:39:21] "GET /phpadmin/index.php HTTP/1.1" 404 2306
+Not Found: /phpAdmin/index.php
+[27/Dec/2018 09:39:21] "GET /phpAdmin/index.php HTTP/1.1" 404 2306
+Not Found: /phpmyadmin0/index.php
+[27/Dec/2018 09:39:21] "GET /phpmyadmin0/index.php HTTP/1.1" 404 2315
+Not Found: /phpmyadmin1/index.php
+[27/Dec/2018 09:39:22] "GET /phpmyadmin1/index.php HTTP/1.1" 404 2315
+Not Found: /phpmyadmin2/index.php
+[27/Dec/2018 09:39:22] "GET /phpmyadmin2/index.php HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin-4.4.0/index.php
+[27/Dec/2018 09:39:22] "GET /phpMyAdmin-4.4.0/index.php HTTP/1.1" 404 2330
+Not Found: /myadmin/index.php
+[27/Dec/2018 09:39:22] "GET /myadmin/index.php HTTP/1.1" 404 2303
+Not Found: /myadmin2/index.php
+[27/Dec/2018 09:39:22] "GET /myadmin2/index.php HTTP/1.1" 404 2306
+Not Found: /xampp/phpmyadmin/index.php
+[27/Dec/2018 09:39:23] "GET /xampp/phpmyadmin/index.php HTTP/1.1" 404 2330
+Not Found: /phpMyadmin_bak/index.php
+[27/Dec/2018 09:39:23] "GET /phpMyadmin_bak/index.php HTTP/1.1" 404 2324
+Not Found: /www/phpMyAdmin/index.php
+[27/Dec/2018 09:39:23] "GET /www/phpMyAdmin/index.php HTTP/1.1" 404 2324
+Not Found: /tools/phpMyAdmin/index.php
+[27/Dec/2018 09:39:23] "GET /tools/phpMyAdmin/index.php HTTP/1.1" 404 2330
+Not Found: /phpmyadmin-old/index.php
+[27/Dec/2018 09:39:24] "GET /phpmyadmin-old/index.php HTTP/1.1" 404 2324
+Not Found: /phpMyAdminold/index.php
+[27/Dec/2018 09:39:24] "GET /phpMyAdminold/index.php HTTP/1.1" 404 2321
+Not Found: /phpMyAdmin.old/index.php
+[27/Dec/2018 09:39:24] "GET /phpMyAdmin.old/index.php HTTP/1.1" 404 2324
+Not Found: /pma-old/index.php
+[27/Dec/2018 09:39:24] "GET /pma-old/index.php HTTP/1.1" 404 2303
+Not Found: /claroline/phpMyAdmin/index.php
+[27/Dec/2018 09:39:25] "GET /claroline/phpMyAdmin/index.php HTTP/1.1" 404 2342
+Not Found: /typo3/phpmyadmin/index.php
+[27/Dec/2018 09:39:25] "GET /typo3/phpmyadmin/index.php HTTP/1.1" 404 2330
+Not Found: /phpma/index.php
+[27/Dec/2018 09:39:25] "GET /phpma/index.php HTTP/1.1" 404 2297
+Not Found: /phpmyadmin/phpmyadmin/index.php
+[27/Dec/2018 09:39:25] "GET /phpmyadmin/phpmyadmin/index.php HTTP/1.1" 404 2345
+Not Found: /phpMyAdmin/phpMyAdmin/index.php
+[27/Dec/2018 09:39:25] "GET /phpMyAdmin/phpMyAdmin/index.php HTTP/1.1" 404 2345
+Not Found: /phpMyAbmin/index.php
+[27/Dec/2018 09:39:26] "GET /phpMyAbmin/index.php HTTP/1.1" 404 2312
+Not Found: /phpMyAdmin__/index.php
+[27/Dec/2018 09:39:26] "GET /phpMyAdmin__/index.php HTTP/1.1" 404 2318
+Not Found: /phpMyAdmin+++---/index.php
+[27/Dec/2018 09:39:26] "GET /phpMyAdmin+++---/index.php HTTP/1.1" 404 2330
+Not Found: /v/index.php
+[27/Dec/2018 09:39:26] "GET /v/index.php HTTP/1.1" 404 2285
+Not Found: /phpmyadm1n/index.php
+[27/Dec/2018 09:39:27] "GET /phpmyadm1n/index.php HTTP/1.1" 404 2312
+Not Found: /phpMyAdm1n/index.php
+[27/Dec/2018 09:39:27] "GET /phpMyAdm1n/index.php HTTP/1.1" 404 2312
+Not Found: /shaAdmin/index.php
+[27/Dec/2018 09:39:27] "GET /shaAdmin/index.php HTTP/1.1" 404 2306
+Not Found: /phpMyadmi/index.php
+[27/Dec/2018 09:39:27] "GET /phpMyadmi/index.php HTTP/1.1" 404 2309
+Not Found: /phpMyAdmion/index.php
+[27/Dec/2018 09:39:28] "GET /phpMyAdmion/index.php HTTP/1.1" 404 2315
+Not Found: /MyAdmin/index.php
+[27/Dec/2018 09:39:28] "GET /MyAdmin/index.php HTTP/1.1" 404 2303
+Not Found: /phpMyAdmin1/index.php
+[27/Dec/2018 09:39:28] "GET /phpMyAdmin1/index.php HTTP/1.1" 404 2315
+Not Found: /phpMyAdmin123/index.php
+[27/Dec/2018 09:39:28] "GET /phpMyAdmin123/index.php HTTP/1.1" 404 2321
+Not Found: /pwd/index.php
+[27/Dec/2018 09:39:28] "GET /pwd/index.php HTTP/1.1" 404 2291
+Not Found: /phpMyAdmina/index.php
+[27/Dec/2018 09:39:29] "GET /phpMyAdmina/index.php HTTP/1.1" 404 2315
+Not Found: /program/index.php
+[27/Dec/2018 09:39:29] "GET /program/index.php HTTP/1.1" 404 2303
+Not Found: /shopdb/index.php
+[27/Dec/2018 09:39:29] "GET /shopdb/index.php HTTP/1.1" 404 2300
+Not Found: /phppma/index.php
+[27/Dec/2018 09:39:29] "GET /phppma/index.php HTTP/1.1" 404 2300
+Not Found: /phpmy/index.php
+[27/Dec/2018 09:39:30] "GET /phpmy/index.php HTTP/1.1" 404 2297
+Not Found: /mysql/admin/index.php
+[27/Dec/2018 09:39:30] "GET /mysql/admin/index.php HTTP/1.1" 404 2315
+Not Found: /mysql/dbadmin/index.php
+[27/Dec/2018 09:39:30] "GET /mysql/dbadmin/index.php HTTP/1.1" 404 2321
+Not Found: /mysql/sqlmanager/index.php
+[27/Dec/2018 09:39:30] "GET /mysql/sqlmanager/index.php HTTP/1.1" 404 2330
+Not Found: /mysql/mysqlmanager/index.php
+[27/Dec/2018 09:39:31] "GET /mysql/mysqlmanager/index.php HTTP/1.1" 404 2336
+Not Found: /wp-content/plugins/portable-phpmyadmin/wp-pma-mod/index.php
+[27/Dec/2018 09:39:31] "GET /wp-content/plugins/portable-phpmyadmin/wp-pma-mod/index.php HTTP/1.1" 404 2429
+Not Found: /manager/html
+[27/Dec/2018 09:39:31] "GET /manager/html HTTP/1.1" 404 2288
+Session data corrupted
+[27/Dec/2018 09:41:36] "GET /admin/login/?next=/admin/umap/race/%3Fp%3D207 HTTP/1.1" 200 1891
+Not Found: /favicon.ico
+[27/Dec/2018 09:41:37] "GET /favicon.ico HTTP/1.1" 404 2277
+[I 09:43:53.726 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 09:43:53.728 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 09:46:15.482 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 09:46:15.483 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 09:46:15.955 NotebookApp] Uploading file to /02_SvcGridSearch_20181226v2.ipynb
+[W 09:46:15.956 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[I 09:48:17.488 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 09:48:18.060 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 09:54:14.610 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 09:54:14.611 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 09:54:23.104 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 09:54:23.105 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 09:58:14.424 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 09:58:14.425 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 10:04:15.433 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 10:04:15.435 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[W 10:14:57.697 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[I 10:14:58.474 NotebookApp] Kernel started: f098b1ac-dbbc-46cf-a405-b20848021eda
+[I 10:15:02.173 NotebookApp] Adapting to protocol v5.1 for kernel f098b1ac-dbbc-46cf-a405-b20848021eda
+[I 10:16:58.441 NotebookApp] Saving file at /02_SvcGridSearch_20181226v2.ipynb
+[W 10:16:58.444 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[I 10:18:59.379 NotebookApp] Saving file at /02_SvcGridSearch_20181226v2.ipynb
+[W 10:18:59.381 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[I 10:19:44.224 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 10:19:44.226 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 10:20:26.785 NotebookApp] Saving file at /02_SvcGridSearch_20181226v2.ipynb
+[W 10:20:26.787 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[I 10:20:28.487 NotebookApp] Starting buffering for f098b1ac-dbbc-46cf-a405-b20848021eda:0dedc62700d1495db162e44da06d9ab1
+[I 10:20:29.220 NotebookApp] Kernel shutdown: f098b1ac-dbbc-46cf-a405-b20848021eda
+[W 10:20:36.515 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[I 10:20:37.373 NotebookApp] Kernel started: bee31848-b819-439f-8027-d737bab3c717
+[I 10:20:39.015 NotebookApp] Adapting to protocol v5.1 for kernel bee31848-b819-439f-8027-d737bab3c717
+[I 10:22:43.470 NotebookApp] Saving file at /02_SvcGridSearch_20181226v2.ipynb
+[W 10:22:43.525 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[I 10:26:43.997 NotebookApp] Saving file at /02_SvcGridSearch_20181226v2.ipynb
+[W 10:26:44.591 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[I 10:32:37.824 NotebookApp] Saving file at /02_SvcGridSearch_20181226v2.ipynb
+[W 10:32:37.862 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[I 10:36:16.023 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 10:36:16.024 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[27/Dec/2018 10:38:25] "GET / HTTP/1.1" 200 39
+[27/Dec/2018 10:41:22] "GET /admin/umap/pmodel/ HTTP/1.1" 200 8450
+[27/Dec/2018 10:41:23] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[I 10:44:38.439 NotebookApp] Saving file at /02_SvcGridSearch_20181226v2.ipynb
+[W 10:44:38.442 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[27/Dec/2018 10:59:51] "GET / HTTP/1.1" 200 39
+[I 11:00:38.369 NotebookApp] Saving file at /02_SvcGridSearch_20181226v2.ipynb
+[W 11:00:38.370 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[I 11:02:37.357 NotebookApp] Saving file at /02_SvcGridSearch_20181226v2.ipynb
+[W 11:02:37.358 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[I 11:03:41.811 NotebookApp] Starting buffering for bee31848-b819-439f-8027-d737bab3c717:0b9fa86677a34676839ddac604a27edd
+[I 11:03:42.515 NotebookApp] Starting buffering for 3e62b179-e0ed-4d4f-ae3e-a00be65226c6:0eb30d5dd19844d28a4648991d520a6e
+[27/Dec/2018 11:03:48] "GET /admin/umap/pmodel/clf_5Fresult1/change/ HTTP/1.1" 200 7118
+[27/Dec/2018 11:03:48] "GET /static/admin/css/forms.css HTTP/1.1" 200 8505
+[27/Dec/2018 11:03:48] "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[27/Dec/2018 11:03:48] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[27/Dec/2018 11:03:48] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 11:03:48] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+[27/Dec/2018 11:03:51] "GET /admin/umap/pmodel/ HTTP/1.1" 200 8450
+[27/Dec/2018 11:03:57] "GET /admin/umap/pmodel/clf_5Fresult1/change/ HTTP/1.1" 200 7118
+[27/Dec/2018 11:03:57] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 11:04:05] "POST /admin/umap/pmodel/clf_5Fresult1/change/ HTTP/1.1" 302 0
+[27/Dec/2018 11:04:05] "GET /admin/umap/pmodel/ HTTP/1.1" 200 9493
+[27/Dec/2018 11:04:06] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 11:04:13] "GET /admin/umap/pmodel/ HTTP/1.1" 200 9289
+[27/Dec/2018 11:04:13] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 11:04:26] "GET /admin/umap/pmodel/clf_5Fresult1/change/ HTTP/1.1" 200 7118
+[27/Dec/2018 11:04:26] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 11:04:31] "GET /admin/umap/pmodel/clf_5Fresult1/delete/ HTTP/1.1" 200 3328
+[27/Dec/2018 11:04:31] "GET /static/admin/js/cancel.js HTTP/1.1" 200 410
+[27/Dec/2018 11:04:33] "POST /admin/umap/pmodel/clf_5Fresult1/delete/ HTTP/1.1" 302 0
+[27/Dec/2018 11:04:33] "GET /admin/umap/pmodel/ HTTP/1.1" 200 8618
+[27/Dec/2018 11:04:33] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[W 11:04:58.400 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 11:04:59.422 NotebookApp] Adapting to protocol v5.1 for kernel 3e62b179-e0ed-4d4f-ae3e-a00be65226c6
+[I 11:06:59.468 NotebookApp] Saving file at /02_SvcGridSearch_20181226v1.ipynb
+[W 11:06:59.475 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 11:09:42.183 NotebookApp] Starting buffering for 3e62b179-e0ed-4d4f-ae3e-a00be65226c6:4012f02e03f44f73be1f4872d635945d
+[I 11:09:48.085 NotebookApp] Kernel shutdown: 3e62b179-e0ed-4d4f-ae3e-a00be65226c6
+[W 11:09:54.341 NotebookApp] Notebook 02_SvcGridSearch_20181226v1.ipynb is not trusted
+[I 11:09:55.179 NotebookApp] Kernel started: 8f2d67dc-fe82-4d99-94e8-899341d1e05e
+[I 11:09:56.941 NotebookApp] Adapting to protocol v5.1 for kernel 8f2d67dc-fe82-4d99-94e8-899341d1e05e
+[I 11:10:07.986 NotebookApp] Saving file at /02_SVC_20181226v1.ipynb
+[W 11:10:07.987 NotebookApp] Notebook 02_SVC_20181226v1.ipynb is not trusted
+[I 11:10:12.356 NotebookApp] Saving file at /02_SVC_20181226v1.ipynb
+[W 11:10:12.357 NotebookApp] Notebook 02_SVC_20181226v1.ipynb is not trusted
+[I 11:10:14.097 NotebookApp] Starting buffering for 8f2d67dc-fe82-4d99-94e8-899341d1e05e:1bc2e177a19f41b29ab125ed192b9cfb
+[I 11:10:14.410 NotebookApp] Kernel shutdown: 8f2d67dc-fe82-4d99-94e8-899341d1e05e
+[W 11:10:32.184 NotebookApp] Notebook 02_SvcGridSearch_20181226v2.ipynb is not trusted
+[I 11:10:33.211 NotebookApp] Adapting to protocol v5.1 for kernel bee31848-b819-439f-8027-d737bab3c717
+[27/Dec/2018 11:10:48] "GET /admin/umap/pmodel/SVC_5F20181226v2_5FWeight/change/ HTTP/1.1" 200 7176
+[27/Dec/2018 11:10:48] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 11:10:54] "POST /admin/umap/pmodel/SVC_5F20181226v2_5FWeight/change/ HTTP/1.1" 302 0
+[27/Dec/2018 11:10:54] "GET /admin/umap/pmodel/ HTTP/1.1" 200 9555
+[27/Dec/2018 11:10:54] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 11:10:59] "GET /admin/umap/pmodel/SVC_5F20181226v2_5FWeight/change/ HTTP/1.1" 200 7176
+[27/Dec/2018 11:10:59] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 11:11:04] "GET /admin/umap/pmodel/SVC_5F20181226v2_5FWeight/delete/ HTTP/1.1" 200 3382
+[27/Dec/2018 11:11:05] "POST /admin/umap/pmodel/SVC_5F20181226v2_5FWeight/delete/ HTTP/1.1" 302 0
+[27/Dec/2018 11:11:06] "GET /admin/umap/pmodel/ HTTP/1.1" 200 8627
+[27/Dec/2018 11:11:06] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 11:11:15] "GET /admin/umap/pmodel/SVC_5F20181226v1/change/ HTTP/1.1" 200 7102
+[27/Dec/2018 11:11:15] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 11:11:20] "POST /admin/umap/pmodel/SVC_5F20181226v1/change/ HTTP/1.1" 302 0
+[27/Dec/2018 11:11:21] "GET /admin/umap/pmodel/ HTTP/1.1" 200 9473
+[27/Dec/2018 11:11:21] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 11:11:30] "GET /admin/umap/pmodel/SVC_5F20181226v1/change/ HTTP/1.1" 200 7102
+[27/Dec/2018 11:11:30] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 11:11:33] "GET /admin/umap/pmodel/SVC_5F20181226v1/delete/ HTTP/1.1" 200 3343
+[27/Dec/2018 11:11:34] "POST /admin/umap/pmodel/SVC_5F20181226v1/delete/ HTTP/1.1" 302 0
+[27/Dec/2018 11:11:35] "GET /admin/umap/pmodel/ HTTP/1.1" 200 8619
+[27/Dec/2018 11:11:35] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[I 11:11:54.202 NotebookApp] Starting buffering for bee31848-b819-439f-8027-d737bab3c717:7fa1de72e91a4b689cd0d7b351324d42
+[I 11:11:59.365 NotebookApp] Kernel shutdown: bee31848-b819-439f-8027-d737bab3c717
+[W 11:12:17.790 NotebookApp] Notebook 02_SVC_20181226v1.ipynb is not trusted
+[I 11:12:18.720 NotebookApp] Kernel started: 9f885eb4-95c2-43dc-9eea-5428719361a8
+[I 11:12:20.601 NotebookApp] Adapting to protocol v5.1 for kernel 9f885eb4-95c2-43dc-9eea-5428719361a8
+[I 11:14:18.770 NotebookApp] Saving file at /02_SVC20181226v1.ipynb
+[W 11:14:18.772 NotebookApp] Notebook 02_SVC20181226v1.ipynb is not trusted
+[I 11:16:18.738 NotebookApp] Saving file at /02_SVC20181226v1.ipynb
+[W 11:16:18.740 NotebookApp] Notebook 02_SVC20181226v1.ipynb is not trusted
+[I 11:17:46.408 NotebookApp] Saving file at /02_SVC20181226v1.ipynb
+[W 11:17:46.410 NotebookApp] Notebook 02_SVC20181226v1.ipynb is not trusted
+[27/Dec/2018 11:18:04] "POST /admin/umap/pmodel/ HTTP/1.1" 200 3674
+[27/Dec/2018 11:18:06] "POST /admin/umap/pmodel/ HTTP/1.1" 302 0
+[27/Dec/2018 11:18:06] "GET /admin/umap/pmodel/ HTTP/1.1" 200 6924
+[27/Dec/2018 11:18:06] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[I 11:18:19.189 NotebookApp] Saving file at /02_SVC20181226v1.ipynb
+[W 11:18:19.190 NotebookApp] Notebook 02_SVC20181226v1.ipynb is not trusted
+[I 11:18:21.309 NotebookApp] Starting buffering for 9f885eb4-95c2-43dc-9eea-5428719361a8:74c82a3794e1464f9f9554f740bc62d0
+[I 11:18:22.040 NotebookApp] Kernel shutdown: 9f885eb4-95c2-43dc-9eea-5428719361a8
+[W 11:22:06.979 NotebookApp] Notebook 02_SVC20181226v2_Weight.ipynb is not trusted
+[I 11:22:09.007 NotebookApp] Kernel started: e76486bc-7148-4aa3-99c0-663af88663cd
+[I 11:22:10.895 NotebookApp] Adapting to protocol v5.1 for kernel e76486bc-7148-4aa3-99c0-663af88663cd
+[I 11:24:10.552 NotebookApp] Saving file at /02_SVC20181226v2_Weight.ipynb
+[W 11:24:10.554 NotebookApp] Notebook 02_SVC20181226v2_Weight.ipynb is not trusted
+[I 11:30:09.140 NotebookApp] Saving file at /02_SVC20181226v2_Weight.ipynb
+[W 11:30:09.142 NotebookApp] Notebook 02_SVC20181226v2_Weight.ipynb is not trusted
+[I 11:32:09.046 NotebookApp] Saving file at /02_SVC20181226v2_Weight.ipynb
+[W 11:32:09.047 NotebookApp] Notebook 02_SVC20181226v2_Weight.ipynb is not trusted
+[I 11:34:09.028 NotebookApp] Saving file at /02_SVC20181226v2_Weight.ipynb
+[W 11:34:09.029 NotebookApp] Notebook 02_SVC20181226v2_Weight.ipynb is not trusted
+[I 11:36:09.109 NotebookApp] Saving file at /02_SVC20181226v2_Weight.ipynb
+[W 11:36:09.111 NotebookApp] Notebook 02_SVC20181226v2_Weight.ipynb is not trusted
+[I 11:38:09.009 NotebookApp] Saving file at /02_SVC20181226v2_Weight.ipynb
+[W 11:38:09.010 NotebookApp] Notebook 02_SVC20181226v2_Weight.ipynb is not trusted
+[I 11:40:12.865 NotebookApp] Saving file at /02_SVC20181226v2_Weight.ipynb
+[W 11:40:12.866 NotebookApp] Notebook 02_SVC20181226v2_Weight.ipynb is not trusted
+[I 11:42:09.005 NotebookApp] Saving file at /02_SVC20181226v2_Weight.ipynb
+[W 11:42:09.006 NotebookApp] Notebook 02_SVC20181226v2_Weight.ipynb is not trusted
+[I 11:44:08.985 NotebookApp] Saving file at /02_SVC20181226v2_Weight.ipynb
+[W 11:44:08.986 NotebookApp] Notebook 02_SVC20181226v2_Weight.ipynb is not trusted
+[I 11:45:20.114 NotebookApp] Saving file at /02_SVC20181226v2_Weight.ipynb
+[W 11:45:20.115 NotebookApp] Notebook 02_SVC20181226v2_Weight.ipynb is not trusted
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 26, 2018 - 13:41:01
+Django version 2.1.3, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:80/
+Quit the server with CONTROL-C.
+[I 11:59:37.620 NotebookApp] Starting buffering for e76486bc-7148-4aa3-99c0-663af88663cd:f65d016fd7c441c28781a8177b72b1d2
+[I 11:59:38.269 NotebookApp] Kernel shutdown: e76486bc-7148-4aa3-99c0-663af88663cd
+Session data corrupted
+[27/Dec/2018 11:59:47] "GET /admin/ HTTP/1.1" 302 0
+Session data corrupted
+[27/Dec/2018 11:59:47] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1855
+[27/Dec/2018 11:59:47] "GET /static/admin/css/login.css HTTP/1.1" 200 1203
+Session data corrupted
+[27/Dec/2018 11:59:49] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[27/Dec/2018 11:59:49] "GET /admin/ HTTP/1.1" 200 6925
+[27/Dec/2018 11:59:50] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[27/Dec/2018 11:59:52] "GET /admin/umap/pmodel/ HTTP/1.1" 200 6783
+[27/Dec/2018 11:59:53] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
+[27/Dec/2018 12:35:44] "GET / HTTP/1.1" 200 39
+[27/Dec/2018 12:44:48] "GET / HTTP/1.0" 200 39
+[I 13:14:51.949 NotebookApp] 302 GET / (113.43.221.194) 1.80ms
+[W 13:14:57.630 NotebookApp] Notebook Sample.ipynb is not trusted
+[I 13:14:59.743 NotebookApp] Kernel started: fd14eef2-5b56-412c-b7d7-4014ebf268dc
+[I 13:15:01.921 NotebookApp] Adapting to protocol v5.1 for kernel fd14eef2-5b56-412c-b7d7-4014ebf268dc
+2018-12-27 13:10:07 [GET] https://keiba.yahoo.co.jp/schedule/list/2018/?month=12
+2018-12-27 13:10:14 [GET] https://keiba.yahoo.co.jp/schedule/list/2019/?month=01
+2018-12-27 13:10:20 [GET] http://db.netkeiba.com/race/201809050812
+2018-12-27 13:10:27 [GET] http://db.netkeiba.com/race/201806050802
+2018-12-27 13:10:34 [GET] http://db.netkeiba.com/race/201806050803
+2018-12-27 13:10:42 [GET] http://db.netkeiba.com/race/201806050805
+2018-12-27 13:10:50 [GET] http://db.netkeiba.com/race/201806050807
+2018-12-27 13:10:57 [GET] http://db.netkeiba.com/race/201806050808
+2018-12-27 13:11:04 [GET] http://db.netkeiba.com/race/201806050810
+2018-12-27 13:11:11 [GET] http://db.netkeiba.com/race/201806050811
+2018-12-27 13:11:18 [GET] http://db.netkeiba.com/race/201809050801
+2018-12-27 13:11:26 [GET] http://db.netkeiba.com/race/201809050802
+2018-12-27 13:11:33 [GET] http://db.netkeiba.com/race/201809050804
+2018-12-27 13:11:40 [GET] http://db.netkeiba.com/race/201809050806
+2018-12-27 13:11:47 [GET] http://db.netkeiba.com/race/201809050807
+2018-12-27 13:11:54 [GET] http://db.netkeiba.com/race/201809050809
+2018-12-27 13:12:01 [GET] http://db.netkeiba.com/race/201809050810
+2018-12-27 13:12:08 [GET] http://db.netkeiba.com/race/201806050801
+2018-12-27 13:12:15 [GET] http://db.netkeiba.com/race/201806050804
+2018-12-27 13:12:22 [GET] http://db.netkeiba.com/race/201806050806
+2018-12-27 13:12:30 [GET] http://db.netkeiba.com/race/201806050809
+2018-12-27 13:12:37 [GET] http://db.netkeiba.com/race/201806050812
+2018-12-27 13:12:44 [GET] http://db.netkeiba.com/race/201809050803
+2018-12-27 13:12:52 [GET] http://db.netkeiba.com/race/201809050805
+2018-12-27 13:12:59 [GET] http://db.netkeiba.com/race/201809050808
+2018-12-27 13:13:06 [GET] http://db.netkeiba.com/race/201809050811
+2018-12-27 13:13:13 [GET] http://race.netkeiba.com/?pid=race_old&id=c201809050912
+2018-12-27 13:13:20 [GET] http://race.netkeiba.com/?pid=race_old&id=c201809050911
+2018-12-27 13:13:27 [GET] http://race.netkeiba.com/?pid=race_old&id=c201806050912
+2018-12-27 13:13:34 [GET] http://race.netkeiba.com/?pid=race_old&id=c201806050909
+2018-12-27 13:13:41 [GET] http://race.netkeiba.com/?pid=race_old&id=c201806050907
+2018-12-27 13:13:48 [GET] http://race.netkeiba.com/?pid=race_old&id=c201809050910
+2018-12-27 13:13:55 [GET] http://race.netkeiba.com/?pid=race_old&id=c201809050909
+2018-12-27 13:14:02 [GET] http://race.netkeiba.com/?pid=race_old&id=c201809050908
+2018-12-27 13:14:09 [GET] http://race.netkeiba.com/?pid=race_old&id=c201809050907
+2018-12-27 13:14:16 [GET] http://race.netkeiba.com/?pid=race_old&id=c201809050906
+2018-12-27 13:14:23 [GET] http://race.netkeiba.com/?pid=race_old&id=c201809050905
+2018-12-27 13:14:30 [GET] http://race.netkeiba.com/?pid=race_old&id=c201809050904
+2018-12-27 13:14:37 [GET] http://race.netkeiba.com/?pid=race_old&id=c201809050903
+2018-12-27 13:14:44 [GET] http://race.netkeiba.com/?pid=race_old&id=c201809050902
+2018-12-27 13:14:51 [GET] http://race.netkeiba.com/?pid=race_old&id=c201809050901
+2018-12-27 13:14:58 [GET] http://race.netkeiba.com/?pid=race_old&id=c201806050911
+2018-12-27 13:15:05 [GET] http://race.netkeiba.com/?pid=race_old&id=c201806050910
+2018-12-27 13:15:12 [GET] http://race.netkeiba.com/?pid=race_old&id=c201806050908
+2018-12-27 13:15:19 [GET] http://race.netkeiba.com/?pid=race_old&id=c201806050906
+2018-12-27 13:15:26 [GET] http://race.netkeiba.com/?pid=race_old&id=c201806050905
+2018-12-27 13:15:33 [GET] http://race.netkeiba.com/?pid=race_old&id=c201806050904
+2018-12-27 13:15:40 [GET] http://race.netkeiba.com/?pid=race_old&id=c201806050903
+2018-12-27 13:15:47 [GET] http://race.netkeiba.com/?pid=race_old&id=c201806050902
+2018-12-27 13:15:54 [GET] http://race.netkeiba.com/?pid=race_old&id=c201806050901
+2018-12-27 13:16:01 [DELETE]
+2018-12-27 13:16:02 [FINISH]
+[I 13:16:59.853 NotebookApp] Saving file at /Sample.ipynb
+[W 13:16:59.856 NotebookApp] Notebook Sample.ipynb is not trusted
+[I 13:17:48.881 NotebookApp] Saving file at /Sample.ipynb
+[W 13:17:48.882 NotebookApp] Notebook Sample.ipynb is not trusted
+[I 13:17:52.096 NotebookApp] Starting buffering for fd14eef2-5b56-412c-b7d7-4014ebf268dc:435c4a134ecb4d9d9bfab86984970a11
+[I 13:17:52.619 NotebookApp] Kernel shutdown: fd14eef2-5b56-412c-b7d7-4014ebf268dc
+[27/Dec/2018 13:17:57] "GET /admin/ HTTP/1.1" 200 6925
+[27/Dec/2018 13:17:58] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[27/Dec/2018 13:17:59] "GET /admin/umap/pmodel/ HTTP/1.1" 200 6784
+[27/Dec/2018 13:17:59] "GET /admin/jsi18n/ HTTP/1.1" 200 8714
