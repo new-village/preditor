@@ -97,6 +97,9 @@ def insert_entry(soup, race):
 
     time_of_first = 0
 
+    # Delete exist data
+    Result.objects.filter(race=race).delete()
+
     for row in table.findAll("tr"):
         cells = row.findAll("td")
 
