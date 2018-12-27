@@ -95,6 +95,7 @@ class Pmodel(models.Model):
     columns = models.TextField(null=True)
     recall = models.FloatField(null=True)
     precision = models.FloatField(null=True)
+    roi = models.FloatField(null=True)
     note = models.TextField(null=True)
     updated_at = models.DateTimeField(auto_now=True)
 
