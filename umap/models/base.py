@@ -115,6 +115,7 @@ class Expect(models.Model):
     class Meta:
         verbose_name = "予測結果"
         verbose_name_plural = "予測結果"
+        unique_together = ('result', 'pm_name')
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     result = models.ForeignKey(Result, on_delete=models.CASCADE, null=True)
