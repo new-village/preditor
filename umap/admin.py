@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from umap.models import Result, Race, Pmodel
+from umap.models import Result, Race, Pmodel, Log
 
 
 class ResultInline(admin.TabularInline):
@@ -33,6 +33,12 @@ class PmodelAdmin(admin.ModelAdmin):
     list_display = ("title", "method", "columns", "recall", "precision", "roi", "updated_at")
 
 
+class LogAdmin(admin.ModelAdmin):
+    ordering = ["-start_time", "pid"]
+    list_display = ("start_time", "pid", "label", "exec_time", "finish")
+
+
 admin.site.register(Race, RaceAdmin)
 admin.site.register(Result, ResultAdmin)
 admin.site.register(Pmodel, PmodelAdmin)
+admin.site.register(Log, LogAdmin)

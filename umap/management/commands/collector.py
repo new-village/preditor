@@ -8,7 +8,7 @@ from dateutil.relativedelta import relativedelta
 from django.db.models import Min
 
 from umap.models import Race, Result
-from umap.uhelper import get_soup, str_now
+from umap.uhelper import get_soup, str_now, set_log, end_log
 from umap.uparser import insert_entry, was_created, update_race, insert_race
 
 latest = datetime.now().date() - timedelta(days=3)
@@ -27,6 +27,7 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
+        set_log("collector: START")
         # Set argument date if the args is available, or Set fore end date of this month
         from_dt = arg_parser(options["from"])
 
@@ -37,12 +38,14 @@ class Command(BaseCommand):
             sleep(5)
 
         # Get race result from Netkeiba.com
+        set_log("collector: Get Race Result")
         base_url = "http://db.netkeiba.com/race/"
         for race in Race.objects.filter(race_dt__lt=latest, result_flg=False):
             get_netkeiba_data(base_url, race)
             sleep(5)
 
         # Get race entry from Netkeiba.com
+        set_log("collector: Get Race Entry")
         base_url = "http://race.netkeiba.com/?pid=race_old&id=c"
         if from_dt == latest:
             for race in Race.objects.filter(race_dt__gte=latest, result_flg=False):
@@ -50,11 +53,11 @@ class Command(BaseCommand):
                 sleep(5)
 
         # Delete uncompleted data
-        print(str_now() + " [DELETE]")
+        set_log("collector: Delete Scratch Race & Results")
         Race.objects.filter(race_dt__lt=latest, result_flg=False).delete()
         Result.objects.filter(horse_num__isnull=True, race__result_flg=True).delete()
 
-        print(str_now() + " [FINISH]")
+        end_log()
         sys.exit()
 
 

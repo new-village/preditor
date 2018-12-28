@@ -124,3 +124,19 @@ class Expect(models.Model):
 
     def __str__(self):
         return str(self.result)
+
+
+class Log(models.Model):
+    class Meta:
+        verbose_name = "Log"
+        verbose_name_plural = "実行ログ"
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    start_time = models.DateTimeField()
+    pid = models.IntegerField()
+    label = models.TextField(null=True)
+    exec_time = models.DurationField(null=True)
+    finish = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.result)

@@ -1,15 +1,16 @@
+import os
 import re
 from datetime import date, datetime
 
+import pytz
 from requests import Session, HTTPError
 import pandas as pd
 import bs4 as bs
 
-from umap.models import Result
+from umap.models import Result, Log
 
 
 def get_soup(_url):
-    print(str_now() + " [GET] " + _url)
     try:
         session = Session()
         html = session.get(_url)
@@ -88,3 +89,37 @@ def pd_result(columns, result_flg):
                             })
     df = df.set_index("key")
     return df
+
+
+def set_log(_label):
+    _pid = os.getpid()
+    _now = datetime.now(pytz.timezone('Asia/Tokyo'))
+
+    # Update exec_time to previous record
+    try:
+        q = Log.objects.get(pid=_pid, finish=False)
+        q.exec_time = _now - q.start_time
+        q.finish = True
+        q.save()
+    except Log.DoesNotExist:
+        pass
+
+    # Set record
+    Log(start_time=_now, pid=_pid, label=_label).save()
+
+    return
+
+
+def end_log():
+    _pid = os.getpid()
+    _now = datetime.now(pytz.timezone('Asia/Tokyo'))
+
+    try:
+        q = Log.objects.get(pid=_pid, finish=False)
+        q.exec_time = _now - q.start_time
+        q.finish = True
+        q.save()
+    except Log.DoesNotExist:
+        pass
+
+    return
