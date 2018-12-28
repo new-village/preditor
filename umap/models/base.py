@@ -22,10 +22,10 @@ class Race(models.Model):
     round = models.IntegerField(null=True)                  # 11（ラウンド）
     title = models.CharField(max_length=80)                 # ホープフルステークス（レース名）
     grade = models.CharField(max_length=2, null=True)       # G1（グレード）
-    type = models.CharField(max_length=16)                  # 芝（コース種別）
+    type = models.CharField(max_length=16, null=True)                  # 芝（コース種別）
     length = models.IntegerField(null=True)                 # 2600（距離）
-    weather = models.CharField(max_length=16)               # 晴 （天気）
-    condition = models.CharField(max_length=16)             # 良（馬場状態）
+    weather = models.CharField(max_length=16, null=True)               # 晴 （天気）
+    condition = models.CharField(max_length=16, null=True)             # 良（馬場状態）
     head_count = models.IntegerField(null=True)             # 16（頭数）
     max_prize = models.FloatField(null=True)                # 34000.0（優勝賞金）
     result_flg = models.BooleanField(default=False)
