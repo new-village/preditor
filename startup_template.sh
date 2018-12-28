@@ -1,6 +1,6 @@
 #!/bin/sh
 
-EXC_USER=alumina
+EXC_USER=centos
 VENV_DIR=/home/${EXC_USER}/.venv/preditor
 SHL_NAME=`echo ${0##*/}|sed -e "s/.sh//g"`
 SHL_DIR=$(cd $(dirname $0); pwd)

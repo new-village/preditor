@@ -31,9 +31,9 @@ cd ${PYTHON_PROJECT_DIR}
 # Set password of jupyter
 jupyter notebook password
 ```
-7. To available of web console, change EXC_USER and VENV_DIR of startup.sh.
+7. To available of web console, rename startup_template.sh to startup.sh and change EXC_USER and VENV_DIR of startup.sh.
 ```shell
-EXC_USER=preditor
+EXC_USER=centos
 VENV_DIR=/home/${EXC_USER}/.venv/preditor
 ```
 8. Execute startup.sh
