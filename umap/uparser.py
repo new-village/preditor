@@ -74,7 +74,7 @@ def update_race_entry(soup, race):
     conditions = racedata.find_all("p")[1].string.split(u"\xa0/\xa0")
     otherdata = soup.find("div", {"class": "race_otherdata"}).findAll('p')
 
-    race.title = formatter("\w+", str(racedata.find('h1')))
+    race.title = formatter("\w+", str(racedata.find('h1').string))
     race.type = to_course_full(formatter("[芝ダ障]", course))
     race.length = formatter("\d{4}", course, "int")
     race.weather = formatter("晴|曇|小雨|雨|小雪|雪", conditions[1])
