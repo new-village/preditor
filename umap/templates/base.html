@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    {% include "_stylesheets.html" %}
+    {% include "_javascripts.html" %}
+    <link rel="shortcut icon" href="{%  static 'images/favicon.ico' %}">
+    <title>{% block title %}UMAP{% endblock %}</title>
+</head>
+
+<body>
+    {% include "_header.html" %}
+    <div class="box">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
