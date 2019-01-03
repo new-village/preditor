@@ -35,14 +35,14 @@ class Command(BaseCommand):
         for url in sportsnavi_urls(from_dt):
             page = get_soup(url)
             insert_race(page)
-            sleep(5)
+            sleep(3)
 
         # Get race result from Netkeiba.com
         set_log("collector: Get Race Result")
         base_url = "http://db.netkeiba.com/race/"
         for race in Race.objects.filter(race_dt__lt=latest, result_flg=False):
             get_netkeiba_data(base_url, race)
-            sleep(5)
+            sleep(3)
 
         # Get race entry from Netkeiba.com
         set_log("collector: Get Race Entry")

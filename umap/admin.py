@@ -26,7 +26,7 @@ class RaceAdmin(admin.ModelAdmin):
 
 class ResultAdmin(admin.ModelAdmin):
     list_display = ("rank", "bracket", "horse_num", "horse_name", "sex", "age", "finish_time", "odds", "odor")
-    search_fields = ["race__race_id", "race__title", "horse_name"]
+    search_fields = ["key", "race__race_id", "race__title", "horse_name"]
 
 
 class PmodelAdmin(admin.ModelAdmin):
