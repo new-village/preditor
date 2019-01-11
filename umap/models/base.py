@@ -121,6 +121,7 @@ class Expect(models.Model):
     result = models.ForeignKey(Result, on_delete=models.CASCADE, null=True)
     pm_name = models.CharField(max_length=80, null=True)
     clf_result = models.NullBooleanField()
+    clf_score = models.FloatField(null=True)
 
     def __str__(self):
         return str(self.result)
